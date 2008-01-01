@@ -17,96 +17,103 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.google.common.collect.Lists;
+import static org.junit.Assert.assertNotEquals;
 
 /**
  * 测试用户管理所有方法
- * 
+ *
  * @author maurice
  *
  */
-public class TestUserManager extends ManagerTestCaseSupport{
+public class TestUserManager extends ManagerTestCaseSupport {
 
-	@Autowired
-	private AccountManager accountManager;
+    @Autowired
+    private AccountManager accountManager;
 
-	@Test
-	@Transactional("transactionManager")
-	public void testGetUser() {
-		User user = accountManager.getUser("SJDK3849CKMS3849DJCK2039ZMSK0001");
-		assertEquals(user.getUsername(),"maurice");
-	}
+    @Test
+    @Transactional("transactionManager")
+    public void testGetUser() {
+        User user = accountManager.getUser("SJDK3849CKMS3849DJCK2039ZMSK0001");
+        assertEquals(user.getUsername(), "maurice");
+        List<?> g = user.getGroupsList();
+        assertNotEquals(g.size(), 0);
+        List<?> wg = user.getWifiusergrouplist();
+        assertNotEquals(wg.size(), 0);
+        
+    }
 
-	@Test
-	public void testSearchUserPage() {
-		PageRequest request = new PageRequest();
-		
-		List<PropertyFilter> filters = Lists.newArrayList(
-				PropertyFilters.get("LIKES_username", "es"),
-				PropertyFilters.get("EQI_state", "1")
-		);
-		
-		Page<User> page = accountManager.searchUserPage(request, filters);
-		
-		assertEquals(page.getTotalItems(), 4);
-		assertEquals(page.getTotalPages(), 1);
-	}
+    @Test
+    public void testSearchUserPage() {
+        PageRequest request = new PageRequest();
 
-	@Test
-	public void testInsertUser() {
-		User entity = new User();
-		
-		entity.setEmail("test@test.com");
-		entity.setPassword("123456");
-		entity.setRealname("一个测试用户");
-		entity.setUsername("test_maurice");
-		entity.setState(State.Enable.getValue());
-		
-		int before = countRowsInTable("tb_user");
-		accountManager.insertUser(entity);
-		int after = countRowsInTable("tb_user");
-		
-		assertEquals(before + 1, after);
-	}
+        List<PropertyFilter> filters = Lists.newArrayList(
+                PropertyFilters.get("LIKES_username", "es"),
+                PropertyFilters.get("EQI_state", "1")
+        );
 
-	@Test
-	@Transactional("transactionManager")
-	public void testUpdateUser() {
-		User entity = accountManager.getUser("SJDK3849CKMS3849DJCK2039ZMSK0001");
-		entity.setUsername("modify");
-		entity.setPassword("123456");
-		entity.setRealname("maurice");
-		
-		accountManager.updateUser(entity);
-		
-		getSessionFactory().getCurrentSession().flush();
-		getSessionFactory().getCurrentSession().clear();
-		
-		entity = accountManager.getUser("SJDK3849CKMS3849DJCK2039ZMSK0001");
-		
-		assertEquals(entity.getUsername(), "maurice");
-		assertEquals(entity.getPassword(), "e10adc3949ba59abbe56e057f20f883e");
-		assertEquals(entity.getRealname(), "maurice");
-	}
+        Page<User> page = accountManager.searchUserPage(request, filters);
 
-	@Test
-	public void testIsUsernameUnique() {
-		assertEquals(accountManager.isUsernameUnique("maurice"), false);
-	}
+        assertEquals(page.getTotalItems(), 4);
+        assertEquals(page.getTotalPages(), 1);
+    }
 
-	@Test
-	public void testDeleteUsers() {
-		int before = countRowsInTable("tb_user");
-		accountManager.deleteUsers(Lists.newArrayList("SJDK3849CKMS3849DJCK2039ZMSK0001"));
-		int after = countRowsInTable("tb_user");
-		
-		assertEquals(before - 1, after);
-	}
+    @Test
+    public void testInsertUser() {
+        User entity = new User();
 
-	@Test
-	public void testGetUserByUsername() {
-		User entity = accountManager.getUserByUsername("maurice");
-		assertEquals(entity.getUsername(), "maurice");
-		assertEquals(entity.getRealname(), "maurice.chen");
-	}
-	
+        entity.setEmail("test@test.com");
+        entity.setPassword("123456");
+        entity.setRealname("一个测试用户");
+        entity.setUsername("test_maurice");
+        entity.setState(State.Enable.getValue());
+
+        int before = countRowsInTable("tb_user");
+        accountManager.insertUser(entity);
+        int after = countRowsInTable("tb_user");
+
+        assertEquals(before + 1, after);
+        
+    }
+
+    @Test
+    @Transactional("transactionManager")
+    public void testUpdateUser() {
+        User entity = accountManager.getUser("SJDK3849CKMS3849DJCK2039ZMSK0001");
+        entity.setUsername("modify");
+        entity.setPassword("123456");
+        entity.setRealname("maurice");
+
+        accountManager.updateUser(entity);
+
+        getSessionFactory().getCurrentSession().flush();
+        getSessionFactory().getCurrentSession().clear();
+
+        entity = accountManager.getUser("SJDK3849CKMS3849DJCK2039ZMSK0001");
+
+        assertEquals(entity.getUsername(), "maurice");
+        assertEquals(entity.getPassword(), "e10adc3949ba59abbe56e057f20f883e");
+        assertEquals(entity.getRealname(), "maurice");
+    }
+
+    @Test
+    public void testIsUsernameUnique() {
+        assertEquals(accountManager.isUsernameUnique("maurice"), false);
+    }
+
+    @Test
+    public void testDeleteUsers() {
+        int before = countRowsInTable("tb_user");
+        accountManager.deleteUsers(Lists.newArrayList("SJDK3849CKMS3849DJCK2039ZMSK0001"));
+        int after = countRowsInTable("tb_user");
+
+        assertEquals(before - 1, after);
+    }
+
+    @Test
+    public void testGetUserByUsername() {
+        User entity = accountManager.getUserByUsername("maurice");
+        assertEquals(entity.getUsername(), "maurice");
+        assertEquals(entity.getRealname(), "maurice.chen");
+    }
+
 }

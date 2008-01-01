@@ -56,13 +56,20 @@ public class ShopServiceTest extends ManagerTestCaseSupport {
     @Test
     public void findWifiUserCountByFiltersTest() throws IOException {
 
-       List<PropertyFilter> filters = Lists.newArrayList(
-               PropertyFilters.get("GED_dt", "2014-07-01"),
-               PropertyFilters.get("LED_dt", "2014-09-10")
-       );
+        List<PropertyFilter> filters = Lists.newArrayList(
+//                PropertyFilters.get("GED_dt", "2014-07-01"),
+//                PropertyFilters.get("LED_dt", "2014-09-10"),
+                PropertyFilters.get("EQS_sid", "SJDK3849CKMS3849DJCK2039ZMSK0001"),
+                PropertyFilters.get("EQS_grid", "402881e437d47b250137d481b6920001")
+        );
+
+        String f = filters.get(filters.size() - 1).getSinglePropertyName();
+        System.out.print("\n log: \n");
+        System.out.print(f + "\n");
+
         Map log = ser.findWifiUserCountByFilters(
                 filters,
-                2,
+                0,
                 new PageRequest(1, 1)
         );
 

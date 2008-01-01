@@ -14,6 +14,7 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -25,7 +26,7 @@ public class WifiUserGroup extends IdEntity {
     //成员
     private List<WifiUser> membersList = new ArrayList<WifiUser>();
     // 商户
-
+    private User user;
 
     public WifiUserGroup() {
 
@@ -47,6 +48,15 @@ public class WifiUserGroup extends IdEntity {
 
     public void setMembersList(List<WifiUser> membersList) {
         this.membersList = membersList;
+    }
+    @JoinColumn(name = "sysuser_id")
+    @ManyToOne
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }

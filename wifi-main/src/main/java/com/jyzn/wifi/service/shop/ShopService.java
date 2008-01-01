@@ -10,7 +10,9 @@ import com.github.dactiv.orm.core.spring.data.jpa.JpaRestrictionBuilder;
 import com.github.dactiv.orm.core.spring.data.jpa.specification.SpecificationEntity;
 import com.google.common.collect.ImmutableMap;
 import com.jyzn.wifi.dao.shop.ValidateLogJpaDao;
+import com.jyzn.wifi.entity.account.User;
 import com.jyzn.wifi.entity.shop.ValidateLog;
+import com.jyzn.wifi.entity.shop.WifiUserGroup;
 import com.jyzn.wifi.entity.shop.summary.WifiUserCount;
 import java.util.ArrayList;
 import java.util.List;
@@ -19,12 +21,14 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Join;
+import javax.persistence.criteria.JoinType;
 import javax.persistence.criteria.Path;
 import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -49,23 +53,35 @@ public class ShopService {
     }
 
     /*JPA Criteria动态条件查询ValidateLog 并分组/ 获取需要的字段/ 注入到WifiUserCount*/
-    public Map findWifiUserCountByFilters(List<PropertyFilter> filters, int t ,Pageable page) {
-        CriteriaBuilder cb = em.getCriteriaBuilder();
-
+    public Map findWifiUserCountByFilters(List<PropertyFilter> filters, int t, Pageable page) {
+        final CriteriaBuilder cb = em.getCriteriaBuilder();
         //根据条件查询
-        CriteriaQuery<WifiUserCount> query = cb.createQuery(WifiUserCount.class);
-        Root<ValidateLog> logroot = query.from(ValidateLog.class);
-        Path uid = logroot.get("wifiuser");
-        Path dt = logroot.get("dt");
-        query.select(cb.construct(WifiUserCount.class, logroot.get("wifiuser"), cb.count(logroot), cb.max(dt), cb.min(dt)))
-                .distinct(true)
-                .groupBy(uid)
-                .having(cb.ge(cb.count(logroot), t));
+        final CriteriaQuery<WifiUserCount> query = cb.createQuery(WifiUserCount.class);
+        final Root<ValidateLog> logroot = query.from(ValidateLog.class);
+        final Path wu = logroot.get("wifiuser");
+        final Path dt = logroot.get("dt");
 
-        if (filters != null && filters.size() > 0) {
-            query.where(toPredicate(filters, logroot, query, cb));
+        if (filters.size() > 0) {
+            String SinglePropertyName = filters.get(filters.size() - 1).getSinglePropertyName();
+            if (StringUtils.isNotEmpty(SinglePropertyName) && "grid".equals(SinglePropertyName)) {
+                Root<WifiUserGroup> group = query.from(WifiUserGroup.class);
+                Predicate p = cb.equal(group.get("id"), filters.get(filters.size() - 1).getMatchValue());
+                filters.remove(filters.size() - 1);
+                Join ml_join = group.join("membersList", JoinType.LEFT);
+                query.where(
+                        cb.equal(ml_join.get("id"), wu.get("id")),
+                        toPredicate(filters, logroot, query, cb),
+                        p
+                );
+            } else {
+                query.where(toPredicate(filters, logroot, query, cb));
+            }
         }
 
+        query.select(cb.construct(WifiUserCount.class, logroot.get("wifiuser"), cb.count(logroot), cb.max(dt), cb.min(dt)))
+                .distinct(true)
+                .groupBy(wu)
+                .having(cb.ge(cb.count(logroot), t));
         //统计记录总数,jpa不支持select count(o) from (select o from o where...)下面语句造成重复查询 期待更好的解决方法
         int count = em.createQuery(query).getResultList().size();
         //返回数据
@@ -78,8 +94,6 @@ public class ShopService {
                 "totalElements", count,
                 "PageContent", resultList);
     }
-
-
 
     /*构建查询条件*/
     private Predicate toPredicate(List<PropertyFilter> filters, Root root, CriteriaQuery query, CriteriaBuilder builder) {
@@ -99,6 +113,10 @@ public class ShopService {
         criteriaQuery.multiselect(root.get("wifiuser"), criteriaBuilder.max((Path) root.get("dt")));
         criteriaQuery.groupBy(root.get("wifiuser"));
         return em.createQuery(criteriaQuery).getResultList();
+    }
+
+    public List<WifiUserGroup> findGroupByWifiUser(User user) {
+        return user.getWifiusergrouplist();
     }
 
 }

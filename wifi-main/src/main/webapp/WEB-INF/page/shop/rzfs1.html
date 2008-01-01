@@ -56,11 +56,11 @@
             function Sreach(page_index) {
                 //console.log(page_index);
                 var JY = $.jeekly;
-                JY.box('show', {'msg': '努力加载中...', 'showbg': 1,'parent':'.boxinfo'});
+                JY.box('show', {'msg': '努力加载中...', 'showbg': 1});
                 var wifiuser_list = JY.getJsonData('getlist', getSreachFilters(page_index, 10));
                 JY.box('hide');
                 if (typeof (wifiuser_list) === 'string') {
-                    JY.box('show', {'msg': '出错了!<br>重新登录并尝试!<br>或请联系管理员 18691525183', 'showbg': 1 ,'parent':'.boxinfo'});
+                    JY.box('show', {'msg': '出错了!<br>重新登录并尝试!<br>或请联系管理员 18691525183', 'showbg': 1});
                     wifiuser_list = [];
                 }
                 if (wifiuser_list.PageContent.length > 0) {
@@ -69,7 +69,7 @@
                         callback: pageselectCallback,
                         anydata: wifiuser_list.PageContent});
                 } else {
-                    JY.box('show', {'msg': ' 这段时间没有数据!', 'showbg': 1,'showtime': 5 ,'parent':'body'});
+                    JY.box('show', {'msg': ' 这段时间没有数据!', 'showbg': 1,'showtime': 5 });
                 }
             }
             function pageselectCallback(pagenumber, jq, opts) {
