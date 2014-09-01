@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<#include "*/admin/basePath.html"/>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>极源WIFI</title>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <#include "top.html" />
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+             <#include "left.html" />
+
+            <div class="col-md-9">
+
+                <div class="thumbnail">
+                        
+					<div class="caption-full" id="yggl">
+                        
+						<div class="div-ts">
+							<span class="span-text">温馨提示：<p>添加员工手机号后，员工使用该号码连接wifi将不再记录其上网行为，避免对客户数据分析产生影响</p></span>
+						</div>
+
+                    </div>
+				
+                    <div class="ratings">
+                        
+                    </div>
+                </div>
+				
+				<div class="thumbnail" >
+                    <div class="text-top">
+                        <span class="button-s">员工过滤</span><a class="button-s" href="javascript:showbox('tjxyg');">添加员工</a><a class="button-s">员工导入</a>
+                    </div>
+                        <table width="100%" border="2" cellspacing="1" cellpadding="1">
+                          <tr>
+                                <th>选择</th>
+                                <th>序号</th>
+                                <th>最后访问时间 </th>
+                                <th>会员账号</th>
+                                <th>姓名</th>
+                                <th>来店次数</th>
+                                <th>注册时间</th>
+                                <th>操作</th>
+                          </tr>
+                          <tr>
+                                <td><input type="checkbox" id="All" name="All" value="" /></td>
+                                <td>12</td>
+                                <td>22</td>
+                                <td>1321</td>
+                                <td>12</td>
+                                <td>12</td>
+                                <td>12</td>
+                                <td>12</td>
+                          </tr>
+                          <tr>
+                                <td><input type="checkbox" id="All" name="All" value="" /></td>
+                                <td>12</td>
+                                <td>22</td>
+                                <td>1321</td>
+                                <td>12</td>
+                                <td>12</td>
+                                <td>12</td>
+                                <td>12</td>
+                          </tr>
+                        </table>
+                   
+					<div id="box" class="ts">
+						 
+					</div>
+                    <div class="text-left">
+                        <span class="btn btn-comit"><input type="checkbox" id="All" name="All" value="" /></span><a class="btn btn-comit">会员归类</a><a class="btn btn-comit">导出用户</a><a class="btn btn-comit">批量删除</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+     <#include "foot.html" />
+    <!-- /.container -->
+</body>
+</html>

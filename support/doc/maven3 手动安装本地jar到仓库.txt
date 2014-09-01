@@ -1,0 +1,15 @@
+maven3 手动安装本地jar到仓库
+
+  安装命令：
+
+mvn install:install-file -Dfile={Path/to/your/ojdbc.jar} -DgroupId=com.oracle -DartifactId=ojdbc6 -Dversion=11.2.0 -Dpackaging=jar
+
+我自己安装oracle14.jar 时命令如下：
+mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.4.0 -Dpackaging=jar -Dfile=F:/JAR Pack/ojdbc14.jar
+结果出现如下错误，提示在文件夹 F:/JAR Pack/ 下没有POM
+
+
+   找到原因， cd 到 F:/JAR Pack/ 目录后，-Dfile=F:/JAR Pack/ojdbc14.jar 命令后参数不必再加文件夹目录，命令如下
+
+mvn install:install-file -DgroupId=com.oracle -DartifactId=ojdbc14 -Dversion=10.2.0.4.0 -Dpackaging=jar -Dfile=ojdbc14.jar
+这次成功
