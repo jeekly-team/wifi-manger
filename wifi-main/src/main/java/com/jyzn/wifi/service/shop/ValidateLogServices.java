@@ -8,9 +8,11 @@ package com.jyzn.wifi.service.shop;
 
 
 
+import com.jyzn.wifi.dao.shop.CountValidataLogDao;
 import com.jyzn.wifi.dao.shop.ValidateLogDao;
 import com.jyzn.wifi.entity.shop.ValidateLog;
 import java.util.List;
+import org.hibernate.SQLQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +26,8 @@ public class ValidateLogServices {
     @Autowired
     private ValidateLogDao validateLogDao;
     
+    @Autowired
+    CountValidataLogDao countValidtaLogDao;
     /**
      * 通过时间获取该时间段中所有验证日志
      * @param beginDate
@@ -36,6 +40,10 @@ public class ValidateLogServices {
     
     public List<ValidateLog> countLog(){
         return validateLogDao.getAllCountLog();
+    }
+    
+    public SQLQuery getCountLog(){
+       return countValidtaLogDao.getOldUserCount();
     }
     
 }

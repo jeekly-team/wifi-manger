@@ -8,7 +8,10 @@ package com.jyzn.wifi.dao.shop;
 
 import org.hibernate.SQLQuery;
 import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
+import org.springframework.stereotype.Repository;
 
 
 
@@ -16,8 +19,13 @@ import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
  *
  * @author Administrator
  */
+@Repository
 public class CountValidataLogDao extends HibernateDaoSupport{
     
+    @Autowired  
+    public void setSessionFactoryOverride(SessionFactory sessionFactory) {   
+      super.setSessionFactory(sessionFactory);   
+    } 
     public SQLQuery getOldUserCount(){
         Session session  = getSessionFactory().getCurrentSession();
         String sql = "select count(1) from dual";

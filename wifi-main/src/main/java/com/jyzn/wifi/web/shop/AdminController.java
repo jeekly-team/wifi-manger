@@ -37,6 +37,7 @@ public class AdminController {
     
     @Autowired
     private ValidateLogServices validateLogServices;
+
     
     @RequestMapping("/admin")
     public String adminPage(HttpServletRequest request, HttpServletResponse response){
@@ -62,10 +63,7 @@ public class AdminController {
         try {
             String startDate_str = (String) request.getParameter("startDate") + " 00:00:00";
             String endDate_str = (String) request.getParameter("endDate") + " 23:59:59";
-            //Date startDate = new SimpleDateFormat("yyyy-MM-dd").parse((String) request.getParameter("startDate"));
-            //Date endDate = new SimpleDateFormat("yyyy-MM-dd").parse((String) request.getParameter("endDate"));
-            //Date endDate = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse((String) request.getAttribute("startDate"))
-              return validateLogServices.getValidateLogByDate(startDate_str, endDate_str);
+            return validateLogServices.getValidateLogByDate(startDate_str, endDate_str);
         } catch (Exception e) {
             logger.error(e.getMessage());
             return null;
