@@ -4,34 +4,21 @@
  * and open the template in the editor.
  */
 
-package com.jyzn.wifi.entity.shop.adimn;
+package com.jyzn.wifi.entity.shop;
 
+import com.jyzn.wifi.entity.IdEntity;
+import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
  *
  * @author Administrator
  */
+@Entity
 @Table(name = "WIFIUSER")
-public class WifiUser {
-    
-    private String id;
-    
+public class WifiUser extends IdEntity{
+     
     private String name;
-
-    /**
-     * @return the id
-     */
-    public String getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(String id) {
-        this.id = id;
-    }
 
     /**
      * @return the name

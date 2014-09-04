@@ -4,32 +4,29 @@
  * and open the template in the editor.
  */
 
-package com.jyzn.wifi.test.shop.admin.wifiuser;
+package com.jyzn.wifi.service.shop;
 
 
 import com.jyzn.wifi.dao.shop.WifiUserDao;
 import com.jyzn.wifi.entity.shop.WifiUser;
-import com.jyzn.wifi.test.founction.FunctionTestCaseSupport;
 import java.util.List;
-import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Administrator
  */
-public class TestWifiUser extends FunctionTestCaseSupport{
+@Service
+@Transactional
+public class WifiUserServices {
     
     @Autowired
-    WifiUserDao wifiUserDao;
+    private WifiUserDao wifiUserDao;
     
-    @Test
-    public void getAllUser(){
-        
-        List<WifiUser> list = wifiUserDao.getAllUser();
-        System.out.print(list);
-        
+    public List<WifiUser> getAllUser(){
+        return wifiUserDao.getAllUser();
     }
-   
     
 }

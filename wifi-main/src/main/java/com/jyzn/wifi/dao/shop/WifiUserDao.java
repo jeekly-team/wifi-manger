@@ -4,12 +4,12 @@
  * and open the template in the editor.
  */
 
-package com.jyzn.wifi.dao.shop.admin.wifiuser;
+package com.jyzn.wifi.dao.shop;
 
 import com.github.dactiv.orm.core.hibernate.support.HibernateSupportDao;
-import com.jyzn.wifi.entity.shop.adimn.WifiUser;
+import com.jyzn.wifi.entity.shop.WifiUser;
 import java.util.List;
-import org.hibernate.criterion.Order;
+
 import org.springframework.stereotype.Repository;
 
 /**
@@ -22,6 +22,7 @@ public class WifiUserDao extends HibernateSupportDao<WifiUser, String>{
     public List<WifiUser>getAllUser(){
         //String sql = "SELECT ID, NAME FROM WIFIUSER ";
         //return getAll(new Order);
-        return this.getAll(Order.asc("id"));
+        String hql = "from WifiUser";       
+        return createQuery(hql).list();
     }  
 }

@@ -62,35 +62,56 @@
                 <div class="thumbnail"> 
                     <div class="caption-full" id="tjgk">                    
                         <p>
-                            <a class="button-a" href="#">今日|</a> 
-                            <a class="button-a" href="#">昨天|</a> 
-                            <a class="button-a" href="#">最近七天|</a> 
-                            <a class="button-a" href="#">最近三十天|</a> 
-                            <a class="button-a" href="#">本月|</a>
-                            <a class="button-a" href="#">前一天|</a>
-                            <a class="button-a" href="#">后一天</a>
+                            <a class="button-a" href="javascript:getWifiLogHours('today');">今日|</a> 
+                            <a class="button-a" href="javascript:getWifiLogHours('yesterday');">昨天|</a> 
+                            <a class="button-a" href="javascript:getWifiLogDay('lastservenday');">最近七天|</a> 
+                            <a class="button-a" href="javascript:getWifiLogDay('lastssday');">最近三十天|</a> 
+                            <a class="button-a" href="javascript:getWifiLogDay('month');">本月|</a>
+                            <a class="button-a" href="javascript:getWifiLogHours('beforeday');">前一天|</a>
+                            <a class="button-a" href="javascript:getWifiLogHours('nextday');">后一天</a>
                         </p>
 						
                         <p>
-                            时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间：
+                            选择日期：
                             <input id="inputDateStart" readonly="readonly" class="dateshow"/>
                             --
                             <input id="inputDateEnd" readonly="readonly" class="dateshow"/>
+                            <span class="span-select">
+                                  <button class="btn-success" onclick="getWifiLogCC();"> 查询</button>
+                            <span>
                         </p>
                         <p>	
+                            <!--
                             登录方式：
-                            <select name="selectType" class="select" id="selectAge">   
+                            <select name="selectType" class="select" id="selectAge">
+                                    <option value="0">全部用户</option> 
                                     <option value="1">QQ登录</option>   
                                     <option value="2">微博登录</option>   
-                                    <option value="2">手机登录</option>  
+                                    <option value="3">手机登录</option>  
                             </select>
-                            <span class="span-select">
-                                  <button class="btn-success"> 查询</button>
-                            <span>
+                            -->
+                            
                         </p>
                     </div>
 					
                     <div class="caption-full" id="klfx" style="display:none">
+                        
+                        <p>
+                            <a class="button-a" href="javascript:getWifiLogMonthStr('lastTT');">最近三十天|</a> 
+                            <a class="button-a" href="javascript:getWifiLogMonthStr('TMonth');">本月|</a> 
+                            <a class="button-a" href="javascript:getWifiLogMonthStr('lastMonth');">上个月|</a> 
+                            <a class="button-a" href="javascript:getWifiLogMonthStr('nextMonth');">下个月</a> 
+                        </p>
+					
+                        <p>
+                            选择日期：
+                            <input id="inputDateStart_1" readonly="readonly" class="dateshow"/>
+                            --
+                            <input id="inputDateEnd_1" readonly="readonly" class="dateshow"/>
+                            <span class="span-select">
+                                <button class="btn-success" onclick="getWifiLogMonth();"> 查询</button>
+                            <span>
+                        </p>
                         <div class="ratings" id="custonnum">
                         <!--
                                 <p>全部客流累计人数:</p>
@@ -98,32 +119,15 @@
                                 <p>微博客流累计人数:</p>
                                 <p>QQ客流累计人数:</p>
                         -->
-                        </div>
-                        <p>
-                            <a class="button-a" href="#">今日|</a> 
-                            <a class="button-a" href="#">昨天|</a> 
-                            <a class="button-a" href="#">最近七天|</a> 
-                            <a class="button-a" href="#">最近三十天|</a> 
-                            <a class="button-a" href="#">本月|</a>
-                            <a class="button-a" href="#">前一天|</a>
-                            <a class="button-a" href="#">后一天</a>
-                        </p>
-						
-                        <p>
-                            时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间：
-                            <input id="inputDateStart" readonly="readonly" class="dateshow"/>
-                            --
-                            <input id="inputDateEnd" readonly="readonly" class="dateshow"/>
-                        </p>
+                        </div>	
                         <p>	
+                            <!--
                             用户类型：
                             <select name="selectType" class="select" id="selectAge">   
                                     <option value="1">老顾客</option>   
                                     <option value="2">新顾客</option>    
                             </select>
-                            <span class="span-select">
-                                    <button class="btn-success"> 查询</button>
-                            <span>
+                            -->
                         </p>
 
                     </div>
@@ -208,32 +212,14 @@
                 <div class="well">
 
                     <div class="text-right">
-                        <a class="btn btn-success">Leave a Review</a>
+                       <p>统计数据</p>
                     </div>
 
                     <hr>
 
                     <div class="row">
-                        <div class="col-md-12">
-                            <span class="glyphicon glyphicon-star">报表</span>
-                            <span class="glyphicon glyphicon-star">报表</span>
-                            <span class="glyphicon glyphicon-star">报表</span>
-                            <span class="glyphicon glyphicon-star">报表</span>
-                            <span class="glyphicon glyphicon-star">报表</span>
-                            <span class="glyphicon glyphicon-star">报表</span>
-                            <span class="glyphicon glyphicon-star">报表</span>
+                        <div class="col-md-12" id="bbbox">
                             
-                            <p>报表</p>
-                            <p>报表</p>
-                            <p>报表</p>
-                            <p>报表</p>
-                            <p>报表</p>
-                            <p>报表</p>
-                            <p>报表</p>
-                            <p>报表</p>
-                            <p>报表</p>
-                            <p>报表</p>
-                            <p>报表</p>
                         </div>
                     </div>
                     <hr>
