@@ -8,11 +8,13 @@ package com.jyzn.wifi.dao.shop;
 
 import com.github.dactiv.orm.core.hibernate.support.HibernateSupportDao;
 import com.jyzn.wifi.entity.shop.WifiUserGroup;
+import org.springframework.stereotype.Repository;
 
 /**
  *
  * @author Administrator
  */
+@Repository
 public class WifiUserGroupDao extends HibernateSupportDao<WifiUserGroup, String>{
     
 }

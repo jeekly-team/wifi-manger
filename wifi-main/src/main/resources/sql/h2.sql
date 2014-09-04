@@ -149,3 +149,34 @@ INSERT INTO TB_GROUP_USER VALUES ('402881c4408c7d2301408c86b7a80001', '179091244
 INSERT INTO TB_GROUP_USER VALUES ('402881c4408c7d2301408c86b7a80001', '17909124407b8d7901407be4996c0006');
 INSERT INTO TB_GROUP_USER VALUES ('402881c4408c7d2301408c86b7a80001', '17909124407b8d7901407be4996c0007');
 INSERT INTO TB_GROUP_USER VALUES ('402881c4408c7d2301408c870ed10002', '17909124407b8d7901407be4996c0004');
+
+-- shop admin begin
+
+
+drop table WIFIUSERGROUP if exists;
+drop table WIFIUSERGROUP_WIFIUSER if exists;
+DROP TABLE wifiuser IF EXISTS;
+DROP TABLE validatelog IF EXISTS;
+
+--建表
+create table WIFIUSERGROUP (id varchar(32) not null,name varchar(32) not null unique, primary key (id));
+create table WIFIUSERGROUP_WIFIUSER (fk_group_id varchar(32) not null, fk_user_id varchar(32) not null);
+CREATE TABLE wifiuser (id varchar(32) not null,name varchar(50) not null,primary key (id));
+CREATE TABLE validatelog (id varchar(32) not null,dt timestamp,sid varchar(32) not null,type varchar(50) not null,wifiuser_id varchar(32) not null,primary key (id));
+
+--建表关联
+alter table WIFIUSERGROUP_WIFIUSER add constraint FK_1k068ltfepa1q75qtmvxuawk foreign key (fk_user_id) references WIFIUSER;
+alter table WIFIUSERGROUP_WIFIUSER add constraint FK_2k068ltfepa1q75qtmvxuawk foreign key (fk_group_id) references WIFIUSERGROUP;
+
+--WifiUser
+insert into wifiuser values('402881e437d47b250137d481b6920001','18691525183');
+insert into wifiuser values('402881e437d47b250137d481b6920002','zyt');
+insert into wifiuser values('402881e437d47b250137d481b6920003','jeekly');
+
+--ValidateLog
+insert into validatelog values('SJDK3849CKMS3849DJCK2039ZMSK0001',null,'001','phmsg','402881e437d47b250137d481b6920001',);
+insert into validatelog values('SJDK3849CKMS3849DJCK2039ZMSK0002',null,'002','wx','402881e437d47b250137d481b6920002',);
+insert into validatelog values('SJDK3849CKMS3849DJCK2039ZMSK0003',null,'003','blog','402881e437d47b250137d481b6920003',);
+insert into validatelog values('SJDK3849CKMS3849DJCK2039ZMSK0004',null,'001','wx','402881e437d47b250137d481b6920001',);
+
+-- shop admin end

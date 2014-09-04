@@ -24,12 +24,17 @@ public class CountValidataLogDao extends HibernateDaoSupport{
     
     @Autowired  
     public void setSessionFactoryOverride(SessionFactory sessionFactory) {   
-      super.setSessionFactory(sessionFactory);   
+      super.setSessionFactory(sessionFactory);    
     } 
-    public SQLQuery getOldUserCount(){
+    
+    public int getOldUserCount(){
+        /*
         Session session  = getSessionFactory().getCurrentSession();
         String sql = "select count(1) from dual";
-        return session.createSQLQuery(sql);
+        
+        int i = (int) session.createSQLQuery(sql).list().get(0);
+        */
+        return 0;
     }
     
 }

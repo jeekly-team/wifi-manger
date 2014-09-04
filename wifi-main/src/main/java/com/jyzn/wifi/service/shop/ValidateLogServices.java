@@ -42,7 +42,7 @@ public class ValidateLogServices {
         return validateLogDao.getAllCountLog();
     }
     
-    public SQLQuery getCountLog(){
+    public int getCountLog(){
        return countValidtaLogDao.getOldUserCount();
     }
     

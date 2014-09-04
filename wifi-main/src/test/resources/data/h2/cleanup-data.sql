@@ -10,3 +10,8 @@ delete from TB_RESOURCE;
 delete from TB_USER;
 
 delete from TB_OPERATING_RECORD;
+
+delete from wifiuser;
+delete from validatelog;
+delete from WIFIUSERGROUP;
+delete from WIFIUSERGROUP_WIFIUSER;

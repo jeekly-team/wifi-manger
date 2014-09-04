@@ -41,10 +41,14 @@ alter table TB_RESOURCE add constraint FK_k2heqvi9muk4cjyyd53r9y37x foreign key 
 --删除表
 drop table WIFIUSERGROUP if exists;
 drop table WIFIUSERGROUP_WIFIUSER if exists;
+DROP TABLE wifiuser IF EXISTS;
+DROP TABLE validatelog IF EXISTS;
 
 --建表
 create table WIFIUSERGROUP (id varchar(32) not null,name varchar(32) not null unique, primary key (id));
 create table WIFIUSERGROUP_WIFIUSER (fk_group_id varchar(32) not null, fk_user_id varchar(32) not null);
+CREATE TABLE wifiuser (id varchar(32) not null,name varchar(50) not null,primary key (id));
+CREATE TABLE validatelog (id varchar(32) not null,dt timestamp,sid varchar(32) not null,type varchar(50) not null,wifiuser_id varchar(32) not null,primary key (id));
 
 --建表关联
 alter table WIFIUSERGROUP_WIFIUSER add constraint FK_1k068ltfepa1q75qtmvxuawk foreign key (fk_user_id) references WIFIUSER;
