@@ -1,3 +1,4 @@
+/* BASE SYSTEM 业务表-------------------------------------------------------------------------------------------------------------------------------------------------------*/
 --删除所有表
 drop table TB_DATA_DICTIONARY if exists;
 drop table TB_DICTIONARY_CATEGORY if exists;
@@ -35,3 +36,18 @@ alter table TB_GROUP_RESOURCE add constraint FK_3tjs4wt3vvoibo1fvcvog5srd foreig
 alter table TB_GROUP_USER add constraint FK_7k068ltfepa1q75qtmvxuawk foreign key (fk_user_id) references TB_USER;
 alter table TB_GROUP_USER add constraint FK_rgmkki7dggfag6ow6eivljmwv foreign key (fk_group_id) references TB_GROUP;
 alter table TB_RESOURCE add constraint FK_k2heqvi9muk4cjyyd53r9y37x foreign key (fk_parent_id) references TB_RESOURCE;
+
+/* JY业务表-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+--删除表
+drop table WIFIUSERGROUP if exists;
+drop table WIFIUSERGROUP_WIFIUSER if exists;
+
+--建表
+create table WIFIUSERGROUP (id varchar(32) not null,name varchar(32) not null unique, primary key (id));
+create table WIFIUSERGROUP_WIFIUSER (fk_group_id varchar(32) not null, fk_user_id varchar(32) not null);
+
+--建表关联
+alter table WIFIUSERGROUP_WIFIUSER add constraint FK_1k068ltfepa1q75qtmvxuawk foreign key (fk_user_id) references WIFIUSER;
+alter table WIFIUSERGROUP_WIFIUSER add constraint FK_2k068ltfepa1q75qtmvxuawk foreign key (fk_group_id) references WIFIUSERGROUP;
+
+
