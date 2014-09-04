@@ -7,7 +7,6 @@
 package com.jyzn.wifi.dao.shop;
 
 import com.github.dactiv.orm.core.hibernate.support.HibernateSupportDao;
-import com.jyzn.wifi.entity.shop.CountLog;
 import com.jyzn.wifi.entity.shop.ValidateLog;
 import java.util.Date;
 import java.util.List;
@@ -38,5 +37,5 @@ public class ValidateLogDao extends HibernateSupportDao<ValidateLog, String>{
          List<ValidateLog>list = createSQLQuery(sql).list();
          return list;
      }
-
+     
 }

@@ -31,10 +31,10 @@ function loadCoungLog(){
                     json_str.allcount = json_str.allcount + 1;
             }); 
             var html = "<p>全部客流累计人数:" + json_str.allcount + "人</p>"
-                +"<p>手机客流累计人数:" + json_str.sjcount + "人</p>"
-                +"<p>微博客流累计人数:" + json_str.wbcount + "人</p>"
-                +"<p>QQ客流累计人数:" + json_str.qqcount + "人</p>"
-                +"<p>微信客流累计人数:" + json_str.wxcount + "人</p>";
+                        +"<p>手机客流累计人数:" + json_str.sjcount + "人</p>"
+                        +"<p>微博客流累计人数:" + json_str.wbcount + "人</p>"
+                        +"<p>QQ客流累计人数:" + json_str.qqcount + "人</p>"
+                        +"<p>微信客流累计人数:" + json_str.wxcount + "人</p>";
 					
 		$("#custonnum").html("");
 		$("#custonnum").append(html);
@@ -218,7 +218,7 @@ function getWifiLogMonthStr(str){
 					+"<th>微博客流</th>"
                                         +"<th>微信客流</th>"
                                         +"<th>QQ客流</th>"
-					+ "</tr>";
+					+"</tr>";
           for (i = 0; i < data.length; i++){
               html = html + 
                 "<tr>"
