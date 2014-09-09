@@ -1,4 +1,4 @@
-/* BASE SYSTEM 业务表-------------------------------------------------------------------------------------------------------------------------------------------------------*/
+
 --删除所有表
 drop table TB_DATA_DICTIONARY if exists;
 drop table TB_DICTIONARY_CATEGORY if exists;
@@ -37,21 +37,19 @@ alter table TB_GROUP_USER add constraint FK_7k068ltfepa1q75qtmvxuawk foreign key
 alter table TB_GROUP_USER add constraint FK_rgmkki7dggfag6ow6eivljmwv foreign key (fk_group_id) references TB_GROUP;
 alter table TB_RESOURCE add constraint FK_k2heqvi9muk4cjyyd53r9y37x foreign key (fk_parent_id) references TB_RESOURCE;
 
-/* JY业务表-------------------------------------------------------------------------------------------------------------------------------------------------------*/
---删除表
+--shop
 drop table WIFIUSERGROUP if exists;
 drop table WIFIUSERGROUP_WIFIUSER if exists;
 DROP TABLE wifiuser IF EXISTS;
 DROP TABLE validatelog IF EXISTS;
+DROP TABLE validatecodelog IF EXISTS;
 
 --建表
 create table WIFIUSERGROUP (id varchar(32) not null,name varchar(32) not null unique, primary key (id));
 create table WIFIUSERGROUP_WIFIUSER (fk_group_id varchar(32) not null, fk_user_id varchar(32) not null);
-CREATE TABLE wifiuser (id varchar(32) not null,name varchar(50) not null,primary key (id));
-CREATE TABLE validatelog (id varchar(32) not null,dt timestamp,sid varchar(32) not null,type varchar(50) not null,wifiuser_id varchar(32) not null,primary key (id));
-
+CREATE TABLE wifiuser (id varchar(32) not null,name varchar(64) not null unique, primary key (id));
+CREATE TABLE validatelog (id varchar(32) not null,dt timestamp,sid varchar(32) not null,type varchar(16) not null,wifiuser_id varchar(32) not null,primary key (id));
+CREATE TABLE validatecodelog ( id varchar(32) not null, vcode varchar(32) not null, log_id varchar(32) not null, primary key (id));
 --建表关联
-alter table WIFIUSERGROUP_WIFIUSER add constraint FK_1k068ltfepa1q75qtmvxuawk foreign key (fk_user_id) references WIFIUSER;
-alter table WIFIUSERGROUP_WIFIUSER add constraint FK_2k068ltfepa1q75qtmvxuawk foreign key (fk_group_id) references WIFIUSERGROUP;
-
-
+alter table WIFIUSERGROUP_WIFIUSER add constraint FK_1k068ltfepa1q01qtmvxuawk foreign key (fk_user_id) references WIFIUSER;
+alter table WIFIUSERGROUP_WIFIUSER add constraint FK_1k068ltfepa1q02qtmvxuawk foreign key (fk_group_id) references WIFIUSERGROUP;

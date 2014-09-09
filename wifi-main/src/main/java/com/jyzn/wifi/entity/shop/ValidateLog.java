@@ -3,84 +3,77 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.jyzn.wifi.entity.shop;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.jyzn.wifi.entity.IdEntity;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
 import javax.persistence.Table;
+import javax.persistence.Temporal;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
-/**
- *
- * @author Administrator
- */
 @Entity
 @Table(name = "validatelog")
-public class ValidateLog extends IdEntity{
-    
-    private Date dt;
-    
-    private String sid;
-    
-    private String type;
-    
-    private String wifiuser_id;
+public class ValidateLog extends IdEntity {
 
-    /**
-     * @return the dt
-     */
+    private Date dt;     //提交日期
+
+    private WifiUser wifiuser;
+
+    private String type; //本次验证类型如MSG,WX...
+
+    private String sid; //商户ID
+
+    public ValidateLog() {
+
+    }
+
+    @JsonFormat(pattern = "yyyy-MM-dd HH:mm:ss", timezone = "GMT+08:00")
+    @Column(nullable = false)
+    @Temporal(javax.persistence.TemporalType.TIMESTAMP)
     public Date getDt() {
         return dt;
     }
 
-    /**
-     * @param dt the dt to set
-     */
     public void setDt(Date dt) {
         this.dt = dt;
     }
 
-    /**
-     * @return the sid
-     */
-    public String getSid() {
-        return sid;
+    @JoinColumn(name = "wifiuser_id")
+    @ManyToOne
+    public WifiUser getWifiuser() {
+        return wifiuser;
     }
 
-    /**
-     * @param sid the sid to set
-     */
-    public void setSid(String sid) {
-        this.sid = sid;
+    public void setWifiuser(WifiUser wifiuser) {
+        this.wifiuser = wifiuser;
     }
 
-    /**
-     * @return the type
-     */
     public String getType() {
         return type;
     }
 
-    /**
-     * @param type the type to set
-     */
     public void setType(String type) {
         this.type = type;
     }
 
-    /**
-     * @return the wifiuser_id
-     */
-    public String getWifiuser_id() {
-        return wifiuser_id;
+    public String getSid() {
+        return sid;
     }
 
-    /**
-     * @param wifiuser_id the wifiuser_id to set
-     */
-    public void setWifiuser_id(String wifiuser_id) {
-        this.wifiuser_id = wifiuser_id;
+    public void setSid(String sid) {
+        this.sid = sid;
     }
-    
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
+    }
+
 }

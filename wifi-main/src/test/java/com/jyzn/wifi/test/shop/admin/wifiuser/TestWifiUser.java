@@ -3,33 +3,31 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package com.jyzn.wifi.test.shop.admin.wifiuser;
-
 
 import com.jyzn.wifi.dao.shop.WifiUserDao;
 import com.jyzn.wifi.entity.shop.WifiUser;
-import com.jyzn.wifi.test.founction.FunctionTestCaseSupport;
+import com.jyzn.wifi.test.manager.ManagerTestCaseSupport;
 import java.util.List;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  *
  * @author Administrator
  */
-public class TestWifiUser extends FunctionTestCaseSupport{
-    
+public class TestWifiUser extends ManagerTestCaseSupport {
+
     @Autowired
-    WifiUserDao wifiUserDao;
-    
+    private WifiUserDao wifiUserDao;
+
     @Test
-    public void getAllUser(){
-        
+    @Transactional
+    public void getAllUser() {
         List<WifiUser> list = wifiUserDao.getAllUser();
         System.out.print(list);
-        
+
     }
-   
-    
+
 }
