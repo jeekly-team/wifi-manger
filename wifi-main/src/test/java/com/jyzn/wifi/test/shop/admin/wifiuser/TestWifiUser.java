@@ -5,6 +5,7 @@
  */
 package com.jyzn.wifi.test.shop.admin.wifiuser;
 
+import com.jyzn.wifi.dao.shop.CountValidataLogDao;
 import com.jyzn.wifi.dao.shop.WifiUserDao;
 import com.jyzn.wifi.entity.shop.WifiUser;
 import com.jyzn.wifi.test.manager.ManagerTestCaseSupport;
@@ -22,10 +23,13 @@ public class TestWifiUser extends ManagerTestCaseSupport {
     @Autowired
     private WifiUserDao wifiUserDao;
 
+    @Autowired
+    private CountValidataLogDao countValidateDao;
+    
     @Test
     @Transactional
     public void getAllUser() {
-        List<WifiUser> list = wifiUserDao.getAllUser();
+       List list = countValidateDao.getCentumByType("wx");
         System.out.print(list);
 
     }

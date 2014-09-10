@@ -149,11 +149,35 @@ function getDate(str) {
 }
 
 function dateToString(date_s) {
-    var year = date_s.getFullYear();
-    var month = formatNum(date_s.getMonth() + 1);
-    var day = formatNum(date_s.getDate());
-    var date_str = year + "-" + month + "-" + day;
-    return date_str;
+    
+    if(typeof(date_s ) === "number"){
+        var date = new Date(date_s);
+        var year = date.getFullYear();
+        var month = formatNum(date.getMonth() + 1);
+        var day = formatNum(date.getDate());
+        var date_str = year + "-" + month + "-" + day;
+        return date_str; 
+    }else if(typeof(date_s ) === "string"){
+        return date_s.substring(0,10);
+    }else{
+        var year = date_s.getFullYear();
+        var month = formatNum(date_s.getMonth() + 1);
+        var day = formatNum(date_s.getDate());
+        var date_str = year + "-" + month + "-" + day;
+        return date_str; 
+    }    
+}
+
+function getDate_s(date_s){
+    if(typeof(date_s ) === "number"){
+        return new Date(date_s);
+    }else if(typeof(date_s ) === "string"){
+        //2014-09-09 00:00:00
+        var date = date_s.split(" ");
+        var bd = date[0].split("-");
+        var ed = date[1].split(":");
+        return new Date(bd[0],bd[1]-1,bd[2],ed[0],ed[1],ed[2]);
+    } 
 }
 function getTwoDays(str) {
     var date_str = new Array();
@@ -215,7 +239,7 @@ function getWifiLogHours(str) {
         },
         success: function(json) {
             $.each(json, function(i, item) {
-                var date = new Date(item.dt);
+                var date = getDate_s(item.dt);
                 var hourse = date.getHours();
                 //data[hourse].time = hourse - 1 + "-" + hourse;
                 data[hourse].count = data[hourse].count + 1;
@@ -272,7 +296,7 @@ function getWifiLogDay(str) {
         },
         success: function(json) {
             $.each(json, function(i, item) {
-                var date = dateToString(new Date(item.dt));
+                var date = dateToString(item.dt);
                 for (i = 0; i < data.length; i++) {
                     if (data[i].time === date) {
                         data[i].count = data[i].count + 1;
@@ -335,7 +359,7 @@ function getWifiLogCC() {
         },
         success: function(json) {
             $.each(json, function(i, item) {
-                var date = dateToString(new Date(item.dt));
+                var date = dateToString(item.dt);
                 for (i = 0; i < data.length; i++) {
                     if (data[i].time === date) {
                         data[i].count = data[i].count + 1;

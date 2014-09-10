@@ -75,4 +75,25 @@ public class AdminController {
     public List<ValidateLog> getCountLog(HttpServletRequest request, HttpServletResponse response){
         return validateLogServices.countLog();
     }
+    
+    @RequestMapping("countLogUser")
+    @ResponseBody
+    public List getCountLogUser(HttpServletRequest request, HttpServletResponse response){
+        String startDate_str = (String) request.getParameter("startDate") + " 00:00:00";
+        String endDate_str = (String) request.getParameter("endDate") + " 23:59:59";
+        return validateLogServices.getCountLog(startDate_str,endDate_str);
+    }
+    
+    @RequestMapping("countAllUser")
+    @ResponseBody
+    public List getCountAllUser(HttpServletRequest request, HttpServletResponse response){
+        return validateLogServices.getCountAllUserLog();
+    }
+    
+    @RequestMapping("centumByType")
+    @ResponseBody
+    public List getCentumByType(HttpServletRequest request, HttpServletResponse response){
+        String type = (String) request.getParameter("type");
+        return validateLogServices.getCentumByType(type);
+    }
 }

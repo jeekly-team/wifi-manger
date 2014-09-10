@@ -115,7 +115,7 @@ function getWifiLogMonth(){
            
             success: function(json){
                 $.each(json, function(i, item) {
-                    var date = dateToString(new Date(item.dt));
+                    var date = dateToString(item.dt);
                     for (i = 0; i < data.length; i ++){
                         if(data[i].time === date){
                             if(item.type === "wx"){
@@ -193,7 +193,7 @@ function getWifiLogMonthStr(str){
            
             success: function(json){
                 $.each(json, function(i, item) {
-                    var date = dateToString(new Date(item.dt));
+                    var date = dateToString(item.dt);
                     for (i = 0; i < data.length; i ++){
                         if(data[i].time === date){
                             if(item.type === "wx"){
@@ -210,6 +210,7 @@ function getWifiLogMonthStr(str){
                     }
                     count = count + 1;
             });
+            showLineChart('chart',data);
             var html = "<table width='100%' border='2' color='blue' cellspacing='1' cellpadding='1'>"
 					+ "<tr>"
 					+"<th>日期</th>"

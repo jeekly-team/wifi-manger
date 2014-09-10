@@ -113,21 +113,8 @@
                             <span>
                         </p>
                         <div class="ratings" id="custonnum">
-                        <!--
-                                <p>全部客流累计人数:</p>
-                                <p>手机客流累计人数:</p>
-                                <p>微博客流累计人数:</p>
-                                <p>QQ客流累计人数:</p>
-                        -->
                         </div>	
                         <p>	
-                            <!--
-                            用户类型：
-                            <select name="selectType" class="select" id="selectAge">   
-                                    <option value="1">老顾客</option>   
-                                    <option value="2">新顾客</option>    
-                            </select>
-                            -->
                         </p>
 
                     </div>
@@ -136,21 +123,19 @@
                     <div class="caption-full" id="xlfk" style="display:none">
                         
                         <p>
-                            <a class="button-a" href="#">今日|</a> 
-                            <a class="button-a" href="#">昨天|</a> 
-                            <a class="button-a" href="#">最近七天|</a> 
-                            <a class="button-a" href="#">最近三十天|</a> 
-                            <a class="button-a" href="#">本月|</a>
-                            <a class="button-a" href="#">前一天|</a>
-                            <a class="button-a" href="#">后一天</a>
+                            
                         </p>
 						
                         <p>
-                            时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间：
-                            <input id="inputDateStart" readonly="readonly" class="dateshow"/>
+                            选择日期：
+                            <input id="inputDateStart_2" readonly="readonly" class="dateshow"/>
                             --
-                            <input id="inputDateEnd" readonly="readonly" class="dateshow"/>
+                            <input id="inputDateEnd_2" readonly="readonly" class="dateshow"/>
+                            <span class="span-select">
+                                <button class="btn-success" onclick="getCountLog();"> 查询</button>
+                            <span>
                         </p>
+                        
                         <div class="ratings" id="custonnum_ss">
                         <!--
                                 <p>全部客流累计人数:</p>
@@ -160,14 +145,6 @@
                         -->
                         </div>	
                         <p>	
-                            用户类型：
-                            <select name="selectType" class="select" id="selectAge">   
-                                    <option value="1">老顾客</option>   
-                                    <option value="2">新顾客</option>    
-                            </select>
-                            <span class="span-select">
-                            <button class="btn-success"> 查询</button>
-                          <span>
                         </p>
 
                     </div>
@@ -175,16 +152,18 @@
                     <div class="caption-full" id="htl" style="display:none">
                         
                         <p>
-                            <a class="button-a" href="#">手机会员|</a> 
+                            <a class="button-a" href="javascript:centumByType('wx')">手机会员|</a> 
                             <a class="button-a" href="#">QQ会员|</a> 
                             <a class="button-a" href="#">微博会员</a> 
                         </p>
 						
                         <p>
+                            <!--
                             时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间：
                             <input id="inputDateStart" readonly="readonly" class="dateshow"/>
                             --
                             <input id="inputDateEnd" readonly="readonly" class="dateshow"/>
+                            -->
                         </p>						
                     </div>
 					
@@ -196,10 +175,12 @@
                             <a class="button-a" href="#">微博会员</a> 
                         </p>
                         <p>
-                            时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间：
+                            <!--
+                            选择日期：
                             <input id="inputDateStart" readonly="readonly" class="dateshow"/>
                             --
                             <input id="inputDateEnd" readonly="readonly" class="dateshow"/>
+                            -->
                         </p>						
                     </div>
                     <div class="ratings">                      
@@ -229,6 +210,10 @@
                         <div class="col-md-12" id="bbbox">
                             
                         </div>
+                        
+                    </div>
+                    <div id="Pagination" class="pagination">
+                            
                     </div>
                     <hr>
                 </div>

@@ -37,13 +37,39 @@ public class ValidateLogServices {
     public List<ValidateLog> getValidateLogByDate(String beginDate, String endDate){
         return validateLogDao.getCountByDate(beginDate, endDate);
     }
-    
+    /**
+     * 获取验证日志表中所有数据
+     * @return 
+     */
     public List<ValidateLog> countLog(){
         return validateLogDao.getAllCountLog();
     }
-    
-    public int getCountLog(){
-       return countValidtaLogDao.getOldUserCount();
+    /**
+     * 通过实践段获取统计日志信息
+     * @param startDate
+     * @param endDate
+     * @return 
+     */
+    public List getCountLog(String startDate, String endDate){
+       return countValidtaLogDao.getCountUser(startDate, endDate);
     }
+    
+    /**
+     * 获取验证日志中的统计信息
+     * @return 
+     */
+    public List getCountAllUserLog(){
+       return countValidtaLogDao.getCountUserTT();
+    }
+    
+    /**
+     * 通过类型获取不同回访次数所占比例及次数
+     * @param type
+     * @return 
+     */
+    public List getCentumByType(String type){
+        return countValidtaLogDao.getCentumByType(type);
+    }
+    
     
 }

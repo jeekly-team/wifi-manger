@@ -6,28 +6,44 @@
 
 package com.jyzn.wifi.entity.shop;
 
+import com.github.dactiv.orm.annotation.TreeEntity;
+import java.io.Serializable;
+import javax.persistence.Entity;
+
+import javax.persistence.Table;
+import org.hibernate.annotations.NamedQuery;
+
 /**
  *
  * @author Administrator
  */
-public class CountLog {
+@Table(name="VALIDATELOG")
+@NamedQuery(name="countLog",query="select dt,num, (case when count(1) = 1 then 'new' else 'old' end) as type from(select t.wifiuser_id,t.dt,t1.num from " +
+                                "(select wifiuser_id,to_char(dt, 'yyyy-mm-dd') as dt from validatelog where dt >= cast(? as dateTime) and dt <= cast(? as dateTime) group by wifiuser_id,to_char(dt, 'yyyy-mm-dd')) t " +
+                                " left join (select count(1) as num ,wifiuser_id from validatelog where dt <= cast(? as dateTime) group by wifiuser_id) t1 " +
+                                "on  t.wifiuser_id = t1.wifiuser_id) group by num,dt")
+public class CountLog implements Serializable {
     
-    private String time;
+    private static final long serialVersionUID = 1L;
+    
+    private String date;
     
     private int count;
+    
+    private String type;
 
     /**
-     * @return the time
+     * @return the date
      */
-    public String getTime() {
-        return time;
+    public String getDate() {
+        return date;
     }
 
     /**
-     * @param time the time to set
+     * @param date the date to set
      */
-    public void setTime(String time) {
-        this.time = time;
+    public void setDate(String date) {
+        this.date = date;
     }
 
     /**
@@ -43,6 +59,19 @@ public class CountLog {
     public void setCount(int count) {
         this.count = count;
     }
-    
-    
+
+    /**
+     * @return the type
+     */
+    public String getType() {
+        return type;
+    }
+
+    /**
+     * @param type the type to set
+     */
+    public void setType(String type) {
+        this.type = type;
+    }
+ 
 }
