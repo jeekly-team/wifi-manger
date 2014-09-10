@@ -6,8 +6,7 @@
 
 package com.jyzn.wifi.dao.shop;
 
-import org.hibernate.SQLQuery;
-import org.hibernate.Session;
+
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;

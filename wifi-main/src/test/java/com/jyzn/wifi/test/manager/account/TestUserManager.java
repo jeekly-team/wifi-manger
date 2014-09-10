@@ -30,7 +30,7 @@ public class TestUserManager extends ManagerTestCaseSupport{
 	private AccountManager accountManager;
 
 	@Test
-	@Transactional(readOnly=true)
+	@Transactional("transactionManager")
 	public void testGetUser() {
 		User user = accountManager.getUser("SJDK3849CKMS3849DJCK2039ZMSK0001");
 		assertEquals(user.getUsername(),"maurice");
@@ -69,7 +69,7 @@ public class TestUserManager extends ManagerTestCaseSupport{
 	}
 
 	@Test
-	@Transactional
+	@Transactional("transactionManager")
 	public void testUpdateUser() {
 		User entity = accountManager.getUser("SJDK3849CKMS3849DJCK2039ZMSK0001");
 		entity.setUsername("modify");

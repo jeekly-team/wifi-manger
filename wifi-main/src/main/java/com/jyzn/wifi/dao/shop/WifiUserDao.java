@@ -7,7 +7,6 @@ package com.jyzn.wifi.dao.shop;
 
 import com.github.dactiv.orm.core.hibernate.support.HibernateSupportDao;
 import com.jyzn.wifi.entity.shop.WifiUser;
-import com.jyzn.wifi.entity.shop.summary.WifiUserCount;
 import java.util.List;
 import org.springframework.stereotype.Repository;
 
@@ -24,12 +23,13 @@ public class WifiUserDao extends HibernateSupportDao<WifiUser, String> {
         String hql = "from WifiUser";
         return createQuery(hql).list();
     }
-
-    public List<WifiUserCount> getWifiUserCount() {
-        
+    /*
+    public List<WifiUserCount> getWifiUserCount(WifiUser user) {
         String hql = "select new com.jyzn.wifi.entity.shop.summary.WifiUserCount(l.wifiuser,count(l), max(l.dt)) from WifiUser u "
-            + "left join u.log l group by u";
-        
-        return distinct("hql");
+            + "left join u.log l on l.wifiuser=u where l.wifiuser = ?1 group by u";        
+        return distinct(hql,user);
     }
+    */
+    
+    
 }

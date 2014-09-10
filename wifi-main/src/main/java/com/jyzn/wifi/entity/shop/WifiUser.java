@@ -10,8 +10,6 @@ import java.util.Set;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -24,11 +22,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 @Table(name = "WIFIUSER")
 public class WifiUser extends IdEntity {
 
-    @Column(name = "name", unique = true, nullable = false, updatable = false)
     private String name;
-
-    @OneToMany(fetch = FetchType.LAZY, mappedBy = "wifiuser")
-    private Set<ValidateLog> log;
 
     public WifiUser() {
     }
@@ -37,6 +31,7 @@ public class WifiUser extends IdEntity {
         this.name = name;
     }
 
+    @Column(name = "name", unique = true, nullable = false, updatable = false)
     public String getName() {
         return name;
     }

@@ -17,11 +17,15 @@ public class WifiUserCount implements Serializable {
 
     private static final long serialVersionUID = 1L;
 
-    private final long count;
+    private long count;
     private Date maxdt;
-    private final WifiUser user;
+    private WifiUser user;
 
-
+    
+    public WifiUserCount(){
+        
+    }
+    
     public WifiUserCount(WifiUser user, long count, Date maxdt) {
         this.count = count;
         this.user = user;
