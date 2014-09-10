@@ -19,7 +19,7 @@ import com.jyzn.wifi.entity.foundation.audit.OperatingRecord;
  *
  */
 @Service
-@Transactional
+@Transactional("transactionManager")
 public class SystemAuditManager {
 
 	@Autowired

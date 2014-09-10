@@ -3,9 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.jyzn.wifi.test.shop.admin.wifiuser;
+package com.jyzn.wifi.test.shop.dao;
 
-import com.jyzn.wifi.dao.shop.CountValidataLogDao;
 import com.jyzn.wifi.dao.shop.WifiUserDao;
 import com.jyzn.wifi.entity.shop.WifiUser;
 import com.jyzn.wifi.test.manager.ManagerTestCaseSupport;
@@ -18,20 +17,16 @@ import org.springframework.transaction.annotation.Transactional;
  *
  * @author Administrator
  */
-public class TestWifiUser extends ManagerTestCaseSupport {
+public class WifiUserDaoTest extends ManagerTestCaseSupport {
 
     @Autowired
     private WifiUserDao wifiUserDao;
 
-    @Autowired
-    private CountValidataLogDao countValidateDao;
-    
     @Test
-    @Transactional
+    @Transactional("transactionManager")
     public void getAllUser() {
-       List list = countValidateDao.getCentumByType("wx");
+        List<WifiUser> list = wifiUserDao.getAllUser();
         System.out.print(list);
-
     }
 
 }

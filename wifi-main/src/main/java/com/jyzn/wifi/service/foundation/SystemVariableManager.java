@@ -25,7 +25,7 @@ import com.jyzn.wifi.entity.foundation.variable.DictionaryCategory;
  *
  */
 @Service
-@Transactional
+@Transactional("transactionManager")
 public class SystemVariableManager {
 
 	//数据字典数据访问

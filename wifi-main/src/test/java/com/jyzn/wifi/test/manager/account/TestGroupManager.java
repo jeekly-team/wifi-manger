@@ -23,13 +23,14 @@ import com.google.common.collect.Lists;
  * @author maurice
  *
  */
+
 public class TestGroupManager extends ManagerTestCaseSupport{
 
 	@Autowired
 	private AccountManager accountManager;
 	
 	@Test
-	@Transactional(readOnly=true)
+	@Transactional("transactionManager")
 	public void testGetGroup() {
 		Group group = accountManager.getGroup("SJDK3849CKMS3849DJCK2039ZMSK0002");
 		assertEquals(group.getName(), "超级管理员");
@@ -47,7 +48,7 @@ public class TestGroupManager extends ManagerTestCaseSupport{
 	}
 
 	@Test
-	@Transactional
+	@Transactional("transactionManager")
 	public void testSaveGroup() {
 		Group entity = new Group();
 		entity.setName("test");

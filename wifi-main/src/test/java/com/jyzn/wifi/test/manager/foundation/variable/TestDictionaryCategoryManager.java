@@ -25,7 +25,7 @@ public class TestDictionaryCategoryManager extends ManagerTestCaseSupport {
 	private SystemVariableManager systemVariableManager;
 	
 	@Test
-	@Transactional
+	@Transactional("transactionManager")
 	public void testSaveDictionaryCategory() {
 		DictionaryCategory category = new DictionaryCategory();
 		category.setCode("test");

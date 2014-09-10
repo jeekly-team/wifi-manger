@@ -24,7 +24,7 @@ public class TestOperatingRecordManager extends ManagerTestCaseSupport{
 	private SystemAuditManager systemAuditManager;
 	
 	@Test
-	@Transactional
+	@Transactional("transactionManager")
 	public void testInsertOperatingRecord() {
 		OperatingRecord or = new OperatingRecord();
 		

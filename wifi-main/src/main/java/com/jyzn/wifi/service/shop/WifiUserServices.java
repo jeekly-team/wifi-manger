@@ -19,7 +19,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author Administrator
  */
 @Service
-@Transactional
+@Transactional("transactionManager")
 public class WifiUserServices {
     
     @Autowired
