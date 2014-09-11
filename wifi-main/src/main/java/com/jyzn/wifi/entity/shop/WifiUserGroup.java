@@ -16,7 +16,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "WIFIUSERCATEGORY")
+@Table(name = "WIFIUSERGROUP")
 public class WifiUserGroup extends IdEntity {
 
     //名称
