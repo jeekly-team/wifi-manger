@@ -96,4 +96,36 @@ public class AdminController {
         String type = (String) request.getParameter("type");
         return validateLogServices.getCentumByType(type);
     }
+    
+    @RequestMapping("validateLogByCount")
+    @ResponseBody
+    public List getValidateLogByCount(HttpServletRequest request, HttpServletResponse response){
+        int count =  Integer.parseInt(request.getParameter("count"));
+        String type = (String) request.getParameter("type");
+        int page = Integer.parseInt(request.getParameter("page"));
+        int pagesize = Integer.parseInt(request.getParameter("pagesize"));
+        return validateLogServices.getValidateLogByCount(count, type, page, pagesize);
+    }
+    
+    @RequestMapping("validateLogByCountSize")
+    @ResponseBody
+    public int getValidateLogByCountSize(HttpServletRequest request, HttpServletResponse response){
+        int count =  Integer.parseInt(request.getParameter("count"));
+        String type = (String) request.getParameter("type");
+        return validateLogServices.getMaxValidateLogByCount(count, type);
+    }
+    
+    @RequestMapping("loadAVGCount")
+    @ResponseBody
+    public List getAvgCount(){
+        return validateLogServices.getAvgCount();
+    }
+    
+    @RequestMapping("getActiveUser")
+    @ResponseBody
+    public List getActiveUser(HttpServletRequest request, HttpServletResponse response){
+        String startDate_str = (String) request.getParameter("startDate") + " 00:00:00";
+        String endDate_str = (String) request.getParameter("endDate") + " 23:59:59";
+        return validateLogServices.getActiveUser(startDate_str, endDate_str);
+    }
 }

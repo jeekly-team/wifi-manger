@@ -42,9 +42,10 @@ public class ValidateLogDao extends HibernateSupportDao<ValidateLog, String> {
 
 
     public Page<WifiUserCount> getLastLogCountPage(PageRequest request) {
-        String query = "select new com.jyzn.wifi.entity.shop.summary.WifiUserCount(l.wifiuser,count(l),max(l.dt)) from ValidateLog as l group by l.wifiuser";
-        //String query = "select new com.jyzn.wifi.entity.shop.summary.WifiUserCount (select l.wifiuser,count(l),max(l.dt) from ValidateLog as l group by l.wifiuser)";
-        return this.findPage(request, query);
+        String query = "select new com.jyzn.wifi.entity.shop.summary.WifiUserCount(l.wifiuser,count(l),max(l.dt))from ValidateLog as l group by l.wifiuser";
+        //String query = "select new com.jyzn.wifi.entity.shop.summary.WifiUserCount(select l.wifiuser,count(l),max(l.dt) from ValidateLog as l group by l.wifiuser)";
+        Page page = this.findPage(request, query);
+        return page;
     }
     
 

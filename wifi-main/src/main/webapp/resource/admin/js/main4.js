@@ -30,6 +30,7 @@ function centumByType(type){
                         +"<td><p><a class='button-table' href='javascript:setPageOption();'>明细</a></p></td>"
                     +"<tr>";
                  }
+                $("#chart").hide();
                 $("#bbbox").html("");
                 $("#bbbox").append(html);
             }

@@ -71,5 +71,38 @@ public class ValidateLogServices {
         return countValidtaLogDao.getCentumByType(type);
     }
     
+    /**
+     * 获取日志分页结果集
+     * @param count
+     * @param type
+     * @param page
+     * @param pagesize
+     * @return 
+     */
+    public List getValidateLogByCount(int count, String type, int page, int pagesize){
+        return countValidtaLogDao.getValidateLogByCount(count, type, page, pagesize);
+    }
+    
+    /**
+     * 获取日志分页记录数目
+     * @param count
+     * @param type
+     * @return 
+     */
+    public int getMaxValidateLogByCount(int count, String type){
+        return countValidtaLogDao.getMaxValidateLogByCount(count, type);
+    }
+    
+    /**
+     * 获取用户平均来店次数和最近三十天来店次数
+     * @return 
+     */
+    public List getAvgCount(){
+        return countValidtaLogDao.getAvgCount();
+    }
+    
+    public List getActiveUser(String startDate, String endDate){
+        return countValidtaLogDao.getActiveUser(startDate, endDate);
+    }
     
 }

@@ -56,7 +56,7 @@ jQuery.fn.pagination = function(maxentries, opts){
 		function pageSelected(page_id, evt){
 			current_page = page_id;
 			drawLinks();
-			var continuePropagation = opts.callback(page_id, panel,opts.url);
+			var continuePropagation = opts.callback(page_id, panel,opts);
 			if (!continuePropagation) {
 				if (evt.stopPropagation) {
 					evt.stopPropagation();
@@ -166,7 +166,7 @@ jQuery.fn.pagination = function(maxentries, opts){
 		// When all initialisation is done, draw the links
 		drawLinks();
         // call callback function
-        opts.callback(current_page, this,opts.url);
+        opts.callback(current_page, this,opts);
 	});
 }
 

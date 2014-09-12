@@ -92,7 +92,7 @@ function loadOldNewUser(){
                 var html = "<p>累计老用户数:" + json[0][0] + "人</p>"
                 +"<p>老顾客来店人数<span>(最近三十天)</span>:" + json[0][1] + "人</p>"
                 +"<p>新顾客来店人数<span>(最近三十天)</span>:" + (json[0][2] - json[0][1]) + "人</p>"
-                +"<p>转换为老顾客人数<span>(最近三十天)</span>:" + json[0][3] + "人 <span>" + (json[0][2] - json[0][1] === 0 ? 0 : (json[0][3]/(json[0][2] - json[0][1])) *100)  + "%</sapn></p>";
+                +"<p>转换为老顾客人数<span>(最近三十天)</span>:" + json[0][3] + "人 <span>" + (json[0][2] - json[0][1] === 0 ? 0 : (json[0][3]/(json[0][2] - json[0][1])).toFixed(4) *100)  + "%</sapn></p>";
 					
 		$("#custonnum_ss").html("");
 		$("#custonnum_ss").append(html);
@@ -103,6 +103,12 @@ function loadOldNewUser(){
 function getCountLog(){
     var startDate_str = $("#inputDateStart_2").val();
     var inputDateEnd_str = $("#inputDateEnd_2").val();
+     var dates = new Date(startDate_str);
+    var datee = new Date(inputDateEnd_str);
+    if(dates.getTime() > datee.getTime()){
+        alert("请选择正确的时间段!");
+        return;
+    }
     var startArrary = startDate_str.split("-");
     var endArrary = inputDateEnd_str.split("-");
     var startDate = new Date(startArrary[0],startArrary[1] - 1,startArrary[2]);
@@ -150,12 +156,13 @@ function getCountLog(){
                     html = html + 
                     "<tr>"
                         +"<td>" + date_str + "</td>"
-                        +"<td>" + newUserCount + "</td>"
                         +"<td>" + oldUserCount + "</td>"
+                        +"<td>" + newUserCount + "</td>"
                         +"<td>" + totalUserCount + "</td>"
                     +"<tr>";
             }
-            showPlot('chart',data_array);
+            var title = "极源新老顾客图（"+ startDate_str + "到" + inputDateEnd_str + ")";
+            showPlot('chart',data_array,title);
            $("#bbbox").html("");
            $("#bbbox").append(html);  
            
@@ -163,10 +170,10 @@ function getCountLog(){
    });
 }
 
-function showPlot(divID, data) {
+function showPlot(divID, data, title) {
     
     $("#" + divID).html("");
-    
+    $("#" + divID).show();
     var xpost = new Array();
     var ypost_1 = new Array();
     var ypost_2 = new Array();
@@ -209,7 +216,7 @@ function showPlot(divID, data) {
                 }
             }        
         },
-        title: "极源wifi统计图",
+        title: title,
         highlighter: {show: true}
     });
 }

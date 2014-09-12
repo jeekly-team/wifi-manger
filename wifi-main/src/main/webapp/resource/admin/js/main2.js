@@ -85,6 +85,12 @@ function getWifiLogMonth(){
         //var dateArray = getTwoMonthDate(str);
         var startDate_str = $("#inputDateStart_1").val();
         var inputDateEnd_str = $("#inputDateEnd_1").val();
+        var dates = new Date(startDate_str);
+        var datee = new Date(inputDateEnd_str);
+        if(dates.getTime() > datee.getTime()){
+            alert("请选择正确的时间段!");
+            return;
+        }
         var startArrary = startDate_str.split("-");
         var endArrary = inputDateEnd_str.split("-");
         var startDate = new Date(startArrary[0],startArrary[1] - 1,startArrary[2]);
@@ -132,7 +138,8 @@ function getWifiLogMonth(){
                     }
                     count = count + 1;
             });
-            showLineChart('chart',data);
+            var title = "极源wifi折线图（"+ startDate_str + "到" + inputDateEnd_str + ")";
+            showLineChart('chart',data, title);
             var html = "<table width='100%' border='2' color='blue' cellspacing='1' cellpadding='1'>"
 					+ "<tr>"
 					+"<th>日期</th>"
@@ -210,7 +217,8 @@ function getWifiLogMonthStr(str){
                     }
                     count = count + 1;
             });
-            showLineChart('chart',data);
+             var title = "极源wifi折线图（"+ startDate_str + "到" + inputDateEnd_str + ")";
+            showLineChart('chart',data ,title);
             var html = "<table width='100%' border='2' color='blue' cellspacing='1' cellpadding='1'>"
 					+ "<tr>"
 					+"<th>日期</th>"
@@ -238,10 +246,10 @@ function getWifiLogMonthStr(str){
    }
 
 
-function showLineChart(divID, data) {
+function showLineChart(divID, data, title) {
     
     $("#" + divID).html("");
-    
+     $("#" + divID).show();
     var xpost = new Array();
     var ypost_1 = new Array();
     var ypost_2 = new Array();
@@ -256,7 +264,7 @@ function showLineChart(divID, data) {
         ypost_4[i] = data[i].qqcount;
     }
     plot = $.jqplot(divID, [ypost_1, ypost_2, ypost_3, ypost_4], {
-        title: 'wifi折线图', //图表表头标题
+        title: title, //图表表头标题
         seriesDefaults:{
                 
                 pointLabels: { show: true },

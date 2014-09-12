@@ -6,6 +6,8 @@
 package com.jyzn.wifi.dao.shop;
 
 
+import java.util.List;
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.hibernate4.support.HibernateDaoSupport;
@@ -90,11 +92,56 @@ public class CountValidataLogDao extends HibernateDaoSupport {
         } 
     }
     
-    public List getValidateLogByCount(int count){
+    public List getValidateLogByCount(int count, String type, int page, int pagesize){
         try {
-             Session session = getSessionFactory().getCurrentSession();
-            String sql = "";
-
+            Session session = getSessionFactory().getCurrentSession();
+            String sql = "select t.sum,to_char(t.maxdate,'yyyy-MM-dd HH:mm:ss'),to_char(t.mindate,'yyyy-MM-dd HH:mm:ss'),w.name from (select count(1) as sum,max(dt) as maxdate,min(dt) as mindate," +
+                         "wifiuser_id from validatelog where type ='" + type + "' group by wifiuser_id) t left join wifiuser w on t.wifiuser_id = w.id where t.sum = " + count
+                         +" limit " + page * pagesize + "," +  (page + 1)* pagesize;
+            List list = session.createSQLQuery(sql).list();
+            return list;
+        } catch (Exception e) {
+            return null;
+        } 
+    }
+    
+    public int getMaxValidateLogByCount(int count, String type){
+        try {
+            Session session = getSessionFactory().getCurrentSession();
+            String sql = "select count(1) from (select t.sum,t.maxdate,t.mindate,w.name from (select count(1) as sum,max(dt) as maxdate,min(dt) as mindate," +
+                         "wifiuser_id from validatelog where type ='" + type + "' group by wifiuser_id) t left join wifiuser w on t.wifiuser_id = w.id where t.sum = " + count + ")";
+            List list = session.createSQLQuery(sql).list();
+            return Integer.parseInt(list.get(0).toString());
+        } catch (Exception e) {
+            return 0;
+        }
+    }
+    /**
+     * 获取平均顾客平均来店次数及最近三十天来店次数
+     * @return 
+     */
+      public List getAvgCount(){
+        try {
+            Session session = getSessionFactory().getCurrentSession();
+            String sql = "select (select round((count(wifiuser_id) + 0.0)/(count(distinct(wifiuser_id))),2)"
+                    + " from validatelog) as avgall,(select round((count(wifiuser_id) + 0.0)/(count(distinct(wifiuser_id))),2) "
+                    + "from (select * from validatelog where dt <= getdate() and dt >= (getdate() -30))) as avg30";
+            List list = session.createSQLQuery(sql).list();
+            return list;
+        } catch (Exception e) {
+            return null;
+        } 
+    }
+      
+      public List getActiveUser(String startDate, String endDate){
+        try {
+            Session session = getSessionFactory().getCurrentSession();
+            String sql = "select case when sc = 1 then '1次回访' when sc > 1 and sc <= 3 then '2-3次回访' "
+                    + "when sc > 3 and sc <= 7 then '4-7次回访' else '8次以上回访' end,count(1),"
+                    + "round((count(1)*100 + 0.0 )/(select count(distinct(wifiuser_id)) from "
+                    + "validatelog where dt >= cast('" + startDate + "' as dateTime) and dt <= cast('" + endDate + "' as dateTime)),2) || '%'"
+                    + " as bfb from (select count(1) as sc from validatelog where dt >= cast"
+                    + "('" + startDate + "' as dateTime) and dt <= cast('" + endDate + "' as dateTime) group by wifiuser_id) group by sc ";
             List list = session.createSQLQuery(sql).list();
             return list;
         } catch (Exception e) {
