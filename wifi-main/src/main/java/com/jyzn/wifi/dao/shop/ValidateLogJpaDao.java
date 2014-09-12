@@ -5,18 +5,21 @@
  */
 package com.jyzn.wifi.dao.shop;
 
+
 import com.jyzn.wifi.entity.shop.ValidateLog;
-import com.jyzn.wifi.entity.shop.summary.WifiUserCount;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.JpaSpecificationExecutor;
 import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.Repository;
+import org.springframework.data.repository.query.Param;
 
-/**
- *
- * @author Administrator
- */
-public interface ValidateLogJpaDao extends Repository<ValidateLog, String> {
-    @Query("select new com.jyzn.wifi.entity.shop.summary.WifiUserCount(l.wifiuser,count(l),max(l.dt)) from ValidateLog as l group by l.wifiuser")
-    Page<WifiUserCount> findLastLogCountPage(Pageable pageable);
+public interface ValidateLogJpaDao extends JpaRepository<ValidateLog, String>, JpaSpecificationExecutor<ValidateLog> {
+
+    @Query("select new com.jyzn.wifi.entity.shop.summary.WifiUserCount(l.wifiuser,count(l),max(l.dt),min(l.dt)) from ValidateLog as l "
+            + " where l.sid=:sid"
+            + " group by l.wifiuser")
+    Page findWifiUserCountBySid(@Param("sid") String sid, Pageable pageable);
+
 }

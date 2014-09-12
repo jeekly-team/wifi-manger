@@ -5,11 +5,8 @@
  */
 package com.jyzn.wifi.dao.shop;
 
-import com.github.dactiv.orm.core.Page;
-import com.github.dactiv.orm.core.PageRequest;
 import com.github.dactiv.orm.core.hibernate.support.HibernateSupportDao;
 import com.jyzn.wifi.entity.shop.ValidateLog;
-import com.jyzn.wifi.entity.shop.summary.WifiUserCount;
 import java.util.Date;
 import java.util.List;
 import org.springframework.stereotype.Repository;
@@ -39,14 +36,6 @@ public class ValidateLogDao extends HibernateSupportDao<ValidateLog, String> {
         List<ValidateLog> list = createSQLQuery(sql).list();
         return list;
     }
-
-
-    public Page<WifiUserCount> getLastLogCountPage(PageRequest request) {
-        String query = "select new com.jyzn.wifi.entity.shop.summary.WifiUserCount(l.wifiuser,count(l),max(l.dt)) from ValidateLog as l group by l.wifiuser";
-        //String query = "select new com.jyzn.wifi.entity.shop.summary.WifiUserCount (select l.wifiuser,count(l),max(l.dt) from ValidateLog as l group by l.wifiuser)";
-        return this.findPage(request, query);
-    }
-    
 
     public List getLastLogCount() {
         String query = "select new Map(l.wifiuser.name as name,count(l) as count,max(l.dt) as maxdt) from ValidateLog l group by l.wifiuser";

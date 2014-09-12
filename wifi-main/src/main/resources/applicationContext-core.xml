@@ -54,12 +54,20 @@ http://www.springframework.org/schema/data/jpa http://www.springframework.org/sc
         <property name="dataSource" ref="dataSource"/>
         <property name="jpaVendorAdapter" ref="hibernateJpaVendorAdapter"/>
         <property name="packagesToScan" value="com.jyzn.wifi.entity"/>
+         <property name="jpaProperties">  
+            <props>  
+                <!-- 命名规则 My_NAME->MyName -->  
+                <prop key="hibernate.dialect">${hibernate.dialect}</prop>  
+                <prop key="hibernate.show_sql">true</prop>  
+                <prop key="hibernate.format_sql">true</prop>                     
+            </props>  
+        </property>  
     </bean>
     <bean id="hibernateJpaVendorAdapter" class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">  
         <property name="databasePlatform" value="${hibernate.dialect}"/>  
     </bean>  
     <!-- Spring Data Jpa配置 -->
-    <jpa:repositories base-package="com.jyzn.wifi"  transaction-manager-ref="jpaTransactionManager" entity-manager-factory-ref="entityManagerFactory"/>
+    <jpa:repositories base-package="com.jyzn.wifi" transaction-manager-ref="jpaTransactionManager" entity-manager-factory-ref="entityManagerFactory"/>
     <!-- Jpa 事务配置 -->
     <bean id="jpaTransactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
         <property name="entityManagerFactory" ref="entityManagerFactory"/>

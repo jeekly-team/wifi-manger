@@ -7,7 +7,6 @@ package com.jyzn.wifi.test.shop.dao;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jyzn.wifi.dao.shop.ValidateLogJpaDao;
-import com.jyzn.wifi.entity.shop.summary.WifiUserCount;
 import com.jyzn.wifi.test.manager.ManagerTestCaseSupport;
 import java.io.IOException;
 import org.junit.Test;
@@ -26,14 +25,15 @@ public class ValidateLogJpaDaoTest extends ManagerTestCaseSupport {
     @Autowired
     private ValidateLogJpaDao log;
     private final ObjectMapper om = new ObjectMapper();
-
+    
     @Test
     @Transactional("jpaTransactionManager")
     public void getLastLogCountPageTest() throws IOException {
-        Page<WifiUserCount> p = log.findLastLogCountPage(new PageRequest(0, 10));
+        Page p = log.findWifiUserCountBySid("test",new PageRequest(0, 10));
         om.writeValue(System.out, p);
         System.out.print("\n");
 
     }
+
 
 }
