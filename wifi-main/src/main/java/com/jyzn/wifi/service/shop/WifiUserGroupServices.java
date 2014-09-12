@@ -22,7 +22,7 @@ import com.jyzn.wifi.entity.shop.WifiUserGroup;
  * @author Administrator
  */
 @Service
-@Transactional
+@Transactional("transactionManager")
 public class WifiUserGroupServices {
 
     @Autowired
