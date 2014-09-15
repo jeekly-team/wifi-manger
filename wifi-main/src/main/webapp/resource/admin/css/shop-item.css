@@ -184,3 +184,14 @@ table{
 }
 */
 
+/*
+百分比进度条显示div,显示过程仅需要根据比例修改div的宽度即可。
+*/
+.bar {
+      float:left;
+      width:0px;
+      height:18px;
+      border:0px;
+      background:green;
+}
+

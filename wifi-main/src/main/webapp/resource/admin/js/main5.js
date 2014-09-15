@@ -53,11 +53,12 @@ function getActiveUser(type){
                             +"<th>所占百分比</th>"
                             + "</tr>";
                  for(i= 0; i < data.length; i++){
+                     var int_width = data[i][2].replace("%","0");
                      html = html + 
                     "<tr>"
                         +"<td>" + data[i][0] + "</td>"
                         +"<td>" + data[i][1] + "</td>"
-                        +"<td>" + data[i][2] + "</td>"
+                        +"<td> <div class= 'bar' style = 'width:" + int_width + "px'></div>" + data[i][2] + "</td>"
                     +"<tr>";
                  }
                 $("#chart").hide();

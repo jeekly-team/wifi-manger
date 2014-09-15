@@ -71,7 +71,8 @@
             </div>
             <div class="col-md-9">
                 <div class="thumbnail"> 
-                    <div class="caption-full" id="tjgk">                    
+                    <div class="caption-full" id="tjgk">      
+                        <!--
                         <p>
                             <a class="button-a" href="javascript:getWifiLogHours('today');">今日|</a> 
                             <a class="button-a" href="javascript:getWifiLogHours('yesterday');">昨天|</a> 
@@ -81,6 +82,16 @@
                             <a class="button-a" href="javascript:getWifiLogHours('beforeday');">前一天|</a>
                             <a class="button-a" href="javascript:getWifiLogHours('nextday');">后一天</a>
                         </p>
+                        -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" onclick="getWifiLogHours('today');">今日</button>
+                            <button type="button" class="btn btn-default" onclick="getWifiLogHours('yesterday');">昨天</button>
+                            <button type="button" class="btn btn-default" onclick="getWifiLogDay('lastservenday');">最近七天</button>
+                            <button type="button" class="btn btn-default" onclick="getWifiLogDay('lastssday');">最近三十天</button>
+                            <button type="button" class="btn btn-default" onclick="getWifiLogDay('month');">本月</button>
+                            <button type="button" class="btn btn-default" onclick="getWifiLogHours('beforeday');">前一天</button>
+                            <button type="button" class="btn btn-default" onclick="getWifiLogHours('nextday');">后一天</button>
+                        </div>
 						
                         <p>
                             选择日期：
