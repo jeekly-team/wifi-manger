@@ -26,7 +26,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
-
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,18 +49,23 @@ public class ShopService {
     }
 
     /*JPA Criteria动态条件查询ValidateLog 并分组/ 获取需要的字段/ 注入到WifiUserCount*/
-    public Map findWifiUserCountByFilters(List<PropertyFilter> filters, Pageable page) {
-        CriteriaBuilder criteriaBuilder = em.getCriteriaBuilder();
+    public Map findWifiUserCountByFilters(List<PropertyFilter> filters, int t ,Pageable page) {
+        CriteriaBuilder cb = em.getCriteriaBuilder();
 
         //根据条件查询
-        CriteriaQuery<WifiUserCount> query = criteriaBuilder.createQuery(WifiUserCount.class);
+        CriteriaQuery<WifiUserCount> query = cb.createQuery(WifiUserCount.class);
         Root<ValidateLog> logroot = query.from(ValidateLog.class);
         Path uid = logroot.get("wifiuser");
         Path dt = logroot.get("dt");
-        query.select(criteriaBuilder.construct(WifiUserCount.class, logroot.get("wifiuser"), criteriaBuilder.count(logroot), criteriaBuilder.max(dt), criteriaBuilder.min(dt)))
+        query.select(cb.construct(WifiUserCount.class, logroot.get("wifiuser"), cb.count(logroot), cb.max(dt), cb.min(dt)))
                 .distinct(true)
-                .where(toPredicate(filters, logroot, query, criteriaBuilder))
-                .groupBy(uid);
+                .groupBy(uid)
+                .having(cb.ge(cb.count(logroot), t));
+
+        if (filters != null && filters.size() > 0) {
+            query.where(toPredicate(filters, logroot, query, cb));
+        }
+
         //统计记录总数,jpa不支持select count(o) from (select o from o where...)下面语句造成重复查询 期待更好的解决方法
         int count = em.createQuery(query).getResultList().size();
         //返回数据

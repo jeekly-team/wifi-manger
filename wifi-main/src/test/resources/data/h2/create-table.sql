@@ -45,7 +45,7 @@ DROP TABLE validatelog IF EXISTS;
 DROP TABLE validatecodelog IF EXISTS;
 
 --建表
-create table WIFIUSERGROUP (id varchar(32) not null,name varchar(32) not null unique, primary key (id));
+create table WIFIUSERGROUP (id varchar(32) not null,name varchar(32) not null,sysuser_id varchar(32) not null, primary key (id));
 create table WIFIUSERGROUP_WIFIUSER (fk_group_id varchar(32) not null, fk_user_id varchar(32) not null);
 CREATE TABLE wifiuser (id varchar(32) not null,name varchar(64) not null unique, primary key (id));
 CREATE TABLE validatelog (id varchar(32) not null,dt timestamp,sid varchar(32) not null,type varchar(16) not null,wifiuser_id varchar(32) not null,primary key (id));

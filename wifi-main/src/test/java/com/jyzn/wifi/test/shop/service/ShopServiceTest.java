@@ -8,13 +8,22 @@ package com.jyzn.wifi.test.shop.service;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.dactiv.orm.core.PropertyFilter;
 import com.github.dactiv.orm.core.PropertyFilters;
+import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+
 import com.jyzn.wifi.entity.shop.summary.WifiUserCount;
 import com.jyzn.wifi.service.shop.ShopService;
 import com.jyzn.wifi.test.manager.ManagerTestCaseSupport;
 import java.io.IOException;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
+
 import static org.junit.Assert.assertNotEquals;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,9 +56,21 @@ public class ShopServiceTest extends ManagerTestCaseSupport {
     @Test
     public void findWifiUserCountByFiltersTest() throws IOException {
 
-        List<PropertyFilter> filters = Lists.newArrayList(PropertyFilters.get("EQS_sid", "test"));
+//        TMD，PropertyFilter.matchValue:String 什么类型的数据传过去都成了string类型
+//        ImmutableMap<String, Object> params = ImmutableMap.of(
+//                "LED_dt", (Object) StringToDate("2014-09-10", "yyyy-MM-dd"),
+//                "GED_dt", (Object) StringToDate("2014-09-10", "yyyy-MM-dd")
+//        );
+//        List<PropertyFilter> filters = Lists.newArrayList(
+//                PropertyFilters.get(params)
+//        );
+       List<PropertyFilter> filters = Lists.newArrayList(
+               PropertyFilters.get("GED_dt", "2014-07-10"),
+               PropertyFilters.get("LED_dt", "2014-09-10")
+       );
         Map log = ser.findWifiUserCountByFilters(
                 filters,
+                2,
                 ser.constructPageSpecification(1, 1)
         );
 
@@ -60,9 +81,18 @@ public class ShopServiceTest extends ManagerTestCaseSupport {
 
     @Test
     public void findWifiUserCountBySidTest() {
-        Page log = ser.findWifiUserCountBySid("test", new PageRequest(0, 5));        
+        Page log = ser.findWifiUserCountBySid("test", new PageRequest(0, 5));
         assertNotEquals(log.getSize(), 0);
-        
+
     }
 
+    private static Date StringToDate(String dateStr, String formatStr) {
+        DateFormat dd = new SimpleDateFormat(formatStr, Locale.CHINA);
+        Date date = null;
+        try {
+            date = dd.parse(dateStr);
+        } catch (ParseException e) {
+        }
+        return date;
+    }
 }

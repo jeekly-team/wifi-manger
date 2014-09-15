@@ -6,6 +6,7 @@
 package com.jyzn.wifi.entity.shop;
 
 import com.jyzn.wifi.entity.IdEntity;
+import com.jyzn.wifi.entity.account.User;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.Entity;
@@ -23,6 +24,8 @@ public class WifiUserGroup extends IdEntity {
     private String name;
     //成员
     private List<WifiUser> membersList = new ArrayList<WifiUser>();
+    // 商户
+
 
     public WifiUserGroup() {
 
