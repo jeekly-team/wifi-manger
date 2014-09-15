@@ -6,10 +6,7 @@
 package com.jyzn.wifi.test.shop.dao;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.github.dactiv.orm.core.Page;
-import com.github.dactiv.orm.core.PageRequest;
 import com.jyzn.wifi.dao.shop.ValidateLogDao;
-import com.jyzn.wifi.entity.shop.summary.WifiUserCount;
 import com.jyzn.wifi.test.manager.ManagerTestCaseSupport;
 import java.io.IOException;
 import java.util.List;
@@ -34,16 +31,6 @@ public class ValidateLogDaoTest extends ManagerTestCaseSupport {
         List list = log.getLastLogCount();
         om.writeValue(System.out, list);
         System.out.print("\n");
-    }
-
-    @Test
-    @Transactional("transactionManager")
-    public void getLastLogCountPageTest() throws IOException {
-        Page<WifiUserCount> p = log.getLastLogCountPage(new PageRequest(0, 10));
-        //List<WifiUserCount> p = log.getLastLogCountPage();
-        om.writeValue(System.out, p);
-        System.out.print("\n");
-
     }
 
 }

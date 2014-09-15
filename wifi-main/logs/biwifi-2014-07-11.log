@@ -1,0 +1,612 @@
+2014-07-11 06:46:04,117 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316] - Loading XML bean definitions from class path resource [applicationContext-core.xml]
+2014-07-11 06:46:05,411 [main] INFO  [org.springframework.context.support.GenericApplicationContext:513] - Refreshing org.springframework.context.support.GenericApplicationContext@1bc8656: startup date [Fri Jul 11 06:46:05 CST 2014]; root of context hierarchy
+2014-07-11 06:46:05,770 [main] INFO  [org.springframework.context.support.PropertySourcesPlaceholderConfigurer:172] - Loading properties file from URL [file:/F:/zythome/documents/NetBeansProjects/team/wifi-manger/wifi-main/target/test-classes/application.test.properties]
+2014-07-11 06:46:06,893 [main] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:332] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2014-07-11 06:46:06,971 [main] INFO  [org.hibernate.jpa.internal.util.LogHelper:46] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2014-07-11 06:46:07,237 [main] INFO  [org.hibernate.Version:54] - HHH000412: Hibernate Core {4.3.4.Final}
+2014-07-11 06:46:07,237 [main] INFO  [org.hibernate.cfg.Environment:239] - HHH000206: hibernate.properties not found
+2014-07-11 06:46:07,252 [main] INFO  [org.hibernate.cfg.Environment:346] - HHH000021: Bytecode provider name : javassist
+2014-07-11 06:46:07,798 [main] INFO  [org.hibernate.annotations.common.Version:66] - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2014-07-11 06:46:08,516 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 06:46:08,984 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 06:46:09,155 [main] INFO  [org.hibernate.validator.internal.util.Version:27] - HV000001: Hibernate Validator 5.1.0.Final
+2014-07-11 06:46:10,045 [main] WARN  [org.hibernate.id.UUIDHexGenerator:59] - HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2014-07-11 06:46:10,981 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 06:46:11,386 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 06:46:11,417 [main] INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator:62] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-07-11 06:46:11,417 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 06:46:11,573 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 06:46:11,979 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:136] - Initializing EhCache CacheManager
+2014-07-11 06:46:13,851 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:196] - Shutting down EhCache CacheManager
+2014-07-11 06:46:13,882 [main] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:462] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2014-07-11 06:46:13,898 [main] ERROR [org.springframework.test.context.TestContextManager:322] - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@19213d2] to prepare test instance [com.jyzn.wifi.test.shop.service.ShopServiceTest@19f59f1]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:101) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:319) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:212) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:232) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:175) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.runners.Suite.runChild(Suite.java:127) [junit-4.11.jar:na]
+	at org.junit.runners.Suite.runChild(Suite.java:26) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309) [junit-4.11.jar:na]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:160) [junit-4.11.jar:na]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:138) [junit-4.11.jar:na]
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.createRequestAndRun(JUnitCoreWrapper.java:141) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.executeEager(JUnitCoreWrapper.java:114) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:86) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.junitcore.JUnitCoreProvider.invoke(JUnitCoreProvider.java:134) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200) [surefire-booter-2.16.jar:2.16]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153) [surefire-booter-2.16.jar:2.16]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103) [surefire-booter-2.16.jar:2.16]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shopService': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.jyzn.wifi.dao.shop.ValidateLogJpaDao com.jyzn.wifi.service.shop.ShopService.jpaDao; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'validateLogJpaDao': Invocation of init method failed; nested exception is org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:292) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1185) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:700) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:760) ~[spring-context-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482) ~[spring-context-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:121) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:250) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:64) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	... 36 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.jyzn.wifi.dao.shop.ValidateLogJpaDao com.jyzn.wifi.service.shop.ShopService.jpaDao; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'validateLogJpaDao': Invocation of init method failed; nested exception is org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:508) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:289) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	... 52 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'validateLogJpaDao': Invocation of init method failed; nested exception is org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1553) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1014) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:957) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:855) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:480) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	... 54 common frames omitted
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:75) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:327) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:307) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:270) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:241) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:76) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:235) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.buildTree(PartTree.java:373) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:353) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:84) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:60) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:104) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:204) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:80) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.<init>(RepositoryFactorySupport.java:357) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:192) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.initAndReturn(RepositoryFactoryBeanSupport.java:239) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:225) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:92) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1612) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1549) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	... 64 common frames omitted
+2014-07-11 06:46:13,913 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316] - Loading XML bean definitions from class path resource [applicationContext-core.xml]
+2014-07-11 06:46:14,163 [main] INFO  [org.springframework.context.support.GenericApplicationContext:513] - Refreshing org.springframework.context.support.GenericApplicationContext@11420f9: startup date [Fri Jul 11 06:46:14 CST 2014]; root of context hierarchy
+2014-07-11 06:46:14,194 [main] INFO  [org.springframework.context.support.PropertySourcesPlaceholderConfigurer:172] - Loading properties file from URL [file:/F:/zythome/documents/NetBeansProjects/team/wifi-manger/wifi-main/target/test-classes/application.test.properties]
+2014-07-11 06:46:14,397 [main] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:332] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2014-07-11 06:46:14,397 [main] INFO  [org.hibernate.jpa.internal.util.LogHelper:46] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2014-07-11 06:46:14,444 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 06:46:14,475 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 06:46:14,631 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 06:46:14,709 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 06:46:14,740 [main] INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator:62] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-07-11 06:46:14,740 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 06:46:14,896 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 06:46:15,239 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:136] - Initializing EhCache CacheManager
+2014-07-11 06:46:15,676 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:196] - Shutting down EhCache CacheManager
+2014-07-11 06:46:15,676 [main] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:462] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2014-07-11 06:46:15,676 [main] ERROR [org.springframework.test.context.TestContextManager:322] - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@19213d2] to prepare test instance [com.jyzn.wifi.test.shop.service.ShopServiceTest@1fd496a]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:101) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:319) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:212) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:232) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:175) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.runners.Suite.runChild(Suite.java:127) [junit-4.11.jar:na]
+	at org.junit.runners.Suite.runChild(Suite.java:26) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309) [junit-4.11.jar:na]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:160) [junit-4.11.jar:na]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:138) [junit-4.11.jar:na]
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.createRequestAndRun(JUnitCoreWrapper.java:141) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.executeEager(JUnitCoreWrapper.java:114) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:86) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.junitcore.JUnitCoreProvider.invoke(JUnitCoreProvider.java:134) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200) [surefire-booter-2.16.jar:2.16]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153) [surefire-booter-2.16.jar:2.16]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103) [surefire-booter-2.16.jar:2.16]
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'shopService': Injection of autowired dependencies failed; nested exception is org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.jyzn.wifi.dao.shop.ValidateLogJpaDao com.jyzn.wifi.service.shop.ShopService.jpaDao; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'validateLogJpaDao': Invocation of init method failed; nested exception is org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:292) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.populateBean(AbstractAutowireCapableBeanFactory.java:1185) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:537) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:700) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:760) ~[spring-context-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482) ~[spring-context-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:121) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:250) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:64) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	... 36 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Could not autowire field: private com.jyzn.wifi.dao.shop.ValidateLogJpaDao com.jyzn.wifi.service.shop.ShopService.jpaDao; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'validateLogJpaDao': Invocation of init method failed; nested exception is org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:508) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.annotation.InjectionMetadata.inject(InjectionMetadata.java:87) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor.postProcessPropertyValues(AutowiredAnnotationBeanPostProcessor.java:289) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	... 52 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'validateLogJpaDao': Invocation of init method failed; nested exception is org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1553) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1014) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:957) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:855) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor$AutowiredFieldElement.inject(AutowiredAnnotationBeanPostProcessor.java:480) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	... 54 common frames omitted
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:75) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:327) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:307) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:270) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:241) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:76) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:235) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.buildTree(PartTree.java:373) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:353) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:84) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:60) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:104) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:204) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:80) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.<init>(RepositoryFactorySupport.java:357) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:192) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.initAndReturn(RepositoryFactoryBeanSupport.java:239) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:225) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:92) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1612) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1549) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	... 64 common frames omitted
+2014-07-11 06:48:35,718 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316] - Loading XML bean definitions from class path resource [applicationContext-core.xml]
+2014-07-11 06:48:36,544 [main] INFO  [org.springframework.context.support.GenericApplicationContext:513] - Refreshing org.springframework.context.support.GenericApplicationContext@1bc8656: startup date [Fri Jul 11 06:48:36 CST 2014]; root of context hierarchy
+2014-07-11 06:48:36,794 [main] INFO  [org.springframework.context.support.PropertySourcesPlaceholderConfigurer:172] - Loading properties file from URL [file:/F:/zythome/documents/NetBeansProjects/team/wifi-manger/wifi-main/target/test-classes/application.test.properties]
+2014-07-11 06:48:37,683 [main] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:332] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2014-07-11 06:48:37,730 [main] INFO  [org.hibernate.jpa.internal.util.LogHelper:46] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2014-07-11 06:48:37,933 [main] INFO  [org.hibernate.Version:54] - HHH000412: Hibernate Core {4.3.4.Final}
+2014-07-11 06:48:37,933 [main] INFO  [org.hibernate.cfg.Environment:239] - HHH000206: hibernate.properties not found
+2014-07-11 06:48:37,948 [main] INFO  [org.hibernate.cfg.Environment:346] - HHH000021: Bytecode provider name : javassist
+2014-07-11 06:48:38,323 [main] INFO  [org.hibernate.annotations.common.Version:66] - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2014-07-11 06:48:38,822 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 06:48:39,228 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 06:48:39,321 [main] INFO  [org.hibernate.validator.internal.util.Version:27] - HV000001: Hibernate Validator 5.1.0.Final
+2014-07-11 06:48:40,023 [main] WARN  [org.hibernate.id.UUIDHexGenerator:59] - HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2014-07-11 06:48:40,866 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 06:48:41,209 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 06:48:41,240 [main] INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator:62] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-07-11 06:48:41,240 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 06:48:41,380 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 06:48:41,755 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:136] - Initializing EhCache CacheManager
+2014-07-11 06:48:43,221 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:196] - Shutting down EhCache CacheManager
+2014-07-11 06:48:43,221 [main] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:462] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2014-07-11 06:48:43,237 [main] ERROR [org.springframework.test.context.TestContextManager:322] - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@caeadc] to prepare test instance [com.jyzn.wifi.test.shop.service.ShopServiceTest@1d7bb61]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:101) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:319) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:212) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:232) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:175) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.runners.Suite.runChild(Suite.java:127) [junit-4.11.jar:na]
+	at org.junit.runners.Suite.runChild(Suite.java:26) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309) [junit-4.11.jar:na]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:160) [junit-4.11.jar:na]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:138) [junit-4.11.jar:na]
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.createRequestAndRun(JUnitCoreWrapper.java:141) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.executeEager(JUnitCoreWrapper.java:114) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:86) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.junitcore.JUnitCoreProvider.invoke(JUnitCoreProvider.java:134) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200) [surefire-booter-2.16.jar:2.16]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153) [surefire-booter-2.16.jar:2.16]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103) [surefire-booter-2.16.jar:2.16]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'shopService' defined in file [F:\zythome\documents\NetBeansProjects\team\wifi-manger\wifi-main\target\classes\com\jyzn\wifi\service\shop\ShopService.class]: Unsatisfied dependency expressed through constructor argument with index 0 of type [com.jyzn.wifi.dao.shop.ValidateLogJpaDao]: : Error creating bean with name 'validateLogJpaDao': Invocation of init method failed; nested exception is org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'validateLogJpaDao': Invocation of init method failed; nested exception is org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:741) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:185) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1114) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1017) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:504) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:700) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:760) ~[spring-context-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482) ~[spring-context-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:121) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:250) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:64) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	... 36 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'validateLogJpaDao': Invocation of init method failed; nested exception is org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1553) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1014) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:957) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:855) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:805) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:733) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	... 54 common frames omitted
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:75) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:327) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:307) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:270) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:241) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:76) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:235) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.buildTree(PartTree.java:373) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:353) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:84) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:60) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:104) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:204) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:80) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.<init>(RepositoryFactorySupport.java:357) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:192) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.initAndReturn(RepositoryFactoryBeanSupport.java:239) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:225) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:92) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1612) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1549) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	... 65 common frames omitted
+2014-07-11 06:48:43,252 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316] - Loading XML bean definitions from class path resource [applicationContext-core.xml]
+2014-07-11 06:48:43,486 [main] INFO  [org.springframework.context.support.GenericApplicationContext:513] - Refreshing org.springframework.context.support.GenericApplicationContext@f397d0: startup date [Fri Jul 11 06:48:43 CST 2014]; root of context hierarchy
+2014-07-11 06:48:43,518 [main] INFO  [org.springframework.context.support.PropertySourcesPlaceholderConfigurer:172] - Loading properties file from URL [file:/F:/zythome/documents/NetBeansProjects/team/wifi-manger/wifi-main/target/test-classes/application.test.properties]
+2014-07-11 06:48:43,720 [main] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:332] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2014-07-11 06:48:43,720 [main] INFO  [org.hibernate.jpa.internal.util.LogHelper:46] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2014-07-11 06:48:43,767 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 06:48:43,798 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 06:48:43,939 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 06:48:44,017 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 06:48:44,048 [main] INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator:62] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-07-11 06:48:44,048 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 06:48:44,173 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 06:48:44,500 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:136] - Initializing EhCache CacheManager
+2014-07-11 06:48:44,937 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:196] - Shutting down EhCache CacheManager
+2014-07-11 06:48:44,937 [main] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:462] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2014-07-11 06:48:44,937 [main] ERROR [org.springframework.test.context.TestContextManager:322] - Caught exception while allowing TestExecutionListener [org.springframework.test.context.support.DependencyInjectionTestExecutionListener@caeadc] to prepare test instance [com.jyzn.wifi.test.shop.service.ShopServiceTest@3a7b84]
+java.lang.IllegalStateException: Failed to load ApplicationContext
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:99) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.DefaultTestContext.getApplicationContext(DefaultTestContext.java:101) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:109) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:75) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:319) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.createTest(SpringJUnit4ClassRunner.java:212) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner$1.runReflectiveCall(SpringJUnit4ClassRunner.java:289) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.internal.runners.model.ReflectiveCallable.run(ReflectiveCallable.java:12) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.methodBlock(SpringJUnit4ClassRunner.java:291) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:232) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.runChild(SpringJUnit4ClassRunner.java:89) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.statements.RunBeforeTestClassCallbacks.evaluate(RunBeforeTestClassCallbacks.java:61) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.junit4.statements.RunAfterTestClassCallbacks.evaluate(RunAfterTestClassCallbacks.java:71) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309) [junit-4.11.jar:na]
+	at org.springframework.test.context.junit4.SpringJUnit4ClassRunner.run(SpringJUnit4ClassRunner.java:175) [spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.junit.runners.Suite.runChild(Suite.java:127) [junit-4.11.jar:na]
+	at org.junit.runners.Suite.runChild(Suite.java:26) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$3.run(ParentRunner.java:238) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$1.schedule(ParentRunner.java:63) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.runChildren(ParentRunner.java:236) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.access$000(ParentRunner.java:53) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner$2.evaluate(ParentRunner.java:229) [junit-4.11.jar:na]
+	at org.junit.runners.ParentRunner.run(ParentRunner.java:309) [junit-4.11.jar:na]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:160) [junit-4.11.jar:na]
+	at org.junit.runner.JUnitCore.run(JUnitCore.java:138) [junit-4.11.jar:na]
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.createRequestAndRun(JUnitCoreWrapper.java:141) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.executeEager(JUnitCoreWrapper.java:114) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.junitcore.JUnitCoreWrapper.execute(JUnitCoreWrapper.java:86) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.junitcore.JUnitCoreProvider.invoke(JUnitCoreProvider.java:134) [surefire-junit47-2.16.jar:2.16]
+	at org.apache.maven.surefire.booter.ForkedBooter.invokeProviderInSameClassLoader(ForkedBooter.java:200) [surefire-booter-2.16.jar:2.16]
+	at org.apache.maven.surefire.booter.ForkedBooter.runSuitesInProcess(ForkedBooter.java:153) [surefire-booter-2.16.jar:2.16]
+	at org.apache.maven.surefire.booter.ForkedBooter.main(ForkedBooter.java:103) [surefire-booter-2.16.jar:2.16]
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'shopService' defined in file [F:\zythome\documents\NetBeansProjects\team\wifi-manger\wifi-main\target\classes\com\jyzn\wifi\service\shop\ShopService.class]: Unsatisfied dependency expressed through constructor argument with index 0 of type [com.jyzn.wifi.dao.shop.ValidateLogJpaDao]: : Error creating bean with name 'validateLogJpaDao': Invocation of init method failed; nested exception is org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!; nested exception is org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'validateLogJpaDao': Invocation of init method failed; nested exception is org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:741) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:185) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1114) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1017) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:504) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:700) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:760) ~[spring-context-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:482) ~[spring-context-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:121) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractGenericContextLoader.loadContext(AbstractGenericContextLoader.java:60) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.delegateLoading(AbstractDelegatingSmartContextLoader.java:100) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.support.AbstractDelegatingSmartContextLoader.loadContext(AbstractDelegatingSmartContextLoader.java:250) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContextInternal(CacheAwareContextLoaderDelegate.java:64) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.test.context.CacheAwareContextLoaderDelegate.loadContext(CacheAwareContextLoaderDelegate.java:91) ~[spring-test-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	... 36 common frames omitted
+Caused by: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'validateLogJpaDao': Invocation of init method failed; nested exception is org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1553) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:539) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:475) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory$1.getObject(AbstractBeanFactory.java:304) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:228) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:300) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:195) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.findAutowireCandidates(DefaultListableBeanFactory.java:1014) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:957) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:855) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:805) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:733) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	... 54 common frames omitted
+Caused by: org.springframework.data.mapping.PropertyReferenceException: No property findLastLogCountPage found for type ValidateLog!
+	at org.springframework.data.mapping.PropertyPath.<init>(PropertyPath.java:75) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:327) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.create(PropertyPath.java:307) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:270) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.mapping.PropertyPath.from(PropertyPath.java:241) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.Part.<init>(Part.java:76) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree$OrPart.<init>(PartTree.java:235) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.buildTree(PartTree.java:373) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree$Predicate.<init>(PartTree.java:353) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.query.parser.PartTree.<init>(PartTree.java:84) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.PartTreeJpaQuery.<init>(PartTreeJpaQuery.java:60) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:104) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$CreateIfNotFoundQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:204) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.query.JpaQueryLookupStrategy$AbstractQueryLookupStrategy.resolveQuery(JpaQueryLookupStrategy.java:80) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$QueryExecutorMethodInterceptor.<init>(RepositoryFactorySupport.java:357) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport.getRepository(RepositoryFactorySupport.java:192) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.initAndReturn(RepositoryFactoryBeanSupport.java:239) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.repository.core.support.RepositoryFactoryBeanSupport.afterPropertiesSet(RepositoryFactoryBeanSupport.java:225) ~[spring-data-commons-1.9.0.RELEASE.jar:na]
+	at org.springframework.data.jpa.repository.support.JpaRepositoryFactoryBean.afterPropertiesSet(JpaRepositoryFactoryBean.java:92) ~[spring-data-jpa-1.7.0.RELEASE.jar:na]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1612) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1549) ~[spring-beans-4.0.2.RELEASE.jar:4.0.2.RELEASE]
+	... 65 common frames omitted
+2014-07-11 06:51:29,471 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316] - Loading XML bean definitions from class path resource [applicationContext-core.xml]
+2014-07-11 06:51:30,313 [main] INFO  [org.springframework.context.support.GenericApplicationContext:513] - Refreshing org.springframework.context.support.GenericApplicationContext@1bc8656: startup date [Fri Jul 11 06:51:30 CST 2014]; root of context hierarchy
+2014-07-11 06:51:30,578 [main] INFO  [org.springframework.context.support.PropertySourcesPlaceholderConfigurer:172] - Loading properties file from URL [file:/F:/zythome/documents/NetBeansProjects/team/wifi-manger/wifi-main/target/test-classes/application.test.properties]
+2014-07-11 06:51:31,467 [main] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:332] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2014-07-11 06:51:31,514 [main] INFO  [org.hibernate.jpa.internal.util.LogHelper:46] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2014-07-11 06:51:31,717 [main] INFO  [org.hibernate.Version:54] - HHH000412: Hibernate Core {4.3.4.Final}
+2014-07-11 06:51:31,733 [main] INFO  [org.hibernate.cfg.Environment:239] - HHH000206: hibernate.properties not found
+2014-07-11 06:51:31,733 [main] INFO  [org.hibernate.cfg.Environment:346] - HHH000021: Bytecode provider name : javassist
+2014-07-11 06:51:32,138 [main] INFO  [org.hibernate.annotations.common.Version:66] - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2014-07-11 06:51:32,653 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 06:51:33,074 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 06:51:33,184 [main] INFO  [org.hibernate.validator.internal.util.Version:27] - HV000001: Hibernate Validator 5.1.0.Final
+2014-07-11 06:51:33,917 [main] WARN  [org.hibernate.id.UUIDHexGenerator:59] - HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2014-07-11 06:51:34,806 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 06:51:35,149 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 06:51:35,180 [main] INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator:62] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-07-11 06:51:35,180 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 06:51:35,336 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 06:51:35,711 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:136] - Initializing EhCache CacheManager
+2014-07-11 06:51:37,364 [main] INFO  [org.springframework.orm.hibernate4.HibernateTransactionManager:339] - Using DataSource [org.apache.tomcat.jdbc.pool.DataSource@171cdc{ConnectionPool[defaultAutoCommit=false; defaultReadOnly=null; defaultTransactionIsolation=-1; defaultCatalog=null; driverClassName=org.h2.Driver; maxActive=100; maxIdle=100; minIdle=10; initialSize=10; maxWait=30000; testOnBorrow=false; testOnReturn=false; timeBetweenEvictionRunsMillis=5000; numTestsPerEvictionRun=0; minEvictableIdleTimeMillis=60000; testWhileIdle=false; testOnConnect=false; password=********; url=jdbc:h2:mem:biwifi;DB_CLOSE_DELAY=-1; username=sa; validationQuery=null; validationQueryTimeout=-1; validatorClassName=null; validationInterval=30000; accessToUnderlyingConnectionAllowed=true; removeAbandoned=false; removeAbandonedTimeout=60; logAbandoned=false; connectionProperties=null; initSQL=null; jdbcInterceptors=null; jmxEnabled=true; fairQueue=true; useEquals=true; abandonWhenPercentageFull=0; maxAge=0; useLock=false; dataSource=null; dataSourceJNDI=null; suspectTimeout=0; alternateUsernameAllowed=false; commitOnReturn=false; rollbackOnReturn=false; useDisposableConnectionFacade=true; logValidationErrors=false; propagateInterruptState=false; ignoreExceptionOnPreLoad=false; }] of Hibernate SessionFactory for HibernateTransactionManager
+2014-07-11 06:51:37,427 [main] INFO  [org.springframework.jdbc.datasource.init.ResourceDatabasePopulator:162] - Executing SQL script from class path resource [data/h2/create-table.sql]
+2014-07-11 06:51:37,536 [main] INFO  [org.springframework.jdbc.datasource.init.ResourceDatabasePopulator:217] - Done executing SQL script from class path resource [data/h2/create-table.sql] in 109 ms.
+2014-07-11 06:51:37,598 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/cleanup-data.sql]
+2014-07-11 06:51:37,614 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/cleanup-data.sql] in 16 ms.
+2014-07-11 06:51:37,614 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/insert-data.sql]
+2014-07-11 06:51:37,661 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/insert-data.sql] in 47 ms.
+2014-07-11 06:52:38,454 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/cleanup-data.sql]
+2014-07-11 06:52:38,470 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/cleanup-data.sql] in 16 ms.
+2014-07-11 06:52:38,470 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/insert-data.sql]
+2014-07-11 06:52:38,501 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/insert-data.sql] in 31 ms.
+2014-07-11 06:52:38,516 [Thread-5] INFO  [org.springframework.context.support.GenericApplicationContext:873] - Closing org.springframework.context.support.GenericApplicationContext@1bc8656: startup date [Fri Jul 11 06:51:30 CST 2014]; root of context hierarchy
+2014-07-11 06:52:38,532 [Thread-5] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:196] - Shutting down EhCache CacheManager
+2014-07-11 06:52:38,548 [Thread-5] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:462] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2014-07-11 07:13:40,423 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316] - Loading XML bean definitions from class path resource [applicationContext-core.xml]
+2014-07-11 07:13:41,234 [main] INFO  [org.springframework.context.support.GenericApplicationContext:513] - Refreshing org.springframework.context.support.GenericApplicationContext@1bc8656: startup date [Fri Jul 11 07:13:41 CST 2014]; root of context hierarchy
+2014-07-11 07:13:41,499 [main] INFO  [org.springframework.context.support.PropertySourcesPlaceholderConfigurer:172] - Loading properties file from URL [file:/F:/zythome/documents/NetBeansProjects/team/wifi-manger/wifi-main/target/test-classes/application.test.properties]
+2014-07-11 07:13:42,341 [main] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:332] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2014-07-11 07:13:42,388 [main] INFO  [org.hibernate.jpa.internal.util.LogHelper:46] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2014-07-11 07:13:42,591 [main] INFO  [org.hibernate.Version:54] - HHH000412: Hibernate Core {4.3.4.Final}
+2014-07-11 07:13:42,607 [main] INFO  [org.hibernate.cfg.Environment:239] - HHH000206: hibernate.properties not found
+2014-07-11 07:13:42,607 [main] INFO  [org.hibernate.cfg.Environment:346] - HHH000021: Bytecode provider name : javassist
+2014-07-11 07:13:42,981 [main] INFO  [org.hibernate.annotations.common.Version:66] - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2014-07-11 07:13:43,496 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 07:13:43,886 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 07:13:43,995 [main] INFO  [org.hibernate.validator.internal.util.Version:27] - HV000001: Hibernate Validator 5.1.0.Final
+2014-07-11 07:13:44,681 [main] WARN  [org.hibernate.id.UUIDHexGenerator:59] - HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2014-07-11 07:13:45,571 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 07:13:45,898 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 07:13:45,945 [main] INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator:62] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-07-11 07:13:45,945 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 07:13:46,085 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 07:13:46,460 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:136] - Initializing EhCache CacheManager
+2014-07-11 07:13:48,067 [main] INFO  [org.springframework.orm.hibernate4.HibernateTransactionManager:339] - Using DataSource [org.apache.tomcat.jdbc.pool.DataSource@171cdc{ConnectionPool[defaultAutoCommit=false; defaultReadOnly=null; defaultTransactionIsolation=-1; defaultCatalog=null; driverClassName=org.h2.Driver; maxActive=100; maxIdle=100; minIdle=10; initialSize=10; maxWait=30000; testOnBorrow=false; testOnReturn=false; timeBetweenEvictionRunsMillis=5000; numTestsPerEvictionRun=0; minEvictableIdleTimeMillis=60000; testWhileIdle=false; testOnConnect=false; password=********; url=jdbc:h2:mem:biwifi;DB_CLOSE_DELAY=-1; username=sa; validationQuery=null; validationQueryTimeout=-1; validatorClassName=null; validationInterval=30000; accessToUnderlyingConnectionAllowed=true; removeAbandoned=false; removeAbandonedTimeout=60; logAbandoned=false; connectionProperties=null; initSQL=null; jdbcInterceptors=null; jmxEnabled=true; fairQueue=true; useEquals=true; abandonWhenPercentageFull=0; maxAge=0; useLock=false; dataSource=null; dataSourceJNDI=null; suspectTimeout=0; alternateUsernameAllowed=false; commitOnReturn=false; rollbackOnReturn=false; useDisposableConnectionFacade=true; logValidationErrors=false; propagateInterruptState=false; ignoreExceptionOnPreLoad=false; }] of Hibernate SessionFactory for HibernateTransactionManager
+2014-07-11 07:13:48,129 [main] INFO  [org.springframework.jdbc.datasource.init.ResourceDatabasePopulator:162] - Executing SQL script from class path resource [data/h2/create-table.sql]
+2014-07-11 07:13:48,191 [main] INFO  [org.springframework.jdbc.datasource.init.ResourceDatabasePopulator:217] - Done executing SQL script from class path resource [data/h2/create-table.sql] in 62 ms.
+2014-07-11 07:13:48,223 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/cleanup-data.sql]
+2014-07-11 07:13:48,238 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/cleanup-data.sql] in 15 ms.
+2014-07-11 07:13:48,238 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/insert-data.sql]
+2014-07-11 07:13:48,285 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/insert-data.sql] in 47 ms.
+2014-07-11 07:13:58,363 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/cleanup-data.sql]
+2014-07-11 07:13:58,378 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/cleanup-data.sql] in 15 ms.
+2014-07-11 07:13:58,378 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/insert-data.sql]
+2014-07-11 07:13:58,409 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/insert-data.sql] in 31 ms.
+2014-07-11 07:13:58,441 [Thread-5] INFO  [org.springframework.context.support.GenericApplicationContext:873] - Closing org.springframework.context.support.GenericApplicationContext@1bc8656: startup date [Fri Jul 11 07:13:41 CST 2014]; root of context hierarchy
+2014-07-11 07:13:58,441 [Thread-5] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:196] - Shutting down EhCache CacheManager
+2014-07-11 07:13:58,487 [Thread-5] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:462] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2014-07-11 07:14:59,905 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316] - Loading XML bean definitions from class path resource [applicationContext-core.xml]
+2014-07-11 07:15:00,981 [main] INFO  [org.springframework.context.support.GenericApplicationContext:513] - Refreshing org.springframework.context.support.GenericApplicationContext@1bc8656: startup date [Fri Jul 11 07:15:00 CST 2014]; root of context hierarchy
+2014-07-11 07:15:01,309 [main] INFO  [org.springframework.context.support.PropertySourcesPlaceholderConfigurer:172] - Loading properties file from URL [file:/F:/zythome/documents/NetBeansProjects/team/wifi-manger/wifi-main/target/test-classes/application.test.properties]
+2014-07-11 07:15:02,635 [main] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:332] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2014-07-11 07:15:02,682 [main] INFO  [org.hibernate.jpa.internal.util.LogHelper:46] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2014-07-11 07:15:02,916 [main] INFO  [org.hibernate.Version:54] - HHH000412: Hibernate Core {4.3.4.Final}
+2014-07-11 07:15:02,916 [main] INFO  [org.hibernate.cfg.Environment:239] - HHH000206: hibernate.properties not found
+2014-07-11 07:15:02,916 [main] INFO  [org.hibernate.cfg.Environment:346] - HHH000021: Bytecode provider name : javassist
+2014-07-11 07:15:03,352 [main] INFO  [org.hibernate.annotations.common.Version:66] - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2014-07-11 07:15:03,930 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 07:15:04,398 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 07:15:04,507 [main] INFO  [org.hibernate.validator.internal.util.Version:27] - HV000001: Hibernate Validator 5.1.0.Final
+2014-07-11 07:15:05,318 [main] WARN  [org.hibernate.id.UUIDHexGenerator:59] - HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2014-07-11 07:15:06,254 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 07:15:06,753 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 07:15:06,800 [main] INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator:62] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-07-11 07:15:06,800 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 07:15:06,987 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 07:15:07,471 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:136] - Initializing EhCache CacheManager
+2014-07-11 07:15:09,312 [main] INFO  [org.springframework.orm.hibernate4.HibernateTransactionManager:339] - Using DataSource [org.apache.tomcat.jdbc.pool.DataSource@12dd35d{ConnectionPool[defaultAutoCommit=false; defaultReadOnly=null; defaultTransactionIsolation=-1; defaultCatalog=null; driverClassName=org.h2.Driver; maxActive=100; maxIdle=100; minIdle=10; initialSize=10; maxWait=30000; testOnBorrow=false; testOnReturn=false; timeBetweenEvictionRunsMillis=5000; numTestsPerEvictionRun=0; minEvictableIdleTimeMillis=60000; testWhileIdle=false; testOnConnect=false; password=********; url=jdbc:h2:mem:biwifi;DB_CLOSE_DELAY=-1; username=sa; validationQuery=null; validationQueryTimeout=-1; validatorClassName=null; validationInterval=30000; accessToUnderlyingConnectionAllowed=true; removeAbandoned=false; removeAbandonedTimeout=60; logAbandoned=false; connectionProperties=null; initSQL=null; jdbcInterceptors=null; jmxEnabled=true; fairQueue=true; useEquals=true; abandonWhenPercentageFull=0; maxAge=0; useLock=false; dataSource=null; dataSourceJNDI=null; suspectTimeout=0; alternateUsernameAllowed=false; commitOnReturn=false; rollbackOnReturn=false; useDisposableConnectionFacade=true; logValidationErrors=false; propagateInterruptState=false; ignoreExceptionOnPreLoad=false; }] of Hibernate SessionFactory for HibernateTransactionManager
+2014-07-11 07:15:09,390 [main] INFO  [org.springframework.jdbc.datasource.init.ResourceDatabasePopulator:162] - Executing SQL script from class path resource [data/h2/create-table.sql]
+2014-07-11 07:15:09,468 [main] INFO  [org.springframework.jdbc.datasource.init.ResourceDatabasePopulator:217] - Done executing SQL script from class path resource [data/h2/create-table.sql] in 78 ms.
+2014-07-11 07:15:09,514 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/cleanup-data.sql]
+2014-07-11 07:15:09,561 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/cleanup-data.sql] in 47 ms.
+2014-07-11 07:15:09,561 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/insert-data.sql]
+2014-07-11 07:15:09,639 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/insert-data.sql] in 78 ms.
+2014-07-11 07:15:14,070 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/cleanup-data.sql]
+2014-07-11 07:15:14,085 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/cleanup-data.sql] in 15 ms.
+2014-07-11 07:15:14,085 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/insert-data.sql]
+2014-07-11 07:15:14,116 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/insert-data.sql] in 31 ms.
+2014-07-11 07:15:14,210 [Thread-5] INFO  [org.springframework.context.support.GenericApplicationContext:873] - Closing org.springframework.context.support.GenericApplicationContext@1bc8656: startup date [Fri Jul 11 07:15:00 CST 2014]; root of context hierarchy
+2014-07-11 07:15:14,226 [Thread-5] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:196] - Shutting down EhCache CacheManager
+2014-07-11 07:15:14,241 [Thread-5] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:462] - Closing JPA EntityManagerFactory for persistence unit 'default'
+2014-07-11 07:16:36,672 [main] INFO  [org.springframework.beans.factory.xml.XmlBeanDefinitionReader:316] - Loading XML bean definitions from class path resource [applicationContext-core.xml]
+2014-07-11 07:16:37,530 [main] INFO  [org.springframework.context.support.GenericApplicationContext:513] - Refreshing org.springframework.context.support.GenericApplicationContext@1bc8656: startup date [Fri Jul 11 07:16:37 CST 2014]; root of context hierarchy
+2014-07-11 07:16:37,811 [main] INFO  [org.springframework.context.support.PropertySourcesPlaceholderConfigurer:172] - Loading properties file from URL [file:/F:/zythome/documents/NetBeansProjects/team/wifi-manger/wifi-main/target/test-classes/application.test.properties]
+2014-07-11 07:16:38,684 [main] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:332] - Building JPA container EntityManagerFactory for persistence unit 'default'
+2014-07-11 07:16:38,715 [main] INFO  [org.hibernate.jpa.internal.util.LogHelper:46] - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+2014-07-11 07:16:38,934 [main] INFO  [org.hibernate.Version:54] - HHH000412: Hibernate Core {4.3.4.Final}
+2014-07-11 07:16:38,934 [main] INFO  [org.hibernate.cfg.Environment:239] - HHH000206: hibernate.properties not found
+2014-07-11 07:16:38,934 [main] INFO  [org.hibernate.cfg.Environment:346] - HHH000021: Bytecode provider name : javassist
+2014-07-11 07:16:39,355 [main] INFO  [org.hibernate.annotations.common.Version:66] - HCANN000001: Hibernate Commons Annotations {4.0.4.Final}
+2014-07-11 07:16:39,854 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 07:16:40,291 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 07:16:40,400 [main] INFO  [org.hibernate.validator.internal.util.Version:27] - HV000001: Hibernate Validator 5.1.0.Final
+2014-07-11 07:16:41,133 [main] WARN  [org.hibernate.id.UUIDHexGenerator:59] - HHH000409: Using org.hibernate.id.UUIDHexGenerator which does not generate IETF RFC 4122 compliant UUID values; consider using org.hibernate.id.UUIDGenerator instead
+2014-07-11 07:16:42,007 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 07:16:42,335 [main] INFO  [org.hibernate.dialect.Dialect:145] - HHH000400: Using dialect: org.hibernate.dialect.H2Dialect
+2014-07-11 07:16:42,381 [main] INFO  [org.hibernate.engine.transaction.internal.TransactionFactoryInitiator:62] - HHH000399: Using default transaction strategy (direct JDBC transactions)
+2014-07-11 07:16:42,381 [main] INFO  [org.hibernate.hql.internal.ast.ASTQueryTranslatorFactory:47] - HHH000397: Using ASTQueryTranslatorFactory
+2014-07-11 07:16:42,522 [main] WARN  [org.hibernate.hql.internal.ast.HqlSqlWalker:995] - [DEPRECATION] Encountered positional parameter near line 1, column 90.  Positional parameter are considered deprecated; use named parameters or JPA-style positional parameters instead.
+2014-07-11 07:16:42,896 [main] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:136] - Initializing EhCache CacheManager
+2014-07-11 07:16:44,534 [main] INFO  [org.springframework.orm.hibernate4.HibernateTransactionManager:339] - Using DataSource [org.apache.tomcat.jdbc.pool.DataSource@11774d6{ConnectionPool[defaultAutoCommit=false; defaultReadOnly=null; defaultTransactionIsolation=-1; defaultCatalog=null; driverClassName=org.h2.Driver; maxActive=100; maxIdle=100; minIdle=10; initialSize=10; maxWait=30000; testOnBorrow=false; testOnReturn=false; timeBetweenEvictionRunsMillis=5000; numTestsPerEvictionRun=0; minEvictableIdleTimeMillis=60000; testWhileIdle=false; testOnConnect=false; password=********; url=jdbc:h2:mem:biwifi;DB_CLOSE_DELAY=-1; username=sa; validationQuery=null; validationQueryTimeout=-1; validatorClassName=null; validationInterval=30000; accessToUnderlyingConnectionAllowed=true; removeAbandoned=false; removeAbandonedTimeout=60; logAbandoned=false; connectionProperties=null; initSQL=null; jdbcInterceptors=null; jmxEnabled=true; fairQueue=true; useEquals=true; abandonWhenPercentageFull=0; maxAge=0; useLock=false; dataSource=null; dataSourceJNDI=null; suspectTimeout=0; alternateUsernameAllowed=false; commitOnReturn=false; rollbackOnReturn=false; useDisposableConnectionFacade=true; logValidationErrors=false; propagateInterruptState=false; ignoreExceptionOnPreLoad=false; }] of Hibernate SessionFactory for HibernateTransactionManager
+2014-07-11 07:16:44,597 [main] INFO  [org.springframework.jdbc.datasource.init.ResourceDatabasePopulator:162] - Executing SQL script from class path resource [data/h2/create-table.sql]
+2014-07-11 07:16:44,659 [main] INFO  [org.springframework.jdbc.datasource.init.ResourceDatabasePopulator:217] - Done executing SQL script from class path resource [data/h2/create-table.sql] in 62 ms.
+2014-07-11 07:16:44,706 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/cleanup-data.sql]
+2014-07-11 07:16:44,706 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/cleanup-data.sql] in 0 ms.
+2014-07-11 07:16:44,706 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/insert-data.sql]
+2014-07-11 07:16:44,768 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/insert-data.sql] in 62 ms.
+2014-07-11 07:16:47,186 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/cleanup-data.sql]
+2014-07-11 07:16:47,202 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/cleanup-data.sql] in 16 ms.
+2014-07-11 07:16:47,202 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:213] - Executing SQL script from class path resource [data/h2/insert-data.sql]
+2014-07-11 07:16:47,233 [main] INFO  [org.springframework.test.jdbc.JdbcTestUtils:249] - Executed SQL script from class path resource [data/h2/insert-data.sql] in 31 ms.
+2014-07-11 07:16:47,280 [Thread-5] INFO  [org.springframework.context.support.GenericApplicationContext:873] - Closing org.springframework.context.support.GenericApplicationContext@1bc8656: startup date [Fri Jul 11 07:16:37 CST 2014]; root of context hierarchy
+2014-07-11 07:16:47,311 [Thread-5] INFO  [org.springframework.cache.ehcache.EhCacheManagerFactoryBean:196] - Shutting down EhCache CacheManager
+2014-07-11 07:16:47,358 [Thread-5] INFO  [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean:462] - Closing JPA EntityManagerFactory for persistence unit 'default'

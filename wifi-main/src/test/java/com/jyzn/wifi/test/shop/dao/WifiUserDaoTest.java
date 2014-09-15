@@ -5,7 +5,6 @@
  */
 package com.jyzn.wifi.test.shop.dao;
 
-import com.jyzn.wifi.dao.shop.CountValidataLogDao;
 import com.jyzn.wifi.dao.shop.WifiUserDao;
 import com.jyzn.wifi.entity.shop.WifiUser;
 import com.jyzn.wifi.test.manager.ManagerTestCaseSupport;
@@ -22,26 +21,12 @@ public class WifiUserDaoTest extends ManagerTestCaseSupport {
 
     @Autowired
     private WifiUserDao wifiUserDao;
-    @Autowired 
-    private CountValidataLogDao countValidateLogDao; 
 
     @Test
     @Transactional("transactionManager")
     public void getAllUser() {
-//        List list = countValidateLogDao.getValidateLogByCount(1, "wx", 0, 5);
-//        int s = countValidateLogDao.getMaxValidateLogByCount(1, "wx");
-//        System.out.print(list);
-    }
-    
-    @Test
-    @Transactional("transactionManager")
-    public void getAVGCount(){
-        List list = countValidateLogDao.getAvgCount();
+        List<WifiUser> list = wifiUserDao.getAllUser();
+        System.out.print(list);
     }
 
-    @Test
-    @Transactional("transactionManager")
-    public void getActiveUser(){
-        List list = countValidateLogDao.getActiveUser("2014-09-01 00:00:00", "2014-09-11 00:00:00");
-    }
 }

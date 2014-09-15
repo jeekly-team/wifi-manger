@@ -7,6 +7,7 @@
 body {
     padding-top: 70px; /* Required padding for .navbar-fixed-top. Remove if using .navbar-static-top. Change if height of navigation changes. */
 	background: #F2F2F2;
+   
 }
 
 .thumbnail img {
@@ -129,7 +130,7 @@ footer {
 }
 .red-start{
 	color:red;
-	font-size:16;
+	font-size:16px;
 }
 
 .img-shop{
@@ -140,49 +141,10 @@ footer {
 	background:url(shop-image/nopic.gif)
 }
 
-td {
-    text-align:center;
-    border:1px solid #cad9ea;
-    color: #A52A2A;
-}
 
-th {
-    text-align:center;
-    border:2px solid #cad9ea;
-}
 
-table{
-     border:3px solid #cad9ea;
-     color:#666; 
-}
 
-.button-table {
-    font-size: 17px;
-    margin-left: 5px;
-}
-a {
-  cursor:pointer;
-}
-/*
-table{
-    color:#FF9933;
-    width:100%;
-    padding: 8px;
-    border-top:1px solid #FF0000;
-    border-left:1px dashed #FFFFFF;
-    border-right:1px dashed #FFFFFF;
-    border-bottom:1px dashed #FFFFFF;
-    border-width: 8px;
-    border-color: #666666;
-    border-collapse: collapse;
-    font-family: verdana,arial,sans-serif;
-}
-*/
-/*
-.box-left{
 
-}
-*/
 
 /*
 百分比进度条显示div,显示过程仅需要根据比例修改div的宽度即可。

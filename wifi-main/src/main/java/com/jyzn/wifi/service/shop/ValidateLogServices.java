@@ -12,7 +12,6 @@ import com.jyzn.wifi.dao.shop.CountValidataLogDao;
 import com.jyzn.wifi.dao.shop.ValidateLogDao;
 import com.jyzn.wifi.entity.shop.ValidateLog;
 import java.util.List;
-import org.hibernate.SQLQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

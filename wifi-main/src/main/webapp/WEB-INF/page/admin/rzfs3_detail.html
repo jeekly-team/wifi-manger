@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<#include "*/admin/basePath.html"/>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>极源WIFI</title>
+
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <#include "top.html" />
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+
+            <#include "left.html" />
+		
+			<div class="col-md-9">
+				<div class="thumbnail">
+					<div class="caption-full" style="background: #C0C0C0;">
+						<span class="button-s" style="color: #fff;">
+							<#if Request.userGroup?exists>修改信息
+							<#else>添加信息
+							</#if>
+						</span>
+					</div>  
+				</div>
+			</div>
+            <div class="col-md-9">
+
+                <div class="thumbnail">  
+					<div class="caption-full" id="yggl">
+					<#if Request.userGroup?exists>
+					<form action="${base}/customer/group/update" method="post" id="form">
+							<span class="button-s">会员分类：</span> 
+							<input type="text" name="name" value="${Request.userGroup.name}">
+							<input type="hidden" name="id" value="${Request.userGroup.id}">
+							<a class="btn btn-comit" href="javaScript: $('#form').submit();">保存</a>
+					</form>						
+					<#else>
+					<form action="${base}/customer/group/save" method="post" id="form">
+							<span class="button-s">会员分类：</span> 
+							<input type="text" name="name" value="">
+							<a class="btn btn-comit" href="javaScript: $('#form').submit();">保存</a>
+					</form>											
+					</#if>
+					
+
+                    </div>
+				
+                    <div class="ratings">
+                        
+                    </div>
+                </div>
+			
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+     <#include "foot.html" />
+    <!-- /.container -->
+	
+
+</body>
+</html>
