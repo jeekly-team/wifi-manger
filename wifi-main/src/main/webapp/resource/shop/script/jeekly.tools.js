@@ -242,18 +242,17 @@
                     'showtime': 0,
                     'showbg': 0,
                     'msg': '',
-                    "parent": "body",
                     'init_callback': {}
                 }, options || {});
                 //实例化init
-                settings.init_callback = $.jeekly.boxmethods.init(settings.parent);
+                settings.init_callback = $.jeekly.boxmethods.init('body');
                 //显示影藏的BOX
                 el.box.show();
                 //显示遮罩
                 if (settings.showbg) {
                     //get body dom
-                    var w = $(settings.parent==='body'?document:settings.parent);
-                    el.fullbg.css({'height': w.height(), 'width': w.width(), 'display': 'block'}).appendTo(settings.parent);
+                    var w = $(document);
+                    el.fullbg.css({'height': w.height(), 'width': w.width(), 'display': 'block'}).appendTo('body');
                 }
                 //插入时间DIV 每隔一段时机重写timer的内容
                 if (settings.showtime > 0) {
