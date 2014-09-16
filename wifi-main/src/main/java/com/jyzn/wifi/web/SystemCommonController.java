@@ -86,7 +86,7 @@ public class SystemCommonController {
 //        }else{
 //            return "page/admin/index";
 //        }
-         return "admin/index";
+         return "shop/index";
     }
 	
 	/**

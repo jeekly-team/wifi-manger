@@ -210,7 +210,7 @@
              * @param {type} options
              * @returns {undefined}
              */
-            init: function() {
+            init: function(parent) {
                 var el = $.jeekly.boxmethods.el, box;
                 var initdata;
                 //判断页面存在$('._box_')否 不存在则插入BOX对象
@@ -222,7 +222,7 @@
                             .append(el.closeui.append(el.closebtn))
                             .append("<hr style='clear:both;top:20px'>")
                             .append(el.msg);
-                    box.appendTo('body');
+                    box.appendTo(parent);
                     initdata = box;
                 }
                 //绑定事件
@@ -238,25 +238,22 @@
              */
             show: function(options) {
                 var el = $.jeekly.boxmethods.el;
-                var settings = {
+                var settings = $.extend({
                     'showtime': 0,
                     'showbg': 0,
                     'msg': '',
+                    "parent": "body",
                     'init_callback': {}
-                };
-                // 传参 如果存在选项则合并之
-                if (options) {
-                    $.extend(settings, options);
-                }
+                }, options || {});
                 //实例化init
-                settings.init_callback = $.jeekly.boxmethods.init();
+                settings.init_callback = $.jeekly.boxmethods.init(settings.parent);
                 //显示影藏的BOX
                 el.box.show();
                 //显示遮罩
                 if (settings.showbg) {
                     //get body dom
-                    var w = $(document);
-                    el.fullbg.css({'height': w.height(), 'width': w.width(), 'display': 'block'}).appendTo('body');
+                    var w = $(settings.parent==='body'?document:settings.parent);
+                    el.fullbg.css({'height': w.height(), 'width': w.width(), 'display': 'block'}).appendTo(settings.parent);
                 }
                 //插入时间DIV 每隔一段时机重写timer的内容
                 if (settings.showtime > 0) {

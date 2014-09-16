@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<#include "*/admin/basePath.html"/>
+<#include "*/shop/basePath.html"/>
 <html lang="en">
 <head>
     <meta charset="utf-8">
@@ -7,6 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
+ 
+    <script language="javascript" type="text/javascript" src="${base}/resource/admin/js/main1.js"></script>
+    <script language="javascript" type="text/javascript" src="${base}/resource/admin/js/main2.js"></script>
+    <script language="javascript" type="text/javascript" src="${base}/resource/admin/js/main3.js"></script>
+    <script language="javascript" type="text/javascript" src="${base}/resource/admin/js/main4.js"></script>
+    <script language="javascript" type="text/javascript" src="${base}/resource/admin/js/main5.js"></script>
+    <script language="javascript" type="text/javascript" src="${base}/resource/admin/js/main4page.js"></script>
+    <!--分页插件引入-->
+    <link href="${base}/resource/admin/paging/pagination.css" rel="stylesheet" type="text/css">
+    <script type="text/javascript" src="${base}/resource/admin/paging/jquery.pagination.js"></script>
+    <script type="text/javascript" src="${base}/resource/admin/paging/members.js"></script>
     <title>极源WIFI</title>
 </head>
 <body>
@@ -60,7 +71,8 @@
             </div>
             <div class="col-md-9">
                 <div class="thumbnail"> 
-                    <div class="caption-full" id="tjgk">                    
+                    <div class="caption-full" id="tjgk">      
+                        <!--
                         <p>
                             <a class="button-a" href="javascript:getWifiLogHours('today');">今日|</a> 
                             <a class="button-a" href="javascript:getWifiLogHours('yesterday');">昨天|</a> 
@@ -70,28 +82,38 @@
                             <a class="button-a" href="javascript:getWifiLogHours('beforeday');">前一天|</a>
                             <a class="button-a" href="javascript:getWifiLogHours('nextday');">后一天</a>
                         </p>
+                        -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-default" onclick="getWifiLogHours('today');">今日</button>
+                            <button type="button" class="btn btn-default" onclick="getWifiLogHours('yesterday');">昨天</button>
+                            <button type="button" class="btn btn-default" onclick="getWifiLogDay('lastservenday');">最近七天</button>
+                            <button type="button" class="btn btn-default" onclick="getWifiLogDay('lastssday');">最近三十天</button>
+                            <button type="button" class="btn btn-default" onclick="getWifiLogDay('month');">本月</button>
+                            <button type="button" class="btn btn-default" onclick="getWifiLogHours('beforeday');">前一天</button>
+                            <button type="button" class="btn btn-default" onclick="getWifiLogHours('nextday');">后一天</button>
+                        </div>
 						
                         <p>
                             选择日期：
+                            
                             <input id="inputDateStart" readonly="readonly" class="dateshow"/>
                             --
                             <input id="inputDateEnd" readonly="readonly" class="dateshow"/>
+                            
+                            <!--
+                            <div class="input-group">
+                                <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i></span>
+                                <input type="text" name="dt" class="form-control" id="inputDateStart" placeholder="请选择日期">
+                                 
+                                <input type="text" name="dt" class="form-control" id="inputDateEnd" placeholder="请选择日期" >
+                            </div>
+                           -->
+                            
                             <span class="span-select">
                                   <button class="btn-success" onclick="getWifiLogCC();"> 查询</button>
                             <span>
                         </p>
-                        <p>	
-                            <!--
-                            登录方式：
-                            <select name="selectType" class="select" id="selectAge">
-                                    <option value="0">全部用户</option> 
-                                    <option value="1">QQ登录</option>   
-                                    <option value="2">微博登录</option>   
-                                    <option value="3">手机登录</option>  
-                            </select>
-                            -->
-                            
-                        </p>
+                        <p></p>
                     </div>
 					
                     <div class="caption-full" id="klfx" style="display:none">
@@ -117,15 +139,9 @@
                         <p>	
                         </p>
 
-                    </div>
-					
-					
-                    <div class="caption-full" id="xlfk" style="display:none">
-                        
-                        <p>
-                            
-                        </p>
-						
+                    </div>		
+                    <div class="caption-full" id="xlfk" style="display:none">          
+                        <p> </p>			
                         <p>
                             选择日期：
                             <input id="inputDateStart_2" readonly="readonly" class="dateshow"/>
@@ -137,12 +153,6 @@
                         </p>
                         
                         <div class="ratings" id="custonnum_ss">
-                        <!--
-                                <p>全部客流累计人数:</p>
-                                <p>手机客流累计人数:</p>
-                                <p>微博客流累计人数:</p>
-                                <p>QQ客流累计人数:</p>
-                        -->
                         </div>	
                         <p>	
                         </p>
@@ -153,34 +163,31 @@
                         
                         <p>
                             <a class="button-a" href="javascript:centumByType('wx')">手机会员|</a> 
-                            <a class="button-a" href="#">QQ会员|</a> 
-                            <a class="button-a" href="#">微博会员</a> 
-                        </p>
-						
+                            <a class="button-a" href="javascript:centumByType('qq')">QQ会员|</a> 
+                            <a class="button-a" href="javascript:centumByType('wb')">微博会员</a> 
+                        </p>			
                         <p>
-                            <!--
-                            时&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;间：
-                            <input id="inputDateStart" readonly="readonly" class="dateshow"/>
-                            --
-                            <input id="inputDateEnd" readonly="readonly" class="dateshow"/>
-                            -->
+                            
                         </p>						
                     </div>
 					
                     <div class="caption-full" id="hyd" style="display:none">
-
                         <p>
-                            <a class="button-a" href="#">手机会员|</a> 
-                            <a class="button-a" href="#">QQ会员|</a> 
-                            <a class="button-a" href="#">微博会员</a> 
+                            <a class="button-a" href="javascript:getActiveUser('lasttD')">最近三十天</a> ||
+                            <a class="button-a" href="javascript:getActiveUser('currentM')">本月</a> ||
+                            <a class="button-a" href="javascript:getActiveUser('lastM')">上一月</a> ||
+                            <a class="button-a" href="javascript:getActiveUser('nextM')">下一月</a> 
+                            <div class="ratings" id="custonnum_jy">
+                            </div>
                         </p>
                         <p>
-                            <!--
                             选择日期：
-                            <input id="inputDateStart" readonly="readonly" class="dateshow"/>
+                            <input id="inputDateStart_3" readonly="readonly" class="dateshow"/>
                             --
-                            <input id="inputDateEnd" readonly="readonly" class="dateshow"/>
-                            -->
+                            <input id="inputDateEnd_3" readonly="readonly" class="dateshow"/>
+                            <span class="span-select">
+                                <button class="btn-success" onclick="getActiveUser('inp');"> 查询</button>
+                            <span>
                         </p>						
                     </div>
                     <div class="ratings">                      
@@ -195,7 +202,6 @@
                     <div class="caption-full" id="chart1">
                         
                     </div>
-                    <!-- <div id="chart" style="margin-top:20px; margin-left:20px; width:800px; height:300px;"></div> -->
                 </div>
 
                 <div class="well">
@@ -210,11 +216,8 @@
                         <div class="col-md-12" id="bbbox">
                             
                         </div>
-                        
                     </div>
-                    <div id="Pagination" class="pagination">
-                            
-                    </div>
+
                     <hr>
                 </div>
             </div>
