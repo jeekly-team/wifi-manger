@@ -111,8 +111,10 @@ public class CountValidataLogDao extends HibernateDaoSupport {
     public int getMaxValidateLogByCount(int count, String type, String sid){
         try {
             Session session = getSessionFactory().getCurrentSession();
-            String sql = "select count(1) from (select t.sum,t.maxdate,t.mindate,w.name from (select count(1) as sum,max(dt) as maxdate,min(dt) as mindate," +
-                         "wifiuser_id from validatelog where sid = '" + sid + "' and type ='" + type + "' group by wifiuser_id) t left join wifiuser w on t.wifiuser_id = w.id where t.sum = " + count + ")";
+            String sql = "select count(1) from (select t.sum,t.maxdate,t.mindate,w.name from (select count(1) as sum,max(dt) as maxdate,min(dt) as mindate," 
+                        +"wifiuser_id from validatelog where sid = '" + sid + "' and type ='" + type + "' group by wifiuser_id) t left join wifiuser w on "
+                        //如果大于5次则为大于等于5次的纪录明细
+                        + "t.wifiuser_id = w.id where t.sum " + ((count >=5) ? ">=":"=") + count + ")";
             List list = session.createSQLQuery(sql).list();
             return Integer.parseInt(list.get(0).toString());
         } catch (Exception e) {

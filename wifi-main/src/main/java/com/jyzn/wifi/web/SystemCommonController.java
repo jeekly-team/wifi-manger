@@ -80,13 +80,6 @@ public class SystemCommonController {
     @RequestMapping("/index")
     public String index(HttpServletRequest request){
         User user = SystemVariableUtils.getSessionVariable().getUser();
-       // List<Group>list = user.getGroupsList();
-        //通过用户所属于用户组跳转到不同页面，一个用户
-//        if(list.get(0).getType().equals("3")){
-//            return "index";
-//        }else{
-//            return "page/admin/index";
-//        }
         String userName = user.getUsername();
         request.setAttribute("username", userName);
          return "shop/index";

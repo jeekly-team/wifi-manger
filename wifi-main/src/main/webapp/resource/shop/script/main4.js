@@ -28,7 +28,7 @@ function centumByType(type){
                         +"<td>" + json[i][0] + "</td>"
                         +"<td>" + json[i][1] + "</td>"
                         +"<td><div class= 'bar' style = 'width:" + int_width + "px'></div>" + json[i][2] + "</td>"
-                        +"<td><p><a class='button-table' href='javascript:setPageOption(\""+ type +"\",\"1\");'>明细</a></p></td>"
+                        +"<td><p><a class='button-table' href='javascript:setPageOption(\""+ type +"\",\"" + json[i][1] + "\");'>明细</a></p></td>"
                     +"<tr>";
                  }
                 $("#chart").hide();

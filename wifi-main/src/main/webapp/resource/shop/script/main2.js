@@ -304,7 +304,7 @@ function showLineChart(divID, data, title) {
         highlighter: {
             showMarker:true,
             show:true,    
-            tooltipAxes: 'y',
+            tooltipAxes: 'both',
             useAxesFormatters: true,
             formatString:'<table> \
                 <tr><td>数量:</td><td>%d</td></tr> \
