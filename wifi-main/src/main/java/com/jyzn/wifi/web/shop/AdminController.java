@@ -7,6 +7,7 @@
 package com.jyzn.wifi.web.shop;
 
 
+import com.jyzn.wifi.common.SystemVariableUtils;
 import com.jyzn.wifi.entity.shop.ValidateLog;
 import com.jyzn.wifi.entity.shop.WifiUser;
 import com.jyzn.wifi.service.shop.ValidateLogServices;
@@ -61,9 +62,10 @@ public class AdminController {
     @ResponseBody
     public List<ValidateLog> getLogByDate(HttpServletRequest request, HttpServletResponse response){
         try {
+            String sid =  SystemVariableUtils.getSessionVariable().getUser().getId();
             String startDate_str = (String) request.getParameter("startDate") + " 00:00:00";
             String endDate_str = (String) request.getParameter("endDate") + " 23:59:59";
-            return validateLogServices.getValidateLogByDate(startDate_str, endDate_str);
+            return validateLogServices.getValidateLogByDate(startDate_str, endDate_str, sid);
         } catch (Exception e) {
             logger.error(e.getMessage());
             return null;
@@ -73,59 +75,67 @@ public class AdminController {
     @RequestMapping("countLog")
     @ResponseBody
     public List<ValidateLog> getCountLog(HttpServletRequest request, HttpServletResponse response){
-        return validateLogServices.countLog();
+        String sid =  SystemVariableUtils.getSessionVariable().getUser().getId();
+        return validateLogServices.countLog(sid);
     }
     
     @RequestMapping("countLogUser")
     @ResponseBody
     public List getCountLogUser(HttpServletRequest request, HttpServletResponse response){
+        String sid =  SystemVariableUtils.getSessionVariable().getUser().getId();
         String startDate_str = (String) request.getParameter("startDate") + " 00:00:00";
         String endDate_str = (String) request.getParameter("endDate") + " 23:59:59";
-        return validateLogServices.getCountLog(startDate_str,endDate_str);
+        return validateLogServices.getCountLog(startDate_str,endDate_str,sid);
     }
     
     @RequestMapping("countAllUser")
     @ResponseBody
     public List getCountAllUser(HttpServletRequest request, HttpServletResponse response){
-        return validateLogServices.getCountAllUserLog();
+        String sid =  SystemVariableUtils.getSessionVariable().getUser().getId();
+        return validateLogServices.getCountAllUserLog(sid);
     }
     
     @RequestMapping("centumByType")
     @ResponseBody
     public List getCentumByType(HttpServletRequest request, HttpServletResponse response){
+        String sid =  SystemVariableUtils.getSessionVariable().getUser().getId();
         String type = (String) request.getParameter("type");
-        return validateLogServices.getCentumByType(type);
+        return validateLogServices.getCentumByType(type, sid);
     }
     
     @RequestMapping("validateLogByCount")
     @ResponseBody
     public List getValidateLogByCount(HttpServletRequest request, HttpServletResponse response){
+        String sid =  SystemVariableUtils.getSessionVariable().getUser().getId();
         int count =  Integer.parseInt(request.getParameter("count"));
         String type = (String) request.getParameter("type");
         int page = Integer.parseInt(request.getParameter("page"));
         int pagesize = Integer.parseInt(request.getParameter("pagesize"));
-        return validateLogServices.getValidateLogByCount(count, type, page, pagesize);
+        return validateLogServices.getValidateLogByCount(count, type, page, pagesize, sid);
     }
     
     @RequestMapping("validateLogByCountSize")
     @ResponseBody
     public int getValidateLogByCountSize(HttpServletRequest request, HttpServletResponse response){
+        String sid =  SystemVariableUtils.getSessionVariable().getUser().getId();
         int count =  Integer.parseInt(request.getParameter("count"));
         String type = (String) request.getParameter("type");
-        return validateLogServices.getMaxValidateLogByCount(count, type);
+        return validateLogServices.getMaxValidateLogByCount(count, type, sid);
     }
     
     @RequestMapping("loadAVGCount")
     @ResponseBody
     public List getAvgCount(){
-        return validateLogServices.getAvgCount();
+        String sid =  SystemVariableUtils.getSessionVariable().getUser().getId();
+        return validateLogServices.getAvgCount(sid);
     }
     
     @RequestMapping("getActiveUser")
     @ResponseBody
     public List getActiveUser(HttpServletRequest request, HttpServletResponse response){
+        String sid =  SystemVariableUtils.getSessionVariable().getUser().getId();
         String startDate_str = (String) request.getParameter("startDate") + " 00:00:00";
         String endDate_str = (String) request.getParameter("endDate") + " 23:59:59";
-        return validateLogServices.getActiveUser(startDate_str, endDate_str);
+        return validateLogServices.getActiveUser(startDate_str, endDate_str, sid);
     }
 }

@@ -74,10 +74,11 @@ public class SystemCommonController {
 
     /**
      * 默认进入首页的C
+     * @param request
      * @return 
      */
     @RequestMapping("/index")
-    public String index(){
+    public String index(HttpServletRequest request){
         User user = SystemVariableUtils.getSessionVariable().getUser();
        // List<Group>list = user.getGroupsList();
         //通过用户所属于用户组跳转到不同页面，一个用户
@@ -86,7 +87,9 @@ public class SystemCommonController {
 //        }else{
 //            return "page/admin/index";
 //        }
-         return "admin/index";
+        String userName = user.getUsername();
+        request.setAttribute("username", userName);
+         return "shop/index";
     }
 	
 	/**

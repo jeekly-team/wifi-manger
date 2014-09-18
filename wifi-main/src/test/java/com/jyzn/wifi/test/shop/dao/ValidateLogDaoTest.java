@@ -28,9 +28,8 @@ public class ValidateLogDaoTest extends ManagerTestCaseSupport {
     @Test
     @Transactional("transactionManager")
     public void getLastLogCountList() throws IOException {
-        List list = log.getLastLogCount();
-        om.writeValue(System.out, list);
-        System.out.print("\n");
+
+
     }
 
 }
