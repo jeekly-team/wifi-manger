@@ -213,5 +213,4 @@ function validateDate(obj){
     }else{
          return true;
     }
-    
 }
