@@ -79,11 +79,7 @@ public class ShopService {
                 "PageContent", resultList);
     }
 
-    /*构造分页参数*/
-    public Pageable constructPageSpecification(int pageIndex, int pageSize) {
-        Pageable pageSpecification = new PageRequest(pageIndex, pageSize);
-        return pageSpecification;
-    }
+
 
     /*构建查询条件*/
     private Predicate toPredicate(List<PropertyFilter> filters, Root root, CriteriaQuery query, CriteriaBuilder builder) {

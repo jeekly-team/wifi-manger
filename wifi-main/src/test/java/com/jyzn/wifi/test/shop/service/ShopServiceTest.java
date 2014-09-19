@@ -56,22 +56,14 @@ public class ShopServiceTest extends ManagerTestCaseSupport {
     @Test
     public void findWifiUserCountByFiltersTest() throws IOException {
 
-//        TMD，PropertyFilter.matchValue:String 什么类型的数据传过去都成了string类型
-//        ImmutableMap<String, Object> params = ImmutableMap.of(
-//                "LED_dt", (Object) StringToDate("2014-09-10", "yyyy-MM-dd"),
-//                "GED_dt", (Object) StringToDate("2014-09-10", "yyyy-MM-dd")
-//        );
-//        List<PropertyFilter> filters = Lists.newArrayList(
-//                PropertyFilters.get(params)
-//        );
        List<PropertyFilter> filters = Lists.newArrayList(
-               PropertyFilters.get("GED_dt", "2014-07-10"),
+               PropertyFilters.get("GED_dt", "2014-07-01"),
                PropertyFilters.get("LED_dt", "2014-09-10")
        );
         Map log = ser.findWifiUserCountByFilters(
                 filters,
                 2,
-                ser.constructPageSpecification(1, 1)
+                new PageRequest(1, 1)
         );
 
         System.out.print("\n log: \n");
