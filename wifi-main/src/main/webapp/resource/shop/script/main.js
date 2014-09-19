@@ -41,9 +41,6 @@ $(document).ready(function() {
         }
     });
     */
-
-
-
     scanTime();
 });
 
@@ -87,9 +84,6 @@ function showbox(str) {
         $("#box").append(html);
         $("#box").show();
     }
-
-
-
 }
 
 function getAllUser() {
