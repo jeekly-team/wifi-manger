@@ -43,7 +43,7 @@ public class JdbcAuthenticationRealm extends AuthorizationRealm{
         if (user.getState().equals(State.Disable.getValue())) {
         	 throw new DisabledAccountException("你的账户已被禁用,请联系管理员开通.");
         }
-        
+        //登陆请求时初始化
         SessionVariable model = new SessionVariable(user);
         
         return new SimpleAuthenticationInfo(model,user.getPassword(),getName());

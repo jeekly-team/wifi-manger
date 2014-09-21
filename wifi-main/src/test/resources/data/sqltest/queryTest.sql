@@ -7,6 +7,8 @@ select c_customer,count(c_customer) as  c_customercount
 from t_table
 where c_date>=开始日期 and c_date<=结束日期 group by c_customer
 */
+select gr.* from tb_group gr left join tb_group_user gu on gu.fk_group_id=gr.id where gu.fk_user_id='SJDK3849CKMS3849DJCK2039ZMSK0001'
+
 select * from wifiuser
 /*
 如果只是比较varchar类型的时间值与日期类型的值比较
@@ -22,7 +24,7 @@ select cast('2014-7-1' as datetime) from dual
 select c.*,wgp.name ,wu.name from wifiusergroup_wifiuser c 
 left join wifiusergroup wgp on wgp.ID=c.FK_GROUP_ID
 left join wifiuser wu on wu.ID=c.FK_USER_ID
-where c.FK_GROUP_ID = '402881e437d47b250137d481b6920003'
+where c.FK_GROUP_ID = '402881e437d47b250137d481b6920001'
 
 select * from wifiusergroup  wgp where wgp.SYSUSER_ID='SJDK3849CKMS3849DJCK2039ZMSK0001'
 
@@ -46,32 +48,31 @@ where l.DT>=cast('2014-07-01' as datetime) and l.DT<=cast ('2014-09-10' as datet
 group by l.WIFIUSER_ID
 Order by maxdt desc 
 
- 
-
 
 select gp.*,su.USERNAME from WIFIUSERGROUP gp 
 left join tb_user su on su.ID=gp.SYSUSER_ID
 where gp.SYSUSER_ID='SJDK3849CKMS3849DJCK2039ZMSK0001'
 and gp.ID='402881e437d47b250137d481b6920001'
 
+select l.* from validatelog l where l.sid='SJDK3849CKMS3849DJCK2039ZMSK0001' and l.WIFIUSER_ID in ('202881e437d47b250137d481b6920001','202881e437d47b250137d481b6920002')
 
-
-
-
-
+/* ---时间的差异--------------------------------------------------------------------*/
 select u.id,u.name,count(l.ID) c,max(l.dt) maxdt from validatelog l
 join wifiuser u  on l.WIFIUSER_ID=u.ID
 where l.DT>='2014-07-01' and l.DT<='2014-09-10' and l.SID='SJDK3849CKMS3849DJCK2039ZMSK0001'
 group by l.WIFIUSER_ID
 HAVING c>=0
 
-select count(l.ID) c,max(l.dt) maxdt from validatelog l
-where l.DT>=cast('2014-07-01' as datetime) and l.DT<=cast ('2014-09-10' as datetime) 
+select u.id,u.name,count(l.ID) c,max(l.dt) maxdt from validatelog l
+join wifiuser u  on l.WIFIUSER_ID=u.ID
+where l.DT>=cast('2014-07-01' as datetime) and l.DT<=cast ('2014-09-10' as datetime) and l.SID='SJDK3849CKMS3849DJCK2039ZMSK0001'
 group by l.WIFIUSER_ID
-HAVING c>=2
+HAVING c>=0
+/* -----------------------------------------------------------------------*
 
-
-select distinct * from validatelog l where l.DT>=cast('2014-07-01' as datetime) and l.DT<=cast ('2014-09-10' as datetime) and l.SID='SJDK3849CKMS3849DJCK2039ZMSK0001'
+select distinct *,u.name from validatelog l 
+left join wifiuser u on u.ID=l.WIFIUSER_ID
+where l.DT>=cast('2014-05-01' as datetime) and l.DT<=cast ('2014-10-10' as datetime) and l.SID='SJDK3849CKMS3849DJCK2039ZMSK0001' and l.WIFIUSER_ID='ff80808146f76ade0146f784d2f00005'
 
 
 select u.id,u.name,count(l.ID) c ,max(l.dt) md from wifiuser u
@@ -131,7 +132,7 @@ select  D.name,B.id,B.name,count(A.WIFIUSER_ID),max(A.dt) maxdt from validatelog
     group by
         l.wifiuser_id 
 -----------------------------final
-   select  distinct l.wifiuser_id, count(l.id), max(l.dt),min(l.dt) from validatelog l 
+   select distinct gr.name, l.wifiuser_id, count(l.id), max(l.dt),min(l.dt) from validatelog l 
     inner join  WIFIUSER wu  on l.wifiuser_id=wu.id cross 
     join WIFIUSERGROUP gr 
     left outer join  WIFIUSERGROUP_WIFIUSER ml  on gr.id=ml.FK_GROUP_ID 

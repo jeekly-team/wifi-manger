@@ -49,7 +49,7 @@ public class AccountManager {
     @Autowired
     private GroupDao groupDao;
 
-	//------------------------------用户管理-----------------------------------//
+    //------------------------------用户管理-----------------------------------//
     /**
      * 更新当前用户密码
      *
@@ -160,7 +160,7 @@ public class AccountManager {
         return userDao.findUniqueByProperty("username", username);
     }
 
-	//------------------------------资源管理-----------------------------------//
+    //------------------------------资源管理-----------------------------------//
     /**
      * 通过id获取资源实体
      *
@@ -267,7 +267,7 @@ public class AccountManager {
         return resourceDao.mergeToParent(list, ignoreType);
     }
 
-	//------------------------------组管理-----------------------------------//
+    //------------------------------组管理-----------------------------------//
     /**
      * 通过id获取组实体
      *
@@ -288,6 +288,10 @@ public class AccountManager {
      */
     public List<Group> getGroups(List<String> ids) {
         return groupDao.get(ids);
+    }
+    //通过User拿此用户的组  //2014-09-21 by jeekly
+    public List<Group> getGroupsbyUser(String id) {
+        return groupDao.findGroupByUserId(id);
     }
 
     /**

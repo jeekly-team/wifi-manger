@@ -34,11 +34,16 @@ public class TestGroupManager extends ManagerTestCaseSupport {
     public void testGetGroup() {
         Group group = accountManager.getGroup("SJDK3849CKMS3849DJCK2039ZMSK0002");
         assertEquals(group.getName(), "超级管理员");
-        List<?> uidl = group.getMemberIds();
-        assertNotEquals(uidl.size(), 0);
         List<?> ul = group.getMembersList();
         assertNotEquals(ul.size(), 0);
 
+    }
+
+    @Test
+    @Transactional("transactionManager")
+    public void getGroupsbyUserTest() {
+        List<?> ul = accountManager.getGroupsbyUser("SJDK3849CKMS3849DJCK2039ZMSK0001");
+        assertNotEquals(ul.size(), 0);
     }
 
     @Test

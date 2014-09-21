@@ -38,13 +38,23 @@ public class WifiUserGroupDaoTest extends ManagerTestCaseSupport {
         User user = groupdao.get("402881e437d47b250137d481b6920001").getUser();
         List<?> gl = user.getGroupsList();
         assertNotEquals(gl.size(), 0);
-        
+
         List<WifiUserGroup> wl = user.getWifiusergrouplist();
-        assertNotEquals(wl.size(), 0);        
-        
-        List<WifiUser> ml=wl.get(0).getMembersList();
+        assertNotEquals(wl.size(), 0);
+
+        List<WifiUser> ml = wl.get(0).getMembersList();
         //om.writeValue(System.out, wl.get(0));
 
         System.out.print("\n");
     }
+
+    @Test
+    @Transactional("transactionManager")
+    public void Test2() throws IOException {
+
+        List<WifiUserGroup> wl = groupdao.findByProperty("user.id", "SJDK3849CKMS3849DJCK2039ZMSK0001");
+
+        System.out.print("\n");
+    }
+
 }

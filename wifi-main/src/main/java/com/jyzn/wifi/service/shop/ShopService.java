@@ -10,8 +10,10 @@ import com.github.dactiv.orm.core.spring.data.jpa.JpaRestrictionBuilder;
 import com.github.dactiv.orm.core.spring.data.jpa.specification.SpecificationEntity;
 import com.google.common.collect.ImmutableMap;
 import com.jyzn.wifi.dao.shop.ValidateLogJpaDao;
-import com.jyzn.wifi.entity.account.User;
+import com.jyzn.wifi.dao.shop.WifiUserDao;
+import com.jyzn.wifi.dao.shop.WifiUserGroupDao;
 import com.jyzn.wifi.entity.shop.ValidateLog;
+import com.jyzn.wifi.entity.shop.WifiUser;
 import com.jyzn.wifi.entity.shop.WifiUserGroup;
 import com.jyzn.wifi.entity.shop.summary.WifiUserCount;
 import java.util.ArrayList;
@@ -32,6 +34,11 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
+/*
+ 此类默认使用jpaTransactionManager事务;
+ 在此Service类中,对继承 HibernateSupportDao 的用户自定义Dao,在其方法上注解HibernateSupportDao事务@Transactional("transactionManager")
+ 否则将出现org.hibernate.HibernateException: No Session found for current thread
+ */
 
 @Component
 @Transactional("jpaTransactionManager")
@@ -39,13 +46,21 @@ public class ShopService {
 
     @Autowired
     private ValidateLogJpaDao jpaDao;
+    @Autowired
+    private WifiUserGroupDao groupDao;
+    @Autowired
+    private WifiUserDao userDao;
 
     @PersistenceContext
     private EntityManager em;
 
     /*废柴 不靠谱 浪费老子太多时间*/
-    public Page findValidateLogPageByFilters(List<PropertyFilter> filters, Pageable page) {
+    public Page findValidateLogsByFilters(List<PropertyFilter> filters, Pageable page) {
         return jpaDao.findAll(ValidateLogSpecifications.toPredicate(filters), page);
+    }
+
+    public List<ValidateLog> findValidateLogsByFilters(List<PropertyFilter> filters) {
+        return jpaDao.findAll(ValidateLogSpecifications.toPredicate(filters));
     }
 
     public Page<?> findWifiUserCountBySid(String sid, Pageable pageable) {
@@ -62,6 +77,7 @@ public class ShopService {
         final Path dt = logroot.get("dt");
 
         if (filters.size() > 0) {
+            //过滤出grid,且filters最后一个元素必须是grid
             String SinglePropertyName = filters.get(filters.size() - 1).getSinglePropertyName();
             if (StringUtils.isNotEmpty(SinglePropertyName) && "grid".equals(SinglePropertyName)) {
                 Root<WifiUserGroup> group = query.from(WifiUserGroup.class);
@@ -115,8 +131,34 @@ public class ShopService {
         return em.createQuery(criteriaQuery).getResultList();
     }
 
-    public List<WifiUserGroup> findGroupByWifiUser(User user) {
-        return user.getWifiusergrouplist();
+    public void delValidateLogs(List<ValidateLog> logList) {
+        jpaDao.delete(logList);
+    }   
+    //----------------------------------------------------------------------------------//
+
+    @Transactional("transactionManager")
+    public List<WifiUserGroup> findGroupBySysUserId(String uid) {
+        return groupDao.findByProperty("user.id", uid);
+    }
+
+    @Transactional("transactionManager")
+    public WifiUserGroup getWifiUserGroup(String id) {
+        return groupDao.get(id);
+    }
+
+    @Transactional("transactionManager")
+    public List<WifiUser> getWifiUsers(List<String> ids) {
+        return userDao.get(ids);
+    }
+
+    @Transactional("transactionManager")
+    public void delWifiUsers(List<String> ids) {
+        userDao.deleteAll(ids);
+    }
+
+    @Transactional("transactionManager")
+    public void saveWifiuserGroupRestriction(WifiUserGroup entity) {
+        groupDao.save(entity);
     }
 
 }
