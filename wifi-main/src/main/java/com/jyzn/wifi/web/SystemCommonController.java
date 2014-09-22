@@ -102,8 +102,8 @@ public class SystemCommonController {
     @OperatingAudit(function = "修改密码")
     @RequestMapping("/change-password")
     public String changePassword(String oldPassword, String newPassword) {
-
-        User user = SystemVariableUtils.getSessionVariable().getUser();
+        String uid=SystemVariableUtils.getSessionVariable().getUser().getId();
+        User user = accountManager.getUser(uid);
 
         oldPassword = new SimpleHash("MD5", oldPassword.toCharArray()).toString();
 

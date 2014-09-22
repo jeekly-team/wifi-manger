@@ -25,7 +25,7 @@ where gr.ID in ('402881c4408c7d2301408c870ed10003')
 
 select * from tb_group gr
 --用户与组
-select * from tb_user u
+select * from tb_user u where u.ID='SJDK3849CKMS3849DJCK2039ZMSK0001'
 
 select * from tb_group_user
 

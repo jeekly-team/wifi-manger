@@ -32,7 +32,7 @@ import org.hibernate.validator.constraints.NotEmpty;
  */
 @Entity
 @Table(name = "TB_USER")
-@NamedQuery(name = User.UpdatePassword, query = "update User u set u.password = ?1 where u.id = ?2")
+@NamedQuery(name = User.UpdatePassword, query = "update User u set u.password =?1 where u.id =?2")
 public class User extends IdEntity {
 
     private static final long serialVersionUID = 1L;

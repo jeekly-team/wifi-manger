@@ -27,6 +27,7 @@ import com.jyzn.wifi.entity.account.Resource;
 import com.jyzn.wifi.entity.account.User;
 import com.jyzn.wifi.service.ServiceException;
 
+
 /**
  * 账户管理业务逻辑
  *
@@ -62,11 +63,10 @@ public class AccountManager {
     public void updateUserPassword(User entity, String newPassword) {
 
         String temp = new SimpleHash("MD5", newPassword).toHex();
-        //userDao.updatePassword(entity.getId(), temp);
-        entity.setPassword(temp);
-        userDao.save(entity);
-        
-        
+        userDao.updatePassword(entity.getId(), temp);
+//        entity.setPassword(temp);
+//        userDao.save(entity);
+
     }
 
     /**
@@ -117,6 +117,12 @@ public class AccountManager {
     @CacheEvict(value = "shiroAuthenticationCache", key = "#entity.getUsername()")
     public void updateUser(User entity) {
         userDao.update(entity);
+    }
+
+    //2014-09-22 by jeekly
+    @CacheEvict(value = "shiroAuthenticationCache", key = "#entity.getUsername()")
+    public void saveUser(User entity) {
+        userDao.save(entity);
     }
 
     /**
@@ -292,7 +298,9 @@ public class AccountManager {
     public List<Group> getGroups(List<String> ids) {
         return groupDao.get(ids);
     }
+
     //通过User拿此用户的组  //2014-09-21 by jeekly
+
     public List<Group> getGroupsbyUser(String id) {
         return groupDao.findGroupByUserId(id);
     }

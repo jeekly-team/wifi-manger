@@ -9,7 +9,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jyzn.wifi.dao.shop.ValidateLogDao;
 import com.jyzn.wifi.test.manager.ManagerTestCaseSupport;
 import java.io.IOException;
-import java.util.List;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,9 +34,8 @@ public class ValidateLogDaoTest extends ManagerTestCaseSupport {
     @Test
     @Transactional("transactionManager")
     public void getLastLogCountList() throws IOException {
-        List list = log.getLastLogCount();
-        om.writeValue(System.out, list);
-        System.out.print("\n");
+
+
     }
 
 }

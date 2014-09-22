@@ -79,21 +79,21 @@ public class TestUserManager extends ManagerTestCaseSupport {
     @Test
     @Transactional("transactionManager")
     public void testUpdateUser() {
-        User entity = accountManager.getUser("SJDK3849CKMS3849DJCK2039ZMSK0001");
-        entity.setUsername("modify");
-        entity.setPassword("123456");
-        entity.setRealname("maurice");
+        User entity_befor = accountManager.getUser("SJDK3849CKMS3849DJCK2039ZMSK0001");
+        entity_befor.setUsername("modify");
+        entity_befor.setPassword("123456");
+        entity_befor.setRealname("maurice");
 
-        accountManager.updateUser(entity);
+        accountManager.updateUser(entity_befor);
 
-        getSessionFactory().getCurrentSession().flush();
-        getSessionFactory().getCurrentSession().clear();
+//        getSessionFactory().getCurrentSession().flush();
+//        getSessionFactory().getCurrentSession().clear();
 
-        entity = accountManager.getUser("SJDK3849CKMS3849DJCK2039ZMSK0001");
+        User entity_after = accountManager.getUser("SJDK3849CKMS3849DJCK2039ZMSK0001");
 
-        assertEquals(entity.getUsername(), "maurice");
-        assertEquals(entity.getPassword(), "e10adc3949ba59abbe56e057f20f883e");
-        assertEquals(entity.getRealname(), "maurice");
+        assertNotEquals(entity_after.getUsername(), "maurice");
+        assertNotEquals(entity_after.getPassword(), "e10adc3949ba59abbe56e057f20f883e");
+        assertEquals(entity_after.getRealname(), "maurice");
     }
 
     @Test

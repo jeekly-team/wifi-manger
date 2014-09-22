@@ -3,85 +3,6 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-/**
- var count_data = new Array();
- 
-function loadOldNewUser(){
-     var json_str = {
-         "alloldcount":0,
-         "lastttoldcount":0,
-         "lastttnewcount":0,
-         "changecounttt":0,
-         "changebfb":0
-     }; 
-
-     var dateArray = getTwoMonthDate('lastTT');
-     count_data =new Array();
-     $.ajax({
-            type: "post", 
-            url : "countLog",
-            dataType:'json',
-            
-            success: function(json){
-                var it = 0;
-                 $.each(json, function(i, item) {
-                    var datetime = item.dt;
-                    var isuser = false;
-                    for (var i = 0; i < count_data.length; i ++){
-                        if(item.wifiuser_id === count_data[i].user){
-                            count_data[i].type = "old";
-                            isuser = true;
-                        }
-                    }
-                    if(!isuser){
-                        var count_json = {
-                                                'user':'',
-                                                'type':'',
-                                                'istt':false,
-                                                'ischangett':false
-                                            };
-                        isuser = true;
-                        count_json.user = item.wifiuser_id;
-                        count_json.type = "new";
-                        if(datetime >= dateArray[0].getTime() && datetime <= dateArray[1].getTime()){
-                            count_json.istt = true;
-                            count_json.ischangett = true;
-                        }else{
-                             count_json.istt = false;    
-                             count_json.ischangett = false;
-                        }
-                        count_data[i] = count_json;
-                        it = it + 1;
-                    }
-                     
-            }); 
-            //统计新老顾客人数
-            for (var j = 0; j < count_data.length; j++){
-                if(count_data[j].type === "old"){
-                    json_str.alloldcount = json_str.alloldcount + 1;
-                }
-                if(count_data[j].type === "old" && count_data[j].istt){
-                    json_str.lastttoldcount = json_str.lastttoldcount + 1;
-                }
-                if(count_data[j].type === "new" && count_data[j].istt){
-                    json_str.lastttnewcount = json_str.lastttnewcount + 1;
-                }
-                if(count_data[j].type === "old" && count_data[j].ischangett){
-                    json_str.changecounttt = json_str.changecounttt + 1;
-                }
-            }
-            var html = "<p>累计老用户数:" + json_str.alloldcount + "人</p>"
-                +"<p>老顾客来店人数<span>(最近三十天)</span>:" + json_str.lastttoldcount + "人</p>"
-                +"<p>新顾客来店人数<span>(最近三十天)</span>:" + json_str.lastttnewcount + "人</p>"
-                +"<p>转换为老顾客人数<span>(最近三十天)</span>:" + json_str.changecounttt + "人 <span>" + (json_str.lastttnewcount === 0 ? 0 : (json_str.changecounttt/json_str.lastttnewcount) *100)  + "%</sapn></p>";
-					
-		$("#custonnum_ss").html("");
-		$("#custonnum_ss").append(html);
-        }  
-   });
-
-}
-**/
 
 function loadOldNewUser(){
     $.ajax({
@@ -89,26 +10,28 @@ function loadOldNewUser(){
             url : "countAllUser",
             dataType:'json',
             success: function(json){
+                /*
                 var html = "<p>累计老用户数:" + json[0][0] + "人</p>"
                 +"<p>老顾客来店人数<span>(最近三十天)</span>:" + json[0][1] + "人</p>"
                 +"<p>新顾客来店人数<span>(最近三十天)</span>:" + (json[0][2] - json[0][1]) + "人</p>"
                 +"<p>转换为老顾客人数<span>(最近三十天)</span>:" + json[0][3] + "人 <span>" + (json[0][2] - json[0][1] === 0 ? 0 : (json[0][3]/(json[0][2] - json[0][1])).toFixed(4) *100)  + "%</sapn></p>";
-					
+                */
+                var html = "<ul class='list-group'>"
+                           +"<li class='list-group-item list-group-item-success'>累计老用户数:<span class='badge'>" + json[0][0] + "人</span></li>"
+                             +"<li class='list-group-item list-group-item-info'>老顾客来店人数(最近三十天):<span class='badge'>" + json[0][1] + "人</span></li>"
+                             +"<li class='list-group-item list-group-item-warning'>新顾客来店人数(最近三十天):<span class='badge'>" + (json[0][2] - json[0][1]) + "人</span></li>"
+                             +"<li class='list-group-item list-group-item-danger'>转换为老顾客人数(最近三十天):<span class='badge'>" + json[0][3] + "人 </span><span class='badge'>" + (json[0][2] - json[0][1] === 0 ? 0 : (json[0][3]/(json[0][2] - json[0][1])).toFixed(4) *100) + "%</span></li>"
+                          +"</ul>";
 		$("#custonnum_ss").html("");
 		$("#custonnum_ss").append(html);
             }
     });
 }
 
-function getCountLog(){
+function getCountLog(obj){
     var startDate_str = $("#inputDateStart_2").val();
     var inputDateEnd_str = $("#inputDateEnd_2").val();
-     var dates = new Date(startDate_str);
-    var datee = new Date(inputDateEnd_str);
-    if(dates.getTime() > datee.getTime()){
-        alert("请选择正确的时间段!");
-        return;
-    }
+    if(!validateDate(obj)) return;
     var startArrary = startDate_str.split("-");
     var endArrary = inputDateEnd_str.split("-");
     var startDate = new Date(startArrary[0],startArrary[1] - 1,startArrary[2]);
@@ -124,8 +47,8 @@ function getCountLog(){
              "endDate" : inputDateEnd_str    
             },
             success: function(json){
-                 var html = "<table width='100%' border='2' color='blue' cellspacing='1' cellpadding='1'>"
-                            + "<tr>"
+                 var html = " <table  class='table table-striped table-bordered table-condensed text-center'>"
+                             + "<tr class='info text-primary'>"
                             +"<th>日期</th>"
                             +"<th>老顾客</th>"
                             +"<th>新顾客 </th>"
@@ -138,10 +61,10 @@ function getCountLog(){
                     var totalUserCount = 0;
                     for (i = 0; i < json.length; i ++){
                          if(json[i][1] === date_str && json[i][2] === "new"){
-                             newUserCount = json[i][0];
+                             newUserCount = newUserCount + json[i][0];
                              totalUserCount = totalUserCount + json[i][0];
                          }else if(json[i][1] === date_str && json[i][2] === "old"){
-                             oldUserCount = json[i][0];
+                             oldUserCount = oldUserCount + json[i][0];
                              totalUserCount = totalUserCount + json[i][0];
                          }
                      }
@@ -204,19 +127,29 @@ function showPlot(divID, data, title) {
             useSeriesColor: true //如果有多个纵（横）坐标轴，通过该属性设置这些坐标轴是否以不同颜色显示
         },
          axes: {
-            xaxis: {  
+            xaxis: { 
+                pad:0.2,
                 renderer: $.jqplot.CategoryAxisRenderer,
                 ticks: xpost,
                 tickRenderer: $.jqplot.CanvasAxisTickRenderer,
                 tickOptions: {
                     angle: -60,
-                    fontSize: '8pt',
+                    fontSize: '6pt',
                     showMark: true,
                     showGridline: false
                 }
-            }        
+            }, 
+            yaxis: {
+                tickOptions: {
+                    fontSize: '6pt'
+                }
+            }
         },
-        title: title,
+        title: {
+            text: title, 
+            show: true,
+            fontSize: '9pt'
+        }, 
         highlighter: {show: true}
     });
 }

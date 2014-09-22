@@ -1,4 +1,5 @@
 $(document).ready(function() {
+
     $(".list-group-item").click(function() {
         $(this).parent().children("a").removeClass();
         $(this).parent().children("a").addClass("list-group-item");
@@ -21,14 +22,15 @@ $(document).ready(function() {
     /*
      初始化输入框中的时间
      **/
-
+        $(".form-control").date_input();
+/*
     var obj;
-    $(".dateshow").DatePicker({
+    $(".form-control").DatePicker({
         format: 'Y-m-d',
-        date: $(".dateshow").val(),
-        current: $(".dateshow").val(),
+        date: $(".form-control").val(),
+        current: $(".form-control").val(),
         starts: 1,
-        position: 'right',
+        position: 'bottom',
         onBeforeShow: function() {
             obj = $(this);
             obj.DatePickerSetDate($(this).val(), true);
@@ -38,38 +40,10 @@ $(document).ready(function() {
             obj.DatePickerHide();
         }
     });
-
-
-    /**
-     line1 = [ [1,2],[2,7], [3,9], [4,16] ]; //子统计1数据
-     
-     
-     //--最简
-     plot = $.jqplot('chart1', [ line1 ], {
-     seriesDefaults : {
-     renderer : $.jqplot.BarRenderer, //使用柱状图表示
-     rendererOptions : {
-     barMargin : 95
-     //柱状体组之间间隔
-     }
-     },
-     title:"极源wifi柱状图"
-     });
-     
-     
-     var line1=[['2008-08-12 4:00PM',4], ['2008-09-12 4:00PM',6.5], ['2008-10-12 4:00PM',5.7], ['2008-11-12 4:00PM',9], ['2008-12-12 4:00PM',8.2]];
-     var plot1 = $.jqplot('chart', [line1], {
-     title:'极源wifi折现图',
-     axes:{
-     xaxis:{
-     renderer:$.jqplot.DateAxisRenderer
-     }
-     },
-     series:[{lineWidth:4, markerOptions:{style:'square'}}]
-     });
-     **/
+    */
     scanTime();
 });
+
 
 function clickMenu(str) {
     $("#" + str).parent().children("div").hide();
@@ -81,13 +55,13 @@ function clickMenu(str) {
     } else if (str === "hyd"){
         loadAVGCount();
     }
-    scanTime();
+
 }
 function scanTime() {
     var date = new Date();
     var year = date.getFullYear();
 
-    var month = formatNum(date.getMonth() + 1);
+    var month = formatNum(date.getMonth() + 1)
     var day = formatNum(date.getDate());
     var date_str = year + "-" + month + "-" + day;
     $(".dateshow").val(date_str);
@@ -110,9 +84,6 @@ function showbox(str) {
         $("#box").append(html);
         $("#box").show();
     }
-
-
-
 }
 
 function getAllUser() {
@@ -210,4 +181,30 @@ function getTwoDate(str) {
         date_str[0] = date_s;
     }
     return date_str;
+}
+
+function validateDate(obj){
+    var date_obj = $(obj).parent().find("div.input-group").find("input.form-control");
+    var date_s = $(date_obj[0]).val();
+    var date_e = $(date_obj[1]).val();
+    var dates = new Date(date_s.split("-"));
+    var datee = new Date(date_e.split("-"));
+
+     if(date_s === "" || date_e === "" || datee.getTime() < dates.getTime()){
+         $(obj).attr("data-content","请选择正确的时间！");
+         $(obj).popover('show');
+         window.setTimeout(function(){
+             $(obj).popover('hide');
+         },1500);
+         return false;
+    }else if((datee.getTime() - dates.getTime()) > 1000 * 60 * 60 *24 * 31){
+        $(obj).attr("data-content","时间不能超过一个月！");
+        $(obj).popover('show');
+         window.setTimeout(function(){
+             $(obj).popover('hide');
+         },1500);
+         return false;
+    }else{
+         return true;
+    }
 }

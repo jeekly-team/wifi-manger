@@ -29,13 +29,14 @@ function loadCoungLog(){
                         json_str.qqcount = json_str.qqcount + 1;               
                     }
                     json_str.allcount = json_str.allcount + 1;
-            }); 
-            var html = "<p>全部客流累计人数:" + json_str.allcount + "人</p>"
-                        +"<p>手机客流累计人数:" + json_str.sjcount + "人</p>"
-                        +"<p>微博客流累计人数:" + json_str.wbcount + "人</p>"
-                        +"<p>QQ客流累计人数:" + json_str.qqcount + "人</p>"
-                        +"<p>微信客流累计人数:" + json_str.wxcount + "人</p>";
-					
+            });
+                var html = "<ul class='list-group'>"
+                           +"<li class='list-group-item list-group-item-success'>全部客流累计人数:<span class='badge'>" + json_str.allcount + "人</span></li>"
+                             +"<li class='list-group-item list-group-item-info'>手机客流累计人数:<span class='badge'>" + json_str.sjcount + "人</span></li>"
+                             +"<li class='list-group-item list-group-item-warning'>微博客流累计人数:<span class='badge'>" + json_str.wbcount + "人</span></li>"
+                             +"<li class='list-group-item list-group-item-danger'>QQ客流累计人数:<span class='badge'>" + json_str.qqcount + "人</span></li>"
+                             +"<li class='list-group-item list-group-item-warning'>微信客流累计人数:<span class='badge'>" + json_str.wxcount + "人</span></li>"
+                          +"</ul>";
 		$("#custonnum").html("");
 		$("#custonnum").append(html);
         }  
@@ -81,16 +82,11 @@ function getTwoMonthDate(str){
     }
     return dateArray;
 }
-function getWifiLogMonth(){
+function getWifiLogMonth(obj){
         //var dateArray = getTwoMonthDate(str);
         var startDate_str = $("#inputDateStart_1").val();
         var inputDateEnd_str = $("#inputDateEnd_1").val();
-        var dates = new Date(startDate_str);
-        var datee = new Date(inputDateEnd_str);
-        if(dates.getTime() > datee.getTime()){
-            alert("请选择正确的时间段!");
-            return;
-        }
+        if(!validateDate(obj)) return;
         var startArrary = startDate_str.split("-");
         var endArrary = inputDateEnd_str.split("-");
         var startDate = new Date(startArrary[0],startArrary[1] - 1,startArrary[2]);
@@ -140,8 +136,8 @@ function getWifiLogMonth(){
             });
             var title = "极源wifi折线图（"+ startDate_str + "到" + inputDateEnd_str + ")";
             showLineChart('chart',data, title);
-            var html = "<table width='100%' border='2' color='blue' cellspacing='1' cellpadding='1'>"
-					+ "<tr>"
+            var html = " <table  class='table table-striped table-bordered table-condensed text-center'>"
+                                        + "<tr class='info text-primary'>"
 					+"<th>日期</th>"
 					+"<th>合计</th>"
 					+"<th>手机客流 </th>"
@@ -219,8 +215,8 @@ function getWifiLogMonthStr(str){
             });
              var title = "极源wifi折线图（"+ startDate_str + "到" + inputDateEnd_str + ")";
             showLineChart('chart',data ,title);
-            var html = "<table width='100%' border='2' color='blue' cellspacing='1' cellpadding='1'>"
-					+ "<tr>"
+            var html = " <table  class='table table-striped table-bordered table-condensed text-center'>"
+                                         + "<tr class='info text-primary'>"
 					+"<th>日期</th>"
 					+"<th>合计</th>"
 					+"<th>手机客流 </th>"
@@ -264,10 +260,13 @@ function showLineChart(divID, data, title) {
         ypost_4[i] = data[i].qqcount;
     }
     plot = $.jqplot(divID, [ypost_1, ypost_2, ypost_3, ypost_4], {
-        title: title, //图表表头标题
+        title: {
+            text: title, 
+            show: true,
+            fontSize: '8pt'
+        }, 
         seriesDefaults:{
-                
-                pointLabels: { show: true },
+                pointLabels: { show: false },
                 rendererOptions: {
                 varyBarColor: true
                 }
@@ -278,34 +277,37 @@ function showLineChart(divID, data, title) {
             {label: '手机'},{label: '微博'},{label: '微信'},{label: 'QQ'}
             ],
         legend: {  show:true, 
-                    location: 'nw',
+                    location: 'ne',
                     xoffset: 12,   
-                    yoffset: 12
+                    yoffset: -12
                 },
         axes: {
-            //xaxis: {min: 0, max: 8}, //准确控制x轴最大值及最小值
-           // yaxis: {min: 0, max: 20, numberTicks: 5}, //准确控制y轴最大值及最小值,间隔个数
             xaxis: {
-                
+                pad:0.2,
+                numberTicks: 5,
                 renderer: $.jqplot.CategoryAxisRenderer,
                 ticks: xpost,
                 tickRenderer: $.jqplot.CanvasAxisTickRenderer,
                 tickOptions: {
                     angle: -60,
-                    fontSize: '8pt',
+                    fontSize: '6pt',
                     showMark: true,
                     showGridline: false
                 }
+            },
+            yaxis: {
+                tickOptions: {
+                    fontSize: '6pt'
+                }
             }
         },
-//series: [{ color: '#5FAB78'}],                    //定义趋势线颜色   
         highlighter: {
             showMarker:true,
             show:true,    
-            tooltipAxes: 'y',
+            tooltipAxes: 'both',
             useAxesFormatters: true,
             formatString:'<table> \
-                <tr><td>数目:</td><td>%d</td></tr> \
+                <tr><td>数量:</td><td>%d</td></tr> \
             </table>'
         }
 
