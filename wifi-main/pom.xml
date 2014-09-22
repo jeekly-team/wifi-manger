@@ -357,21 +357,23 @@
                         <include>**/Test*Manager.java</include>
                     </includes>
                 </configuration>
-            </plugin>
-			
+            </plugin>			
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <configuration>
                     <target>
                         <property file="src/main/resources/application.properties" />
-                        <sql src="src/main/resources/sql/h2.sql" driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}" password="${jdbc.password}" onerror="continue" encoding="${project.build.sourceEncoding}">
+                        <sql driver="${jdbc.driver}" url="${jdbc.url}" userid="${jdbc.username}" password="${jdbc.password}" onerror="continue" encoding="${project.build.sourceEncoding}">
                             <classpath refid="maven.runtime.classpath" />
+                            <!--必须先导入系统 sql-->
+                            <transaction src="src/main/resources/sql/h2/h2-sys-init.sql"/>
+                            <!--JY sql-->
+                            <transaction src="src/main/resources/sql/h2/h2-jy-init.sql"/>
                         </sql>
                     </target>
                 </configuration>
             </plugin>
-
             <!-- eclipse插件 -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

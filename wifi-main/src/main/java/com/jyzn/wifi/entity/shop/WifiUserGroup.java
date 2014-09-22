@@ -14,7 +14,9 @@ import javax.persistence.FetchType;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import org.apache.commons.lang3.builder.ToStringBuilder;
 
 @Entity
 @Table(name = "WIFIUSERGROUP")
@@ -25,7 +27,7 @@ public class WifiUserGroup extends IdEntity {
     //成员
     private List<WifiUser> membersList = new ArrayList<WifiUser>();
     // 商户
-
+    private User user;
 
     public WifiUserGroup() {
 
@@ -40,7 +42,9 @@ public class WifiUserGroup extends IdEntity {
     }
 
     @ManyToMany(fetch = FetchType.LAZY)
-    @JoinTable(name = "WIFIUSERGROUP_WIFIUSER", joinColumns = { @JoinColumn(name = "FK_GROUP_ID")}, inverseJoinColumns = {@JoinColumn(name = "FK_USER_ID")})
+    @JoinTable(name = "WIFIUSERGROUP_WIFIUSER", joinColumns = {
+        @JoinColumn(name = "FK_GROUP_ID")}, inverseJoinColumns = {
+        @JoinColumn(name = "FK_USER_ID")})
     public List<WifiUser> getMembersList() {
         return membersList;
     }
@@ -49,4 +53,18 @@ public class WifiUserGroup extends IdEntity {
         this.membersList = membersList;
     }
 
+    @JoinColumn(name = "sysuser_id")
+    @ManyToOne
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
+
+    @Override
+    public String toString() {
+        return ToStringBuilder.reflectionToString(this);
+    }
 }

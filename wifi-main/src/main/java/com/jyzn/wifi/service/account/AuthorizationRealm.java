@@ -18,6 +18,7 @@ import com.jyzn.wifi.common.SessionVariable;
 import com.jyzn.wifi.common.enumeration.entity.ResourceType;
 import com.jyzn.wifi.entity.account.Resource;
 import com.google.common.collect.Lists;
+import com.jyzn.wifi.entity.account.Group;
 
 /**
  * apache shiro 的公用授权类
@@ -68,10 +69,11 @@ public abstract class AuthorizationRealm extends AuthorizingRealm{
         //加载用户资源信息
         List<Resource> authorizationInfo = accountManager.getUserResources(id);
         List<Resource> resourcesList = accountManager.mergeResourcesToParent(authorizationInfo, ResourceType.Security);
-        
+        List<Group> grouplist=accountManager.getGroupsbyUser(id); //2014-09-21 by jeekly
+        //--------------
         model.setAuthorizationInfo(authorizationInfo);
         model.setMenusList(resourcesList);
-        
+        model.setGroupsList(grouplist); //2014-09-21 by jeekly
         //添加用户拥有的permission
         addPermissions(info,authorizationInfo);
         
