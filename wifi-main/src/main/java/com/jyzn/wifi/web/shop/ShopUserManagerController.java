@@ -86,6 +86,7 @@ public class ShopUserManagerController {
 
     @RequestMapping(value = "tocategory", method = RequestMethod.GET)
     @ResponseBody
+    @OperatingAudit(function = "对Wifi用户分组")
     public String WifiusersToCategory(@Valid @ModelAttribute("group") WifiUserGroup usergroup, @RequestParam("ids") List<String> ids) {
         logger.info("Wifiusergroup" + usergroup.getId() + "<--Wifiuser:" + ids.toString());
         usergroup.setMembersList(shopservice.getWifiUsers(ids));
@@ -99,6 +100,7 @@ public class ShopUserManagerController {
      */
     @RequestMapping(value = "deluserslog", method = RequestMethod.GET)
     @ResponseBody
+    @OperatingAudit(function = "删除商户分组中的wifi用户")
     public String deleteLog(@Valid @ModelAttribute("group") WifiUserGroup usergroup, @RequestParam("ids") List<String> ids) {
         List<PropertyFilter> filters = Lists.newArrayList(
                 PropertyFilters.get("EQS_sid", getCurrentUser().getId()),

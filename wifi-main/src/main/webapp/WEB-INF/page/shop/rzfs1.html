@@ -1,3 +1,4 @@
+<#assign shiro=JspTaglibs["/WEB-INF/taglib/shiro.tld"] />
 <#assign base="${request.contextPath}" />
 <!DOCTYPE html>
 <html>   
@@ -114,10 +115,13 @@
                     //console.log("s:" + s); console.log("i:" + idsArr);
                     $.ajax({url: 'tocategory', traditional: true, data: {"grid": s, "ids": idsArr},
                         success: function(v) {
-                            //console.log(v);
                             $('#showcategory-modal').modal('hide');
-                            $('.category-opt-msg').html("用户分组操作成功").fadeIn(1000).fadeOut(5000);
-                            tagEl("#" + s);
+                            if (v !== 'success') {
+                                $('.category-opt-msg').addClass("alert-danger").html("您无权操作").fadeIn(1000).fadeOut(5000);
+                            } else {
+                                $('.category-opt-msg').addClass("alert-success").html("用户分组操作成功").fadeIn(1000).fadeOut(5000);
+                                tagEl("#" + s);
+                            }
                         }});
                 }
             }
@@ -128,13 +132,18 @@
                     idsArr.push($(this).val());
                 });
                 if (idsArr.length === 0) {
-                    $('.category-opt-msg').html("请选择要删除的用户").fadeIn(1000).fadeOut(5000);
+                    $('.category-opt-msg').addClass("alert-info").html("请选择要删除的用户").fadeIn(1000).fadeOut(5000);
                 } else {
                     //console.log(idsArr);
                     $.ajax({url: 'deluserslog', traditional: true, data: {"grid": category, "ids": idsArr},
                         success: function(v) {
-                            $('.category-opt-msg').html("用户删除操作成功").fadeIn(1000).fadeOut(5000);
-                            Sreach(1);
+                            //console.log(v);
+                            if (v !== 'success') {
+                                $('.category-opt-msg').addClass("alert-danger").html("您无权操作").fadeIn(1000).fadeOut(5000);
+                            } else {
+                                $('.category-opt-msg').addClass("alert-success").html("用户删除操作成功").fadeIn(1000).fadeOut(5000);
+                                Sreach(1);
+                            }
                         }});
                 }
 
@@ -247,7 +256,7 @@
                         </div>
                         <div class="panel-body" style="padding-top: 2px;padding-bottom: 0px;height: 30px;">
 
-                            <div class="category-opt-msg alert alert-success text-center" style="display: none;width: 20%;margin: 0 auto; padding: 2px 1px 2px 1px;">
+                            <div class="category-opt-msg alert text-center" style="display: none;width: 20%;margin: 0 auto; padding: 2px 1px 2px 1px;">
                                 <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
                                 <span class="glyphicon glyphicon-ok"></span>用户分组操作成功
                             </div>
@@ -275,7 +284,6 @@
                                     <td>1321</td>
                                     <td>12</td>
                                     <td>12</td>
-
                                     <td>12</td>
                                 </tr>
                                 <tr>
@@ -285,7 +293,6 @@
                                     <td>1321</td>
                                     <td>12</td>
                                     <td>12</td>
-
                                     <td>12</td>
                                 </tr>
                             </tbody> 
@@ -295,13 +302,16 @@
                         <div class="btn-group"  style="padding:1px 1px 1px 2px;" >
                             <span class="btn btn-comit btn-sm"><input type="checkbox" name="selectAll" /></span>
                         </div>
+                        <@shiro.hasPermission name="usermanager:tocategory">
                         <div class="btn-group">
                             <button type="button" class="btn btn-comit" data-toggle="modal" data-target="#showcategory-modal">会员归类</button>
-
                         </div>
+                        </@shiro.hasPermission>
+                        <@shiro.hasPermission name="usermanager:deluserslog">
                         <div class="btn-group">                         
                             <button type="button" class="btn btn-comit" onclick="delWifiusers();">批量删除</button>
                         </div>
+                        </@shiro.hasPermission>
                     </div>
                     <div class="text-center">
                         <div id="Pagination" class="pagination"></div>

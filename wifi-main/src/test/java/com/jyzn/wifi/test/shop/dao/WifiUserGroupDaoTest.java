@@ -16,6 +16,7 @@ import java.util.List;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotEquals;
 import static org.junit.Assert.assertNotEquals;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,6 +32,10 @@ public class WifiUserGroupDaoTest extends ManagerTestCaseSupport {
 
     private final ObjectMapper om = new ObjectMapper();
 
+    @Before
+    public void test() throws Exception {
+        executeScript(dataSource, "classpath:data/h2/h2-jy-wifi-data.sql");      
+    }    
     @Test
     @Transactional("transactionManager")
     public void Test1() throws IOException {

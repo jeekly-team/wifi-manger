@@ -13,6 +13,7 @@ import com.jyzn.wifi.entity.account.User;
 import com.jyzn.wifi.test.manager.ManagerTestCaseSupport;
 import java.io.IOException;
 import java.util.List;
+import org.junit.Before;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -31,6 +32,12 @@ public class ValidateLogJpaDaoTest extends ManagerTestCaseSupport {
     private UserDao userDao;
     private final ObjectMapper om = new ObjectMapper();
 
+    @Before
+    @Override
+    public void install() throws Exception {
+        executeScript(dataSource, "classpath:data/h2/h2-jy-wifi-data.sql");      
+    }
+
     @Test
     @Transactional("jpaTransactionManager")
     public void getLastLogCountPageTest() throws IOException {
@@ -38,13 +45,6 @@ public class ValidateLogJpaDaoTest extends ManagerTestCaseSupport {
         om.writeValue(System.out, p);
         System.out.print("\n");
 
-    }
-
-    @Test
-    @Transactional("transactionManager")
-    public void test() throws IOException {
-        User user = userDao.get("SJDK3849CKMS3849DJCK2039ZMSK0001");
-        List g = user.getWifiusergrouplist();
     }
 
 }

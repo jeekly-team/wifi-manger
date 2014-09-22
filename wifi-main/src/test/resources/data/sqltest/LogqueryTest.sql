@@ -68,7 +68,7 @@ join wifiuser u  on l.WIFIUSER_ID=u.ID
 where l.DT>=cast('2014-07-01' as datetime) and l.DT<=cast ('2014-09-10' as datetime) and l.SID='SJDK3849CKMS3849DJCK2039ZMSK0001'
 group by l.WIFIUSER_ID
 HAVING c>=0
-/* -----------------------------------------------------------------------*
+/* -----------------------------------------------------------------------*/
 
 select distinct *,u.name from validatelog l 
 left join wifiuser u on u.ID=l.WIFIUSER_ID

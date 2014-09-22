@@ -24,6 +24,7 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotEquals;
+import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -44,6 +45,12 @@ public class ShopServiceTest extends ManagerTestCaseSupport {
 
     private static final Logger logger = LoggerFactory.getLogger(ShopServiceTest.class);
 
+    @Before
+    @Override
+    public void install() throws Exception {
+        executeScript(dataSource, "classpath:data/h2/h2-jy-wifi-data.sql");
+    }
+
     @Test
     public void findAllValidateLogPageBySpecificationTest() throws IOException {
 
@@ -59,7 +66,7 @@ public class ShopServiceTest extends ManagerTestCaseSupport {
 
     @Test
     public void findValidateLogsByFiltersTest() {
-        List<String> ids = Lists.newArrayList("202881e437d47b250137d481b6920001","202881e437d47b250137d481b6920002");
+        List<String> ids = Lists.newArrayList("202881e437d47b250137d481b6920001", "202881e437d47b250137d481b6920002");
         logger.info(StringUtils.join(ids, ","));
         List<PropertyFilter> filters = Lists.newArrayList(
                 PropertyFilters.get("EQS_sid", "SJDK3849CKMS3849DJCK2039ZMSK0001"),
@@ -67,11 +74,11 @@ public class ShopServiceTest extends ManagerTestCaseSupport {
         );
         List<ValidateLog> logs_Delbeforel = ser.findValidateLogsByFilters(filters);
         assertNotEquals(logs_Delbeforel.size(), 0);
-        
+
         ser.delValidateLogs(logs_Delbeforel);
-        
+
         List<ValidateLog> logs_Delafter = ser.findValidateLogsByFilters(filters);
-         assertEquals(logs_Delafter.size(), 0);
+        assertEquals(logs_Delafter.size(), 0);
 
     }
 
@@ -108,6 +115,7 @@ public class ShopServiceTest extends ManagerTestCaseSupport {
 
     @Test
     public void findGroupByWifiUserTest() {
+        executeScript(dataSource, "classpath:data/h2/insert-data.sql");
         List gr = ser.findGroupBySysUserId("SJDK3849CKMS3849DJCK2039ZMSK0001");
         assertNotEquals(gr.size(), 0);
     }

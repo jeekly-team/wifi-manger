@@ -79,6 +79,7 @@ public class SystemCommonController {
     @RequestMapping("/index")
     public String index() {
         List<Group> grouplist =SystemVariableUtils.getSessionVariable().getGroupsList();
+
         String ret = "index";
         String A = "商户,wifi商户,WIFI商户,BIWIFI商户,锤子,辣子";
         for (Group gr : grouplist) {
