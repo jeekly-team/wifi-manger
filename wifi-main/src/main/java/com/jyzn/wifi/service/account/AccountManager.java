@@ -62,8 +62,11 @@ public class AccountManager {
     public void updateUserPassword(User entity, String newPassword) {
 
         String temp = new SimpleHash("MD5", newPassword).toHex();
-        userDao.updatePassword(entity.getId(), temp);
+        //userDao.updatePassword(entity.getId(), temp);
         entity.setPassword(temp);
+        userDao.save(entity);
+        
+        
     }
 
     /**
