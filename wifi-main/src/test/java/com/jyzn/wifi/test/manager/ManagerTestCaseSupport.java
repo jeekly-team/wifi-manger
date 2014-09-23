@@ -27,7 +27,7 @@ import org.springframework.test.jdbc.JdbcTestUtils;
 @ContextConfiguration("/applicationContext-core.xml")
 public class ManagerTestCaseSupport {
 	
-	private DataSource dataSource;
+	public DataSource dataSource;
 	
 	private JdbcTemplate jdbcTemplate;
 	private ResourceLoader resourceLoader = new DefaultResourceLoader();

@@ -27,6 +27,7 @@ import com.jyzn.wifi.entity.account.Resource;
 import com.jyzn.wifi.entity.account.User;
 import com.jyzn.wifi.service.ServiceException;
 
+
 /**
  * 账户管理业务逻辑
  *
@@ -49,7 +50,7 @@ public class AccountManager {
     @Autowired
     private GroupDao groupDao;
 
-	//------------------------------用户管理-----------------------------------//
+    //------------------------------用户管理-----------------------------------//
     /**
      * 更新当前用户密码
      *
@@ -116,6 +117,12 @@ public class AccountManager {
         userDao.update(entity);
     }
 
+    //2014-09-22 by jeekly
+    @CacheEvict(value = "shiroAuthenticationCache", key = "#entity.getUsername()")
+    public void saveUser(User entity) {
+        userDao.save(entity);
+    }
+
     /**
      * 是否唯一的登录帐号,如果是返回true,否则返回false.
      *
@@ -160,7 +167,7 @@ public class AccountManager {
         return userDao.findUniqueByProperty("username", username);
     }
 
-	//------------------------------资源管理-----------------------------------//
+    //------------------------------资源管理-----------------------------------//
     /**
      * 通过id获取资源实体
      *
@@ -267,7 +274,7 @@ public class AccountManager {
         return resourceDao.mergeToParent(list, ignoreType);
     }
 
-	//------------------------------组管理-----------------------------------//
+    //------------------------------组管理-----------------------------------//
     /**
      * 通过id获取组实体
      *
@@ -288,6 +295,12 @@ public class AccountManager {
      */
     public List<Group> getGroups(List<String> ids) {
         return groupDao.get(ids);
+    }
+
+    //通过User拿此用户的组  //2014-09-21 by jeekly
+
+    public List<Group> getGroupsbyUser(String id) {
+        return groupDao.findGroupByUserId(id);
     }
 
     /**

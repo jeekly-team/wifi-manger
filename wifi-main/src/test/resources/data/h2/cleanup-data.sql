@@ -10,10 +10,3 @@ delete from TB_RESOURCE;
 delete from TB_USER;
 
 delete from TB_OPERATING_RECORD;
-
-
-delete from WIFIUSERGROUP_WIFIUSER;
-delete from WIFIUSERGROUP;
-delete from validatecodelog;
-delete from validatelog;
-delete from wifiuser;

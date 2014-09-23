@@ -6,11 +6,12 @@ import org.springframework.stereotype.Repository;
 
 /**
  * 用户数据访问
+ *
  * @author maurice
  *
  */
 @Repository
-public class UserDao extends HibernateSupportDao<User, String>{
+public class UserDao extends HibernateSupportDao<User, String> {
 
 	/**
 	 * 通过用户id更新用户密码
@@ -21,5 +22,4 @@ public class UserDao extends HibernateSupportDao<User, String>{
             save(user);
 	}
 
-	
 }
