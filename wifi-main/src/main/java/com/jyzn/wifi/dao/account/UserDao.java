@@ -15,11 +15,10 @@ public class UserDao extends HibernateSupportDao<User, String>{
 	/**
 	 * 通过用户id更新用户密码
 	 * 
-	 * @param userId 用户id
-	 * @param password 密码
+         * @param user
 	 */
-	public void updatePassword(String userId, String password) {
-		executeUpdate(User.UpdatePassword, password,userId);
+	public void updatePassword(User user) {
+            save(user);
 	}
 
 	

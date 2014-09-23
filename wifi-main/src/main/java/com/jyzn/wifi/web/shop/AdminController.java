@@ -8,6 +8,7 @@ package com.jyzn.wifi.web.shop;
 
 
 import com.jyzn.wifi.common.SystemVariableUtils;
+import com.jyzn.wifi.common.annotation.OperatingAudit;
 import com.jyzn.wifi.entity.shop.ValidateLog;
 import com.jyzn.wifi.entity.shop.WifiUser;
 import com.jyzn.wifi.service.shop.ValidateLogServices;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
  * @author Administrator
  */
 @Controller
+@OperatingAudit("商户管理员")
 public class AdminController {
     
     
@@ -57,7 +59,7 @@ public class AdminController {
         logger.info("get all user");
         return wifiUserServices.getAllUser();
     }
-    
+    @OperatingAudit(function="事件段日志")
     @RequestMapping("validateLogDate")
     @ResponseBody
     public List<ValidateLog> getLogByDate(HttpServletRequest request, HttpServletResponse response){
@@ -71,14 +73,14 @@ public class AdminController {
             return null;
         }
     }
-    
+    @OperatingAudit(function="日志表中所有数据")
     @RequestMapping("countLog")
     @ResponseBody
     public List<ValidateLog> getCountLog(HttpServletRequest request, HttpServletResponse response){
         String sid =  SystemVariableUtils.getSessionVariable().getUser().getId();
         return validateLogServices.countLog(sid);
     }
-    
+    @OperatingAudit(function="统计日志信息")
     @RequestMapping("countLogUser")
     @ResponseBody
     public List getCountLogUser(HttpServletRequest request, HttpServletResponse response){
@@ -87,14 +89,14 @@ public class AdminController {
         String endDate_str = (String) request.getParameter("endDate") + " 23:59:59";
         return validateLogServices.getCountLog(startDate_str,endDate_str,sid);
     }
-    
+    @OperatingAudit(function="统计用户")
     @RequestMapping("countAllUser")
     @ResponseBody
     public List getCountAllUser(HttpServletRequest request, HttpServletResponse response){
         String sid =  SystemVariableUtils.getSessionVariable().getUser().getId();
         return validateLogServices.getCountAllUserLog(sid);
     }
-    
+    @OperatingAudit(function="回访数据")
     @RequestMapping("centumByType")
     @ResponseBody
     public List getCentumByType(HttpServletRequest request, HttpServletResponse response){
@@ -102,7 +104,7 @@ public class AdminController {
         String type = (String) request.getParameter("type");
         return validateLogServices.getCentumByType(type, sid);
     }
-    
+    @OperatingAudit(function="获取分页日志")
     @RequestMapping("validateLogByCount")
     @ResponseBody
     public List getValidateLogByCount(HttpServletRequest request, HttpServletResponse response){
@@ -113,7 +115,7 @@ public class AdminController {
         int pagesize = Integer.parseInt(request.getParameter("pagesize"));
         return validateLogServices.getValidateLogByCount(count, type, page, pagesize, sid);
     }
-    
+    @OperatingAudit(function="获取日志条数")
     @RequestMapping("validateLogByCountSize")
     @ResponseBody
     public int getValidateLogByCountSize(HttpServletRequest request, HttpServletResponse response){
@@ -122,7 +124,7 @@ public class AdminController {
         String type = (String) request.getParameter("type");
         return validateLogServices.getMaxValidateLogByCount(count, type, sid);
     }
-    
+    @OperatingAudit(function="平均来店次数和最近三十天来店次数")
     @RequestMapping("loadAVGCount")
     @ResponseBody
     public List getAvgCount(){
@@ -130,6 +132,7 @@ public class AdminController {
         return validateLogServices.getAvgCount(sid);
     }
     
+    @OperatingAudit(function="获取活跃用户")
     @RequestMapping("getActiveUser")
     @ResponseBody
     public List getActiveUser(HttpServletRequest request, HttpServletResponse response){

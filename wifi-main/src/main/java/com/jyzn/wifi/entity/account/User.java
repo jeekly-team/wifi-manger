@@ -91,7 +91,7 @@ public class User extends IdEntity{
 	 */
 	@NotEmpty
 	@Length(min=6,max=32)
-	@Column(nullable=false,length=32,updatable=false)
+	@Column(nullable=false,length=32)
 	public String getPassword() {
 		return password;
 	}

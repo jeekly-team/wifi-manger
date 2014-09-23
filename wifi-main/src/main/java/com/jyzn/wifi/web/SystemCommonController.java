@@ -82,7 +82,7 @@ public class SystemCommonController {
         User user = SystemVariableUtils.getSessionVariable().getUser();
         String userName = user.getUsername();
         request.setAttribute("username", userName);
-         return "shop/index";
+        return "shop/index";
     }
 	
 	/**

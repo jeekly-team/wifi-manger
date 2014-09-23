@@ -73,7 +73,7 @@ public class TestUserManager extends ManagerTestCaseSupport{
 	public void testUpdateUser() {
 		User entity = accountManager.getUser("SJDK3849CKMS3849DJCK2039ZMSK0001");
 		entity.setUsername("modify");
-		entity.setPassword("123456");
+		entity.setPassword("456789");
 		entity.setRealname("maurice");
 		
 		accountManager.updateUser(entity);

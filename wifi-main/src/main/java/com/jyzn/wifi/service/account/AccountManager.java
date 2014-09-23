@@ -58,12 +58,12 @@ public class AccountManager {
      *
      */
     //当修改成功后将shiro的认证缓存也更新清除
-    @CacheEvict(value = "shiroAuthenticationCache", key = "#entity.getUsername()")
+    @CacheEvict(value = "shiroAuthenticationCache", key = "#entity.getUsername()")   
     public void updateUserPassword(User entity, String newPassword) {
 
         String temp = new SimpleHash("MD5", newPassword).toHex();
-        userDao.updatePassword(entity.getId(), temp);
         entity.setPassword(temp);
+        userDao.updatePassword(entity);
     }
 
     /**

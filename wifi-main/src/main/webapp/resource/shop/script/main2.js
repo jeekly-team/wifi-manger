@@ -31,7 +31,7 @@ function loadCoungLog(){
                     json_str.allcount = json_str.allcount + 1;
             });
                 var html = "<ul class='list-group'>"
-                           +"<li class='list-group-item list-group-item-success'>全部客流累计人数:<span class='badge'>" + json_str.allcount + "人</span></li>"
+                             +"<li class='list-group-item list-group-item-success'>全部客流累计人数:<span class='badge'>" + json_str.allcount + "人</span></li>"
                              +"<li class='list-group-item list-group-item-info'>手机客流累计人数:<span class='badge'>" + json_str.sjcount + "人</span></li>"
                              +"<li class='list-group-item list-group-item-warning'>微博客流累计人数:<span class='badge'>" + json_str.wbcount + "人</span></li>"
                              +"<li class='list-group-item list-group-item-danger'>QQ客流累计人数:<span class='badge'>" + json_str.qqcount + "人</span></li>"

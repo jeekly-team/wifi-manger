@@ -17,10 +17,5 @@ import com.jyzn.wifi.entity.shop.WifiUserGroupWifiUser;
  */
 @Repository
 public class WifiUserGroupWifiUserDao extends HibernateSupportDao<WifiUserGroupWifiUser, String>{
-	
-    public void deleteByUserGroupId(String userGroupId){
-    	WifiUserGroupWifiUser entity = new WifiUserGroupWifiUser();
-    	entity.setfKGroupId(userGroupId);
-    	delete(entity);
-    }
+
 }

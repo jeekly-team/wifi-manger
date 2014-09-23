@@ -22,7 +22,7 @@ $(document).ready(function() {
     /*
      初始化输入框中的时间
      **/
-        $(".form-control").date_input();
+        $("input[name=date]").date_input();
 /*
     var obj;
     $(".form-control").DatePicker({
@@ -55,13 +55,14 @@ function clickMenu(str) {
     } else if (str === "hyd"){
         loadAVGCount();
     }
-
+    $("#chart").html("<div class='alert alert-info text-center' role='alert'><span class='text-center'>未查询，无数据表现！</span></div>");
+    $("#bbbox").html("<div class='alert alert-info text-center' role='alert'><span class='text-center'>未查询，无数据表现！</span></div>");
 }
 function scanTime() {
     var date = new Date();
     var year = date.getFullYear();
 
-    var month = formatNum(date.getMonth() + 1)
+    var month = formatNum(date.getMonth() + 1);
     var day = formatNum(date.getDate());
     var date_str = year + "-" + month + "-" + day;
     $(".dateshow").val(date_str);
