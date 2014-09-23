@@ -37,12 +37,10 @@ public class User extends IdEntity {
 
     private static final long serialVersionUID = 1L;
 
-	/**
-	 * 获取登录密码
-	 * 
-	 * @return String
-	 */
-	public static final String UpdatePassword = "updatePassword";
+    /**
+     * 更新用户密码NamedQuery
+     */
+    public static final String UpdatePassword = "updatePassword";
 
     //登录名称
     private String username;
